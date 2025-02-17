@@ -63,7 +63,7 @@ namespace PersonLib
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
-        public const int AgeMax = 125;
+        public const int AgeMax = 101;
 
         /// <summary>
         /// Возраст 
@@ -104,7 +104,7 @@ namespace PersonLib
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Person() : this("Diana", "Negerdt", 100, Sex.Female) { }
+        public Person() : this("Alina", "Ivanova", 99, Sex.Female) { }
 
         /// <summary>
         /// Проверка имени и фамилии
