@@ -63,7 +63,7 @@ namespace PersonLib
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
-        public const int AgeMax = 101;
+        public const int AgeMax = 125;
 
         /// <summary>
         /// Возраст 
