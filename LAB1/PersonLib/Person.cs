@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 
 namespace PersonLib
 {
@@ -57,6 +54,7 @@ namespace PersonLib
             {
                 CheckingNameAndSurname(value);
                 _surname = ConvertToRightRegister(value);
+                IsSameLaguage();
             }
         }
 
@@ -144,6 +142,21 @@ namespace PersonLib
         }
 
         /// <summary>
+        /// Проверяет, написаны ли имя и фамилия на одном языке.
+        /// </summary>
+        private void IsSameLaguage()
+        {
+            var regex = new Regex("^[А-Яа-яёЁ\\-]+");
+
+            if ((regex.IsMatch(_name) ^ regex.IsMatch(_surname)))
+            {
+                throw new Exception(
+                    "Name and Surname are not in the same language! ");
+            }
+
+        }
+
+        /// <summary>
         /// Проверка регистра c учётом двойных имени или фамилии
         /// </summary>
         /// <param name="value">Фамилия или имя для преобразования</param>
@@ -211,12 +224,8 @@ namespace PersonLib
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
-        public string Info
-        {
-            get
-            {
-                return $"{Name} {Surname}, Age: {Age}, Sex: {Sex}";
-            }
-        }
+        public string Info => $"{Name} {Surname}, Age: {Age}, Sex: {Sex}";
+        
+        
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PersonLib
 {
@@ -23,16 +19,9 @@ namespace PersonLib
         public void AddPerson(Person person)
         {
             //TODO: resize
-            var temporaryArray = _personArray;
 
-            _personArray = new Person[temporaryArray.Length + 1];
-
-            for (int i = 0; i < temporaryArray.Length; i++)
-            {
-                _personArray[i] = temporaryArray[i];
-            }
-
-            _personArray[temporaryArray.Length] = person;
+            Array.Resize(ref _personArray, _personArray.Length + 1);
+            _personArray[_personArray.Length - 1] = person;
         }
 
         /// <summary>
@@ -67,7 +56,7 @@ namespace PersonLib
             //TODO: resize
             var temporaryArray = _personArray;
             var temporaryIndex = 0;
-            _personArray = new Person[temporaryArray.Length - 1];
+            Array.Resize(ref _personArray, _personArray.Length - 1);
 
             for (int i = 0; i < temporaryArray.Length; i++)
             {
@@ -102,15 +91,17 @@ namespace PersonLib
         /// <summary>
         /// Удаление персоны из списка по имени и фамилии
         /// </summary>
-        /// <param name="person">Экземпляр класса Персона</param>
+        /// <param name="name">Имя персоны</param>
+        /// <param name="surname">Фамилия персоны</param>
         /// //TODO: XML
-        public void DeletePersonByName(string name, string surname)
+        public void DeletePersonByNameAndSurname(string name, string surname)
         {
             Person[] truePersons = new Person[0];
             for (int i = 0; i < _personArray.Length; i++)
             {
                 //TODO: RSDN
-                if ((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
+                if ((_personArray[i].Name != name) 
+                    && (_personArray[i].Surname != surname))
                 {
                     Array.Resize(ref truePersons, truePersons.Length + 1);
                     truePersons[truePersons.Length - 1] = _personArray[i];
