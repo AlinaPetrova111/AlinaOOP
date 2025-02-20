@@ -13,22 +13,22 @@ namespace PersonLib
         /// <returns>Персона со случайными данными</returns>
         public static Person GetRandomPerson()
         {
-            //TODO: RSDN
-            string[] MaleNames = new string[]
+            //TODO: RSDN+
+            string[] maleNames = new string[]
             {
                 "Mickey", "Bugs", "Darth", "James",
                 "Peter", "Harry", "Vito",
                 "Homer", "Hannibal", "Tony", "Willy"
             };
 
-            string[] FemaleNames = new string[]
+            string[] femaleNames = new string[]
             {
                 "Mulan", "Sarah", "Katniss", "Belle",
                 "Maleficent", "Rapunzel", "Moana",
                 "Bellatrix", "Fiona", "Alice", "Mystique"
             };
 
-            string[] AllSurnames = new string[]
+            string[] allSurnames = new string[]
             {
                 "Mouse", "Bunny", "Vader", "Bond",
                 "Pan", "Potter", "Corleone",
@@ -42,16 +42,16 @@ namespace PersonLib
             switch (sex)
             {
                 case Sex.Male:
-                    name = MaleNames[random.Next(MaleNames.Length)];
+                    name = maleNames[random.Next(maleNames.Length)];
                     break;
                 case Sex.Female:
-                    name = FemaleNames[random.Next(FemaleNames.Length)];
+                    name = femaleNames[random.Next(femaleNames.Length)];
                     break;
                 default:
                     return new Person("Default", "Person", 0, Sex.Male);
             }
 
-            string surname = AllSurnames[random.Next(AllSurnames.Length)];
+            string surname = allSurnames[random.Next(allSurnames.Length)];
 
             int age = random.Next(0, Person.AgeMax);
 

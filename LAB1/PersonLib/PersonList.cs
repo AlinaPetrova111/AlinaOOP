@@ -52,18 +52,12 @@ namespace PersonLib
                     "an invalid index!");
             }
 
-            //TODO: resize
-            var temporaryArray = _personArray;
-            var temporaryIndex = 0;
-            Array.Resize(ref _personArray, _personArray.Length - 1);
-
-            for (int i = 0; i < temporaryArray.Length; i++)
+            //TODO: resize +-
+            for (int i = index; i < _personArray.Length - 2; i++)
             {
-                if (i != index)
-                {
-                    _personArray[temporaryIndex] = temporaryArray[i];
-                    temporaryIndex++;
-                }
+                _personArray[i] = _personArray[i + 1];
+                Array.Resize(ref _personArray, _personArray.Length - 1);
+
             }
         }
 
@@ -84,27 +78,6 @@ namespace PersonLib
 
             throw new Exception("The person you specified does not exist " +
                 "in this list!");
-        }
-
-        /// <summary>
-        /// Удаление персоны из списка по имени и фамилии
-        /// </summary>
-        /// <param name="name">Имя персоны</param>
-        /// <param name="surname">Фамилия персоны</param>
-        public void DeletePersonByNameAndSurname(string name, string surname)
-        {
-            //TODO: resize
-            Person[] truePersons = new Person[0];
-            for (int i = 0; i < _personArray.Length; i++)
-            {
-                if ((_personArray[i].Name != name) 
-                    && (_personArray[i].Surname != surname))
-                {
-                    Array.Resize(ref truePersons, truePersons.Length + 1);
-                    truePersons[truePersons.Length - 1] = _personArray[i];
-                }
-            }
-            _personArray = truePersons;
         }
 
         /// <summary>
