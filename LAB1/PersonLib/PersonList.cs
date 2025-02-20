@@ -22,6 +22,7 @@ namespace PersonLib
         /// <param name="person">Экземпляр класса персона</param>
         public void AddPerson(Person person)
         {
+            //TODO: resize
             var temporaryArray = _personArray;
 
             _personArray = new Person[temporaryArray.Length + 1];
@@ -63,6 +64,7 @@ namespace PersonLib
                 throw new Exception("You entered " +
                     "an invalid index!");
             }
+            //TODO: resize
             var temporaryArray = _personArray;
             var temporaryIndex = 0;
             _personArray = new Person[temporaryArray.Length - 1];
@@ -96,15 +98,18 @@ namespace PersonLib
                 "in this list!");
         }
 
+        //TODO: rename
         /// <summary>
         /// Удаление персоны из списка по имени и фамилии
         /// </summary>
         /// <param name="person">Экземпляр класса Персона</param>
+        /// //TODO: XML
         public void DeletePersonByName(string name, string surname)
         {
             Person[] truePersons = new Person[0];
             for (int i = 0; i < _personArray.Length; i++)
             {
+                //TODO: RSDN
                 if ((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
                 {
                     Array.Resize(ref truePersons, truePersons.Length + 1);
@@ -117,14 +122,8 @@ namespace PersonLib
         /// <summary>
         /// Количество персон в списке
         /// </summary>
-        public int NumberOfPersons
-        {
-            get
-            {
-                return _personArray.Length;
-            }
-        }
-
+        public int NumberOfPersons => _personArray.Length;
+        
         /// <summary>
         /// Добавление нескольких людей
         /// </summary>

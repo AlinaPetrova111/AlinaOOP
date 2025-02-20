@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PersonLib
 {
+    //TODO: XML
     public class RandomPerson
     {
         /// <summary>
@@ -14,6 +11,7 @@ namespace PersonLib
         /// <returns>Персона со случайными данными</returns>
         public static Person GetRandomPerson()
         {
+            //TODO: RSDN
             string[] _maleNames = new string[]
             {
                 "Mickey", "Bugs", "Darth", "James",
@@ -54,8 +52,8 @@ namespace PersonLib
             string surname = _allSurnames[random.Next(_allSurnames.Length)];
 
             int age = random.Next(0, Person.AgeMax);
+
             return new Person(name, surname, age, sex);
         }
-
     }
 }
