@@ -2,7 +2,6 @@
 
 namespace PersonLib
 {
-    //TODO: XML
     /// <summary>
     /// Класс для создания случайного человека
     /// </summary>

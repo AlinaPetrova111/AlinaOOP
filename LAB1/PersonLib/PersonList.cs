@@ -18,8 +18,6 @@ namespace PersonLib
         /// <param name="person">Экземпляр класса персона</param>
         public void AddPerson(Person person)
         {
-            //TODO: resize
-
             Array.Resize(ref _personArray, _personArray.Length + 1);
             _personArray[_personArray.Length - 1] = person;
         }
@@ -53,6 +51,7 @@ namespace PersonLib
                 throw new Exception("You entered " +
                     "an invalid index!");
             }
+
             //TODO: resize
             var temporaryArray = _personArray;
             var temporaryIndex = 0;
@@ -87,19 +86,17 @@ namespace PersonLib
                 "in this list!");
         }
 
-        //TODO: rename
         /// <summary>
         /// Удаление персоны из списка по имени и фамилии
         /// </summary>
         /// <param name="name">Имя персоны</param>
         /// <param name="surname">Фамилия персоны</param>
-        /// //TODO: XML
         public void DeletePersonByNameAndSurname(string name, string surname)
         {
+            //TODO: resize
             Person[] truePersons = new Person[0];
             for (int i = 0; i < _personArray.Length; i++)
             {
-                //TODO: RSDN
                 if ((_personArray[i].Name != name) 
                     && (_personArray[i].Surname != surname))
                 {
