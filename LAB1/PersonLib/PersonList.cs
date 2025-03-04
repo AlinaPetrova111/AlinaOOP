@@ -52,7 +52,6 @@ namespace PersonLib
                     "an invalid index!");
             }
 
-            //TODO: resize +-
             for (int i = index; i < _personArray.Length - 2; i++)
             {
                 _personArray[i] = _personArray[i + 1];

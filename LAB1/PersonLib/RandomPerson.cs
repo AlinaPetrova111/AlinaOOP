@@ -13,7 +13,6 @@ namespace PersonLib
         /// <returns>Персона со случайными данными</returns>
         public static Person GetRandomPerson()
         {
-            //TODO: RSDN+
             string[] maleNames = new string[]
             {
                 "Mickey", "Bugs", "Darth", "James",
