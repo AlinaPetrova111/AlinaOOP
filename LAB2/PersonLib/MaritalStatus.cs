@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace PersonLib
 {
-    internal class RandomPerson
+    public enum MaritalStatus
     {
+        Single,
+        Married,
+        Widowed,
+        Divorced
     }
 }

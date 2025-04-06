@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace PersonLib
 {
-    internal class Sex
+    /// <summary>
+    /// Пол человека
+    /// </summary>
+    public enum Sex
     {
+        Male,
+        Female,
     }
 }
