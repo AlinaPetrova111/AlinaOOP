@@ -86,10 +86,14 @@ namespace PersonLib
             person.Surname = _allSurnames[_randNum.Next(_allSurnames.Length)];
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Генерация паспортных данных
+        /// </summary>
+        /// <param name="adult">Взрослый человек</param>
         private static void GetPasportData(Adult adult)
         {
-            var _passport = _randNum.Next(100000000, 999999999).ToString();
+            var _passport = _randNum.Next(1000000000, 2000000000).ToString();
             adult.Passport = _passport;
         }
 

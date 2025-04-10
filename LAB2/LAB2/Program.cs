@@ -4,21 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PersonLib;
 
 namespace LAB2
 {
-    //TODO: RSDN
+    //TODO: RSDN +
     /// <summary>
     /// Основной класс  
     /// </summary>
-    class Program
+    internal class Program
     {
         /// <summary>
         /// Точка входа в программу
         /// </summary>
         /// <param name="args">Параметры</param>
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
             Console.WindowWidth = 100;
 
@@ -51,10 +50,15 @@ namespace LAB2
 
             Console.ReadKey();
             Console.Write("The fourth person in the list is...\n ");
-
+            //TODO: adult+
             switch (listOfPersons.FindByIndex(3))
             {
-                //TODO: adult
+                case Adult adult:
+                    {
+                        Console.WriteLine(adult.GoToTheCoconutRaf());
+                        break;
+                    }
+
                 case Child child:
                     {
                         Console.WriteLine(child.GoWatchVidosiki());

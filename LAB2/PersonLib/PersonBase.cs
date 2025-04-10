@@ -122,21 +122,6 @@ namespace PersonLib
             return regex.IsMatch(value);
         }
 
-        //TODO: remove
-        /// <summary>
-        /// Проверяет, написаны ли имя и фамилия на одном языке.
-        /// </summary>
-        private void IsSameLaguage()
-        {
-            var regex = new Regex("^[А-Яа-яёЁ\\-]+");
-
-            if ((regex.IsMatch(_name) ^ regex.IsMatch(_surname)))
-            {
-                throw new Exception(
-                    "Name and Surname are not in the same language! ");
-            }
-
-        }
 
         /// <summary>
         /// Проверка регистра c учётом двойных имени или фамилии

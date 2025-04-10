@@ -36,8 +36,8 @@ namespace PersonLib
                 if (!(value > MinAdultAge) && !(value <= MaxAdultAge))
                 {
                     throw new ArgumentOutOfRangeException(
-                        //TODO: use constants
-                        "Sorry, the age must be between 18 and 100 years.");
+                        //TODO: use constants+
+                        $"Sorry, the age must be between {MinAdultAge} and {MaxAdultAge} years.");
                 }
                 _age = value;
             }
@@ -48,7 +48,15 @@ namespace PersonLib
         /// </summary>
         private string _passport;
 
-        //TODO: XML
+        /// <summary>
+        ///Максимальное кол-во данных 
+        /// </summary>
+        public const int MaxLengthPassport = 10;
+
+        //TODO: XML+
+        /// <summary>
+		/// Паспорт
+		/// </summary>
         public string Passport
         {
             get => _passport;
@@ -56,10 +64,10 @@ namespace PersonLib
             {
                 const string pattern = @"\D";
                 Regex regex = new Regex(pattern);
-                //TODO: to const
-                if (value.Length != 9 || regex.IsMatch(value.ToString()))
+                //TODO: to const+
+                if (value.Length != MaxLengthPassport || regex.IsMatch(value.ToString()))
                 {
-                    throw new ArgumentException("Passport must contain 9 digits!");
+                    throw new ArgumentException($"Passport must contain {MaxLengthPassport} digits!");
                 }
                 _passport = value;
             }
@@ -138,6 +146,15 @@ namespace PersonLib
                 }
                 return personInfo;
             }
+        }
+        /// <summary>
+        /// Усталость
+        /// </summary>
+        /// <returns>Бодрость</returns>
+        public string GoToTheCoconutRaf()
+        {
+            return $"\n{ShortInfoAboutPerson}, who earned a much money" +
+                $" and finally goes to a CoconutRaf .";
         }
     }
 }
