@@ -38,6 +38,7 @@ namespace PersonLib
                 if (!(value > MinChildAge) && !(value <= MaxChildAge))
                 {
                     throw new ArgumentOutOfRangeException(
+                        //TODO: to const
                         "Sorry, the age must be between 0 and 17 years.");
                 }
                 _age = value;
@@ -54,6 +55,7 @@ namespace PersonLib
         /// </summary>
         public Adult ParentTwo { get; set; }
 
+        //TODO: validate
         /// <summary>
         /// Название детского сада или школы
         /// </summary>
@@ -95,15 +97,8 @@ namespace PersonLib
         /// <returns>ребенок</returns>
         public string GoWatchVidosiki()
         {
-
             return $"{ShortInfoAboutPerson}, who watched Vidosiki " +
                 $"all day.";
         }
     }
 }
-   
-
-
-
-
-

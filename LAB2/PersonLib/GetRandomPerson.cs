@@ -71,22 +71,22 @@ namespace PersonLib
             switch (sex)
             {
                 case 0:
-                    {
-                        person.Sex = Sex.Male;
-                        person.Name = _maleNames[_randNum.Next(_maleNames.Length)];
-                        break;
-                    }
+                {
+                    person.Sex = Sex.Male;
+                    person.Name = _maleNames[_randNum.Next(_maleNames.Length)];
+                    break;
+                }
                 case 1:
-                    {
-                        person.Sex = Sex.Female;
-                        person.Name = _femaleNames[_randNum.Next(_femaleNames.Length)];
-                        break;
-                    }
+                {
+                    person.Sex = Sex.Female;
+                    person.Name = _femaleNames[_randNum.Next(_femaleNames.Length)];
+                    break;
+                }
             }
             person.Surname = _allSurnames[_randNum.Next(_allSurnames.Length)];
         }
 
-        
+        //TODO: XML
         private static void GetPasportData(Adult adult)
         {
             var _passport = _randNum.Next(100000000, 999999999).ToString();

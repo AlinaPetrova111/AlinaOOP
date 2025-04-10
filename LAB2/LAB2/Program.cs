@@ -8,6 +8,7 @@ using PersonLib;
 
 namespace LAB2
 {
+    //TODO: RSDN
     /// <summary>
     /// Основной класс  
     /// </summary>
@@ -53,7 +54,7 @@ namespace LAB2
 
             switch (listOfPersons.FindByIndex(3))
             {
-                
+                //TODO: adult
                 case Child child:
                     {
                         Console.WriteLine(child.GoWatchVidosiki());

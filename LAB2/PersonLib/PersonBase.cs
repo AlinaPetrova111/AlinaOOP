@@ -122,6 +122,7 @@ namespace PersonLib
             return regex.IsMatch(value);
         }
 
+        //TODO: remove
         /// <summary>
         /// Проверяет, написаны ли имя и фамилия на одном языке.
         /// </summary>
@@ -169,24 +170,12 @@ namespace PersonLib
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
-        public virtual string Info
-        {
-            get
-            {
-                return $"{Name} {Surname}, Age: {Age}, Sex: {Sex}";
-            }
-        }
+        public virtual string Info => $"{Name} {Surname}, Age: {Age}, Sex: {Sex}";
 
         /// <summary>
         /// Имя и фамилия
         /// </summary>
         /// <returns>Строка с информацией</returns>
-        public string ShortInfoAboutPerson
-        {
-            get
-            {
-                return $"{Name} {Surname}";
-            }
-        }
+        public string ShortInfoAboutPerson => $"{Name} {Surname}";
     }
 }
