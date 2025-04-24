@@ -36,7 +36,6 @@ namespace PersonLib
                 if (!(value > MinAdultAge) && !(value <= MaxAdultAge))
                 {
                     throw new ArgumentOutOfRangeException(
-                        //TODO: use constants+
                         $"Sorry, the age must be between {MinAdultAge} and {MaxAdultAge} years.");
                 }
                 _age = value;
@@ -53,7 +52,6 @@ namespace PersonLib
         /// </summary>
         public const int MaxLengthPassport = 10;
 
-        //TODO: XML+
         /// <summary>
 		/// Паспорт
 		/// </summary>
@@ -64,9 +62,9 @@ namespace PersonLib
             {
                 const string pattern = @"\D";
                 Regex regex = new Regex(pattern);
-                //TODO: to const+
                 if (value.Length != MaxLengthPassport || regex.IsMatch(value.ToString()))
                 {
+                    //TODO: RSDN
                     throw new ArgumentException($"Passport must contain {MaxLengthPassport} digits!");
                 }
                 _passport = value;

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace LAB2
 {
-    //TODO: RSDN +
     /// <summary>
     /// Основной класс  
     /// </summary>
@@ -50,9 +49,9 @@ namespace LAB2
 
             Console.ReadKey();
             Console.Write("The fourth person in the list is...\n ");
-            //TODO: adult+
             switch (listOfPersons.FindByIndex(3))
             {
+                //TODO: RSDN
                 case Adult adult:
                     {
                         Console.WriteLine(adult.GoToTheCoconutRaf());

@@ -86,7 +86,6 @@ namespace PersonLib
             person.Surname = _allSurnames[_randNum.Next(_allSurnames.Length)];
         }
 
-        //TODO: XML+
         /// <summary>
         /// Генерация паспортных данных
         /// </summary>
