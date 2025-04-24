@@ -64,8 +64,9 @@ namespace PersonLib
                 Regex regex = new Regex(pattern);
                 if (value.Length != MaxLengthPassport || regex.IsMatch(value.ToString()))
                 {
-                    //TODO: RSDN
-                    throw new ArgumentException($"Passport must contain {MaxLengthPassport} digits!");
+                    //TODO: RSDN+
+                    throw new ArgumentException($"Passport must" +
+                        $" contain {MaxLengthPassport} digits!");
                 }
                 _passport = value;
             }

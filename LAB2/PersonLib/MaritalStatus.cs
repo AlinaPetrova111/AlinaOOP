@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace PersonLib
 {
-    //TODO: XML
+    //TODO: XML+
+    /// <summary>
+    /// Семейное положение
+    /// </summary>
     public enum MaritalStatus
     {
         Single,
