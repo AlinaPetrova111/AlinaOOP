@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace PersonLib
 {
-    //TODO: XML+
     /// <summary>
     /// Семейное положение
     /// </summary>

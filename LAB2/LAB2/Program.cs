@@ -51,7 +51,6 @@ namespace LAB2
             Console.Write("The fourth person in the list is...\n ");
             switch (listOfPersons.FindByIndex(3))
             {
-                //TODO: RSDN+
                 case Adult adult:
                 {
                      Console.WriteLine(adult.GoToTheCoconutRaf());

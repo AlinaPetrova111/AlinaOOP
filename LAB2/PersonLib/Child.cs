@@ -38,7 +38,6 @@ namespace PersonLib
                 if (!(value > MinChildAge) && !(value <= MaxChildAge))
                 {
                     throw new ArgumentOutOfRangeException(
-                        //TODO: RSDN+
                         $"Sorry, the age must be between" +
                         $" {MinChildAge} and {MaxChildAge} years.");
                 }
