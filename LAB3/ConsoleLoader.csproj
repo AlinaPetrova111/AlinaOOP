@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6FEBCCEF-0DEA-462C-94F8-0550C3505DF2}</ProjectGuid>
+    <ProjectGuid>{06B5F2D4-2DD3-4996-AC55-864045B8D71B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LAB1</RootNamespace>
-    <AssemblyName>LAB1</AssemblyName>
+    <RootNamespace>LAB3</RootNamespace>
+    <AssemblyName>LAB3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddConsolePerson.cs" />
+    <Compile Include="CardsReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PersonLib\PersonLib.csproj">
-      <Project>{4980cd27-1283-47bd-af25-db21d7303700}</Project>
-      <Name>PersonLib</Name>
+    <ProjectReference Include="..\LibraryCards\LibraryCards.csproj">
+      <Project>{3b54ad4a-00c8-4644-9475-e0111c416d17}</Project>
+      <Name>LibraryCards</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
