@@ -5,13 +5,10 @@ using System;
 namespace ConsoleLoader
 {
     /// <summary>
-    /// Класс Program.
+    /// Класс Program
     /// </summary>
     internal class Program
     {
-        /// <summary>
-        /// Метод Main.
-        /// </summary>
         static void Main()
         {
             while (true)
