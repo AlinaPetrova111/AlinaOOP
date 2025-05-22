@@ -41,8 +41,7 @@ namespace LibraryCards
         /// <summary>
         /// Регулярное выражение, выявляющее цифры
         /// </summary>
-        private const string _ageRegex = @"^-?\d+$";
-
+        protected const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
         /// Год издания
@@ -57,7 +56,7 @@ namespace LibraryCards
         /// <summary>
         /// Масимальный год издания
         /// </summary>
-        public int MaxYear { get; } = 2024;
+        public int MaxYear { get; } = 2025;
 
         /// <summary>
         /// Минимальное количество страниц

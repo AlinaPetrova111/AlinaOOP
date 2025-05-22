@@ -46,7 +46,7 @@
     <Compile Include="Dissertation.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sbornik.cs" />
+    <Compile Include="Article.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,7 +19,7 @@ namespace ConsoleLoader
         /// <exception cref="ArgumentException"></exception>
         public static CardBase ReadCard()
         {
-            CardBase card = new Sbornik();
+            CardBase card = new Article();
 
             var actions = new List<Action>()
             {
@@ -132,12 +132,19 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите количество страниц: ");
-                    book.Sheet = Console.ReadLine();
+                    book.Sheet = ReadFromConsoleAndParse();
                 }
             };
 
             ActionHandler(actions);
             return book;
+        }
+        /// <summary>
+        /// Чтение с консоли и преобразование в int
+        /// </summary>
+        public static int ReadFromConsoleAndParse()
+        {
+            return int.Parse(Console.ReadLine());
         }
 
         /// <summary>
@@ -181,12 +188,6 @@ namespace ConsoleLoader
 
                 () =>
                 {
-                    Console.Write("Введите номер журнала: ");
-                    magazine.NumberOfMagazine =Console.ReadLine();
-                },
-
-                () =>
-                {
                     Console.Write("Введите год издания: ");
                     magazine.Year =Console.ReadLine();
                 },
@@ -194,13 +195,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
-                    magazine.StartSheet =Console.ReadLine();
+                    magazine.StartSheet =ReadFromConsoleAndParse();
                 },
 
                 () =>
                 {
                     Console.Write("Введите последнюю страницу: ");
-                    magazine.EndSheet =Console.ReadLine();
+                    magazine.EndSheet =ReadFromConsoleAndParse();
                 }
             };
 
@@ -212,9 +213,9 @@ namespace ConsoleLoader
         /// Метод чтения карточки статьи из сборника
         /// </summary>
         /// <returns>Карточка статьи из сборника.</returns>
-        public static Sbornik ReadSbornik()
+        public static Article ReadSbornik()
         {
-            Sbornik sbornik = new Sbornik();
+            Article sbornik = new Article();
             var actions = new List<Action>()
             {
                 () =>
@@ -268,13 +269,13 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
-                    sbornik.StartSheet =Console.ReadLine();
+                    sbornik.StartSheet =ReadFromConsoleAndParse();
                 },
 
                 () =>
                 {
                     Console.Write("Введите последнюю страницу: ");
-                    sbornik.EndSheet =Console.ReadLine();
+                    sbornik.EndSheet =ReadFromConsoleAndParse();
                 }
             };
 
@@ -318,7 +319,7 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите вид диссертации: ");
-                    dissertation.KindOfDissert =Console.ReadLine();
+                    dissertation.KindOfDissertation =Console.ReadLine();
                 },
 
                 () =>
@@ -341,7 +342,7 @@ namespace ConsoleLoader
 
                 () =>
                 {
-                    Console.Write("Введите название организации: ");
+                    Console.Write("Введите код организации: ");
                     dissertation.SpecialtyCode =Console.ReadLine();
                 },
 
@@ -360,7 +361,7 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите количество страниц: ");
-                    dissertation.Sheet =Console.ReadLine();
+                    dissertation.Sheet =ReadFromConsoleAndParse();
                 }
 
             };

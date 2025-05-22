@@ -32,18 +32,13 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц
         /// </summary>
-        private string _sheet;
-
-        /// <summary>
-        /// Регулярное выражение, выявляющее цифры
-        /// </summary>
-        private const string _ageRegex = @"^-?\d+$";
+        private int _sheet;
 
         /// <summary>
         /// Объект класс Book по умолчанию
         /// </summary>
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", "100")
+            "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", 100)
         { }
 
         /// <summary>
@@ -61,7 +56,7 @@ namespace LibraryCards
         public Book(string surname, string name, string patronymic,
             string title, string placeOfPublication, string publishingHouse,
             string additionalInformation, string year,
-            string sheet) : base(surname, name, patronymic, title, year)
+            int sheet) : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
@@ -97,7 +92,10 @@ namespace LibraryCards
             }
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Издательство
+        /// </summary>
         public string PublishingHouse
         {
             get
@@ -137,11 +135,11 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int
+        //TODO: to int+
         /// <summary>
         /// Количество страниц
         /// </summary>
-        public string Sheet
+        public int Sheet
         {
             get => _sheet;
 
@@ -156,15 +154,15 @@ namespace LibraryCards
         /// </summary>
         /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
-        public string IsCorrectSheet(string sheet)
+        public int IsCorrectSheet(int sheet)
         {
-            if (Regex.IsMatch(sheet, _ageRegex)
-                && !string.IsNullOrEmpty(sheet))
+            string sheetStr = Convert.ToString(sheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex)
+                && !string.IsNullOrEmpty(sheetStr))
             {
                 try
                 {
-                    int sheetInt = Convert.ToInt16(sheet);
-                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    if (sheet > MaxSheet || sheet < MinSheet)
                     {
                         throw new ArgumentException(
                             $"Введите страницу из диапазона " +

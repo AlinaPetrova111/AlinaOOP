@@ -8,12 +8,12 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: rename
+    //TODO: rename+
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника
     /// </summary>
-    /// <returns>Объект класса Book</returns>
-    public class Sbornik : CardBase
+    /// <returns>Объект класса Sbornik</returns>
+    public class Article : CardBase
     {
         /// <summary>
         /// Название сборника
@@ -33,23 +33,18 @@ namespace LibraryCards
         /// <summary>
         /// Начальная страница
         /// </summary>
-        private string _startSheet;
+        private int _startSheet;
 
         /// <summary>
         /// Последняя странца
         /// </summary>
-        private string _endSheet;
+        private int _endSheet;
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры
+        /// Объект класс Article по умолчанию
         /// </summary>
-        private const string _ageRegex = @"^-?\d+$";
-
-        /// <summary>
-        /// Объект класс Sbornik по умолчанию
-        /// </summary>
-        public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "1", null)
+        public Article() : this("Неизвестно", "Неизвестно", "Неизвестно",
+            "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", 1, 106)
         { }
 
         /// <summary>
@@ -65,10 +60,10 @@ namespace LibraryCards
         /// <param name="year">Год издания</param>
         /// <param name="startSheet">Начальная страница</param>
         /// <param name="endSheet">Последняя страница</param>
-        public Sbornik(string surname, string name, string patronymic,
+        public Article(string surname, string name, string patronymic,
             string title, string nameOfSbornik, string placeOfPublication,
-            string publishingHouse, string year, string startSheet,
-            string endSheet) : base(surname, name, patronymic, title, year)
+            string publishingHouse, string year, int startSheet,
+            int endSheet) : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
@@ -128,7 +123,10 @@ namespace LibraryCards
             }
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Издательство
+        /// </summary>
         public string PublishingHouse
         {
             get
@@ -149,11 +147,11 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int
+        //TODO: to int+
         /// <summary>
         /// Начальная страница
         /// </summary>
-        public string StartSheet
+        public int StartSheet
         {
             get => _startSheet;
 
@@ -163,11 +161,11 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int
+        //TODO: to int+
         /// <summary>
         /// Последняя страница
         /// </summary>
-        public string EndSheet
+        public int EndSheet
         {
             get => _endSheet;
 
@@ -178,19 +176,19 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>
+        /// Проверяет страницу на корректность/>
         /// </summary>
         /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
-        public string IsCorrectStartSheet(string sheet)
+        public int IsCorrectStartSheet(int sheet)
         {
-            if (Regex.IsMatch(sheet, _ageRegex)
-                && !string.IsNullOrEmpty(sheet))
+            string sheetStr= Convert.ToString(sheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex)
+                && !string.IsNullOrEmpty(sheetStr))
             {
                 try
                 {
-                    int sheetInt = Convert.ToInt16(sheet);
-                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    if (sheet > MaxSheet || sheet < MinSheet)
                     {
                         throw new ArgumentException(
                             $"Введите страницу из диапазона " +
@@ -215,33 +213,28 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>
+        /// Проверяет страницу на корректность/>
         /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
-        public string IsCorrectSheet(string endSheet)
+        public int IsCorrectSheet(int endSheet)
         {
-            if (endSheet == null)
-            {
-                return null;
-            }
-            if (Regex.IsMatch(endSheet, _ageRegex))
+            string sheetStr = Convert.ToString(endSheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex))
             {
                 try
                 {
-                    int intEndSheet = Convert.ToInt16(endSheet);
-                    int startSheet = Convert.ToInt16(StartSheet);
-                    if (intEndSheet < startSheet)
+                    if (endSheet < StartSheet)
                     {
-                        throw new ArgumentException($"Введите число больше {startSheet}.");
+                        throw new ArgumentException($"Введите число больше {StartSheet}.");
                     }
-                    else if (intEndSheet == startSheet)
+                    else if (endSheet == StartSheet)
                     {
-                        return null;
+                        return endSheet;
                     }
                     else
                     {
-                        return $"-{endSheet}";
+                        return endSheet;
                     }
                 }
                 catch (OverflowException ex)

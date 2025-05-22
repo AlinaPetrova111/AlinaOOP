@@ -20,31 +20,20 @@ namespace LibraryCards
         private string _nameOfMagazine;
 
         /// <summary>
-        /// Номер журнала
-        /// </summary>
-        private string _numberOfMagazine;
-
-        /// <summary>
         /// Начальная страница
         /// </summary>
-        private string _startSheet;
+        private int _startSheet;
 
         /// <summary>
         /// Последняя странца
         /// </summary>
-        private string _endSheet;
-
-        //TODO: duplication
-        /// <summary>
-        /// Регулярное выражение, выявляющее цифры
-        /// </summary>
-        private const string _ageRegex = @"^-?\d+$";
+        private int _endSheet;
 
         /// <summary>
         /// Объект класс Magazine по умолчанию
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
-            "Неизвестно", "Неизвестно", "1", "1900", "1", null)
+            "Неизвестно", "1", "1900", 1, 1)
         { }
 
         /// <summary>
@@ -55,13 +44,12 @@ namespace LibraryCards
         /// <param name="patronymic">ФИО автора</param>
         /// <param name="title">Название работы</param>
         /// <param name="nameOfMagazine">Название журнала</param>
-        /// <param name="numberOfMagazine">Номер журнала</param>
         /// <param name="year">Год издания</param>
         /// <param name="startSheet">Начальная страница</param>
         /// <param name="endSheet">Последняя страница</param>
         public Magazine(string surname, string name, string patronymic,
-            string title, string nameOfMagazine, string numberOfMagazine, string year,
-            string startSheet, string endSheet)
+            string title, string nameOfMagazine, string year,
+            int startSheet, int endSheet)
             : base(surname, name, patronymic, title, year)
 
         {
@@ -70,7 +58,6 @@ namespace LibraryCards
             Patronymic = patronymic;
             Title = title;
             NameOfMagazine = nameOfMagazine;
-            NumberOfMagazine = numberOfMagazine;
             Year = year;
             StartSheet = startSheet;
             EndSheet = endSheet;
@@ -100,22 +87,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Номер магазина
-        /// </summary>
-        public string NumberOfMagazine
-        {
-            get => _numberOfMagazine;
-
-            set
-            {
-                _numberOfMagazine = IsCorrectStartSheet(value);
-            }
-        }
-
-        /// <summary>
         /// Начальная страница
         /// </summary>
-        public string StartSheet
+        public int StartSheet
         {
             get => _startSheet;
 
@@ -128,7 +102,7 @@ namespace LibraryCards
         /// <summary>
         /// Последняя страница
         /// </summary>
-        public string EndSheet
+        public int EndSheet
         {
             get => _endSheet;
 
@@ -143,15 +117,15 @@ namespace LibraryCards
         /// </summary>
         /// <param name="sheet">Имя объекта.</param>
         /// <returns>Страницы/>.</returns>
-        public string IsCorrectStartSheet(string sheet)
+        public int IsCorrectStartSheet(int sheet)
         {
-            if (Regex.IsMatch(sheet, _ageRegex)
-                && !string.IsNullOrEmpty(sheet))
+            string sheetStr = Convert.ToString(sheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex)
+                && !string.IsNullOrEmpty(sheetStr))
             {
                 try
                 {
-                    int sheetInt = Convert.ToInt16(sheet);
-                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    if (sheet > MaxSheet || sheet < MinSheet)
                     {
                         throw new ArgumentException(
                             $"Введите число из диапазона " +
@@ -180,29 +154,24 @@ namespace LibraryCards
         /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
-        public string IsCorrectSheet(string endSheet)
+        public int IsCorrectSheet(int endSheet)
         {
-            if (endSheet == null)
-            {
-                return null;
-            }
-            if (Regex.IsMatch(endSheet, _ageRegex))
+            string sheetStr = Convert.ToString(endSheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex))
             {
                 try
                 {
-                    int intEndSheet = Convert.ToInt16(endSheet);
-                    int startSheet = Convert.ToInt16(StartSheet);
-                    if (intEndSheet < startSheet)
+                    if (endSheet < StartSheet)
                     {
-                        throw new ArgumentException($"Введите число больше {startSheet}.");
+                        throw new ArgumentException($"Введите число больше {StartSheet}.");
                     }
-                    else if (intEndSheet == startSheet)
+                    else if (endSheet == StartSheet)
                     {
-                        return null;
+                        return endSheet;
                     }
                     else
                     {
-                        return $"-{endSheet}";
+                        return endSheet;
                     }
                 }
                 catch (OverflowException ex)
@@ -227,7 +196,7 @@ namespace LibraryCards
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
                    $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}." +
                    $" // {NameOfMagazine}. – {Year}. - №" +
-                   $"{NumberOfMagazine}. - С. {StartSheet}{EndSheet}.";
+                   $" {StartSheet}-{EndSheet}.";
         }
     }
 }

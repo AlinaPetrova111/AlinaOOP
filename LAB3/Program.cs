@@ -9,8 +9,11 @@ namespace ConsoleLoader
     /// </summary>
     internal class Program
     {
-        //TODO: RSDN
-        static void Main()
+        //TODO: RSDN+
+        /// <summary>
+        /// Точка входа в программу 
+        /// </summary>
+        public static void Main()
         {
             while (true)
             {
@@ -22,19 +25,19 @@ namespace ConsoleLoader
 
                 switch (userInput.KeyChar)
                 {
-                    //TODO: RSDN
+                    //TODO: RSDN+
                     case 'x':
                     case 'X':
                     case 'х':
                     case 'Х':
-                        {
-                            Environment.Exit(0);
-                            break;
-                        }
+                    {
+                       Environment.Exit(0);
+                       break;
+                    }
                     default:
-                        {
-                            break;
-                        }
+                    {
+                       break;
+                    }
                 }
 
                 CardBase card = CardsReader.ReadCard();

@@ -17,7 +17,7 @@ namespace LibraryCards
         /// <summary>
         /// Вид диссертации
         /// </summary>
-        private string _kindOfDissert;
+        private string _kindOfDissertation;
 
         /// <summary>
         /// Отрасль наук
@@ -47,24 +47,19 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц
         /// </summary>
-        private string _sheet;
+        private int _sheet;
 
         /// <summary>
-        /// Регулярное выражение, определяющее код
+        /// Регулярное выражение, определяющее код диссертации
         /// </summary>
         private const string _codeRegex = @"^\d{2}\.\d{2}\.\d{2}$";
-
-        /// <summary>
-        /// Регулярное выражение, выявляющее цифры
-        /// </summary>
-        private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
         /// Объект класс Dissertation по умолчанию
         /// </summary>
         public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "Неизвестно",
-            "00.00.00", "Неизвестно", "Неизвестно", "1900", "100")
+            "00.00.00", "Неизвестно", "Неизвестно", "1900", 100)
         { }
 
         /// <summary>
@@ -85,14 +80,14 @@ namespace LibraryCards
         public Dissertation(string surname, string name, string patronymic,
             string title, string kindOfDissert, string city,
             string branchOfScience, string specialtyCode, string organization,
-            string nameOfSpeciality, string year, string sheet)
+            string nameOfSpeciality, string year, int sheet)
             : base(surname, name, patronymic, title, year)
         {
             Surname = surname;
             Name = name;
             Patronymic = patronymic;
             Title = title;
-            KindOfDissert = kindOfDissert;
+            KindOfDissertation = KindOfDissertation;
             BranchOfScience = branchOfScience;
             SpecialtyCode = specialtyCode;
             Organization = organization;
@@ -105,7 +100,7 @@ namespace LibraryCards
         /// <summary>
         /// Количество страниц
         /// </summary>
-        public string Sheet
+        public int Sheet
         {
             get => _sheet;
 
@@ -115,9 +110,9 @@ namespace LibraryCards
             }
         }
 
-        ////TODO: XML
+        ////TODO: XML+
         /// <summary>
-        /// Количество страниц
+        /// Специальный код диссертации
         /// </summary>
         public string SpecialtyCode
         {
@@ -137,15 +132,15 @@ namespace LibraryCards
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Вид диссертации
         /// </summary>
-        public string KindOfDissert
+        public string KindOfDissertation
         {
             get
             {
-                return _kindOfDissert;
+                return _kindOfDissertation;
             }
             set
             {
@@ -156,7 +151,7 @@ namespace LibraryCards
                 }
                 else
                 {
-                    _kindOfDissert = value;
+                    _kindOfDissertation = value;
                 }
             }
         }
@@ -254,19 +249,19 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>
+        /// Проверяет страницу на корректность/>
         /// </summary>
         /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
-        public string IsCorrectSheet(string sheet)
+        public int IsCorrectSheet(int sheet)
         {
-            if (Regex.IsMatch(sheet, _ageRegex)
-                && !string.IsNullOrEmpty(sheet))
+            string sheetStr = Convert.ToString(sheet);
+            if (Regex.IsMatch(sheetStr, _ageRegex)
+                && !string.IsNullOrEmpty(sheetStr))
             {
                 try
                 {
-                    int sheetInt = Convert.ToInt16(sheet);
-                    if (sheetInt > MaxSheet || sheetInt < MinSheet)
+                    if (sheet > MaxSheet || sheet < MinSheet)
                     {
                         throw new ArgumentException(
                             $"Введите страницу из диапазона " +
@@ -298,7 +293,7 @@ namespace LibraryCards
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} :" +
                    $" специальность {SpecialtyCode} «{NameOfSpeciality}» :" +
-                   $" Диссертация на соискание {KindOfDissert} {BranchOfScience} / " +
+                   $" Диссертация на соискание {KindOfDissertation} {BranchOfScience} / " +
                    $"{Surname} {Name} {Patronymic} ; " +
                    $"{Organization}. - {City}. - {Year}. - {Sheet} с.";
         }
