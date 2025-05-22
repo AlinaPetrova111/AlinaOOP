@@ -9,6 +9,7 @@ namespace ConsoleLoader
     /// </summary>
     internal class Program
     {
+        //TODO: RSDN
         static void Main()
         {
             while (true)
@@ -21,6 +22,7 @@ namespace ConsoleLoader
 
                 switch (userInput.KeyChar)
                 {
+                    //TODO: RSDN
                     case 'x':
                     case 'X':
                     case 'х':

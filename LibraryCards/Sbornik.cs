@@ -8,6 +8,7 @@ using System.Xml.Linq;
 
 namespace LibraryCards
 {
+    //TODO: rename
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника
     /// </summary>
@@ -127,6 +128,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: XML
         public string PublishingHouse
         {
             get
@@ -147,6 +149,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: to int
         /// <summary>
         /// Начальная страница
         /// </summary>
@@ -160,6 +163,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: to int
         /// <summary>
         /// Последняя страница
         /// </summary>

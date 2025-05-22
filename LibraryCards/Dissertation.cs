@@ -115,6 +115,7 @@ namespace LibraryCards
             }
         }
 
+        ////TODO: XML
         /// <summary>
         /// Количество страниц
         /// </summary>
@@ -136,6 +137,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Вид диссертации
         /// </summary>

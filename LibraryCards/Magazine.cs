@@ -34,6 +34,7 @@ namespace LibraryCards
         /// </summary>
         private string _endSheet;
 
+        //TODO: duplication
         /// <summary>
         /// Регулярное выражение, выявляющее цифры
         /// </summary>

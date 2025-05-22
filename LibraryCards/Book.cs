@@ -97,6 +97,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: XML
         public string PublishingHouse
         {
             get
@@ -136,6 +137,7 @@ namespace LibraryCards
             }
         }
 
+        //TODO: to int
         /// <summary>
         /// Количество страниц
         /// </summary>
