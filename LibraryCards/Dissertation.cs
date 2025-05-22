@@ -226,7 +226,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Отрасль наук
+        /// Навазние специальности
         /// </summary>
         public string NameOfSpeciality
         {
