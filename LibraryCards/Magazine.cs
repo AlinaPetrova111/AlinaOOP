@@ -9,55 +9,55 @@ using System.Xml.Linq;
 namespace LibraryCards
 {
     /// <summary>
-    /// Класс создания библ. карточки по стате из журнала.
+    /// Класс создания библ. карточки по стате из журнала
     /// </summary>
     /// <returns>Объект класса Magazine.</returns>
     public class Magazine : CardBase
     {
         /// <summary>
-        /// Название журнала.
+        /// Название журнала
         /// </summary>
         private string _nameOfMagazine;
 
         /// <summary>
-        /// Номер журнала.
+        /// Номер журнала
         /// </summary>
         private string _numberOfMagazine;
 
         /// <summary>
-        /// Начальная страница.
+        /// Начальная страница
         /// </summary>
         private string _startSheet;
 
         /// <summary>
-        /// Последняя странца.
+        /// Последняя странца
         /// </summary>
         private string _endSheet;
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры.
+        /// Регулярное выражение, выявляющее цифры
         /// </summary>
         private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
-        /// Объект класс Magazine по умолчанию.
+        /// Объект класс Magazine по умолчанию
         /// </summary>
         public Magazine() : this("Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "1", "1900", "1", null)
         { }
 
         /// <summary>
-        /// Конструктор класса Magazine.
+        /// Конструктор класса Magazine
         /// </summary>
-        /// <param name="surname">Фамилия автора.</param>
-        /// <param name="name">ФИО автора.</param>
-        /// <param name="patronymic">ФИО автора.</param>
-        /// <param name="title">Название работы.</param>
-        /// <param name="nameOfMagazine">Название журнала.</param>
-        /// <param name="numberOfMagazine">Номер журнала.</param>
-        /// <param name="year">Год издания.</param>
-        /// <param name="startSheet">Начальная страница.</param>
-        /// <param name="endSheet">Последняя страница.</param>
+        /// <param name="surname">Фамилия автора</param>
+        /// <param name="name">ФИО автора</param>
+        /// <param name="patronymic">ФИО автора</param>
+        /// <param name="title">Название работы</param>
+        /// <param name="nameOfMagazine">Название журнала</param>
+        /// <param name="numberOfMagazine">Номер журнала</param>
+        /// <param name="year">Год издания</param>
+        /// <param name="startSheet">Начальная страница</param>
+        /// <param name="endSheet">Последняя страница</param>
         public Magazine(string surname, string name, string patronymic,
             string title, string nameOfMagazine, string numberOfMagazine, string year,
             string startSheet, string endSheet)
@@ -76,7 +76,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Название журнала.
+        /// Название журнала
         /// </summary>
         public string NameOfMagazine
         {
@@ -99,7 +99,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Номер магазина.
+        /// Номер магазина
         /// </summary>
         public string NumberOfMagazine
         {
@@ -112,7 +112,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Начальная страница.
+        /// Начальная страница
         /// </summary>
         public string StartSheet
         {
@@ -125,7 +125,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Последняя страница.
+        /// Последняя страница
         /// </summary>
         public string EndSheet
         {
@@ -138,7 +138,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
         /// <param name="sheet">Имя объекта.</param>
         /// <returns>Страницы/>.</returns>
@@ -175,7 +175,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
@@ -218,7 +218,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод вывода библиотечной карточки.
+        /// Метод вывода библиотечной карточки
         /// </summary>
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()

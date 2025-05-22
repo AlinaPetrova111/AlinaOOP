@@ -9,61 +9,61 @@ using System.Xml.Linq;
 namespace LibraryCards
 {
     /// <summary>
-    /// Класс создания библ. карточки по статье из сборника.
+    /// Класс создания библ. карточки по статье из сборника
     /// </summary>
-    /// <returns>Объект класса Book.</returns>
+    /// <returns>Объект класса Book</returns>
     public class Sbornik : CardBase
     {
         /// <summary>
-        /// Название сборника.
+        /// Название сборника
         /// </summary>
         private string _nameOfSbornik;
 
         /// <summary>
-        /// Издательство.
+        /// Издательство
         /// </summary>
         private string _publishingHouse;
 
         /// <summary>
-        /// Место издания.
+        /// Место издания
         /// </summary>
         private string _placeOfPublication;
 
         /// <summary>
-        /// НАчальная страница.
+        /// Начальная страница
         /// </summary>
         private string _startSheet;
 
         /// <summary>
-        /// Последняя странца.
+        /// Последняя странца
         /// </summary>
         private string _endSheet;
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры.
+        /// Регулярное выражение, выявляющее цифры
         /// </summary>
         private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
-        /// Объект класс Sbornik по умолчанию.
+        /// Объект класс Sbornik по умолчанию
         /// </summary>
         public Sbornik() : this("Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно", "1900", "1", null)
         { }
 
         /// <summary>
-        /// Конструктор класса Sbornik.
+        /// Конструктор класса Sbornik
         /// </summary>
-        /// <param name="surname">Фамилия автора.</param>
-        /// <param name="name">ФИО автора.</param>
-        /// <param name="patronymic">ФИО автора.</param>
-        /// <param name="title">Название работы.</param>
-        /// <param name="placeOfPublication">Место публикации.</param>
-        /// <param name="publishingHouse">Издательство.</param>
-        /// <param name="nameOfSbornik">Название сборника.</param>
-        /// <param name="year">Год издания.</param>
-        /// <param name="startSheet">Начальная страница.</param>
-        /// <param name="endSheet">Последняя страница.</param>
+        /// <param name="surname">Фамилия автора</param>
+        /// <param name="name">ФИО автора</param>
+        /// <param name="patronymic">ФИО автора</param>
+        /// <param name="title">Название работы</param>
+        /// <param name="placeOfPublication">Место публикации</param>
+        /// <param name="publishingHouse">Издательство</param>
+        /// <param name="nameOfSbornik">Название сборника</param>
+        /// <param name="year">Год издания</param>
+        /// <param name="startSheet">Начальная страница</param>
+        /// <param name="endSheet">Последняя страница</param>
         public Sbornik(string surname, string name, string patronymic,
             string title, string nameOfSbornik, string placeOfPublication,
             string publishingHouse, string year, string startSheet,
@@ -82,7 +82,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Название сборника.
+        /// Название сборника
         /// </summary>
         public string NameOfSbornik
         {
@@ -105,7 +105,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Место издания.
+        /// Место издания
         /// </summary>
         public string PlaceOfPublication
         {
@@ -127,9 +127,6 @@ namespace LibraryCards
             }
         }
 
-        /// <summary>
-        /// Издательство.
-        /// </summary>
         public string PublishingHouse
         {
             get
@@ -151,7 +148,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Начальная страница.
+        /// Начальная страница
         /// </summary>
         public string StartSheet
         {
@@ -164,7 +161,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Последняя страница.
+        /// Последняя страница
         /// </summary>
         public string EndSheet
         {
@@ -177,9 +174,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
-        /// <param name="sheet">Имя объекта.</param>
+        /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
         public string IsCorrectStartSheet(string sheet)
         {
@@ -214,7 +211,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
         /// <param name="endSheet">Имя объекта.</param>
         /// <returns>True or False/>.</returns>
@@ -257,9 +254,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод вывода библиотечной карточки.
+        /// Метод вывода библиотечной карточки
         /// </summary>
-        /// <returns>Данные об издании.</returns>
+        /// <returns>Данные об издании</returns>
         public override string GetInfo()
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
