@@ -9,58 +9,58 @@ using System.Xml.Linq;
 namespace LibraryCards
 {
     /// <summary>
-    /// Класс создания библ. карточки по диссертации.
+    /// Класс создания библ. карточки по диссертации
     /// </summary>
-    /// <returns>Объект класса Book.</returns>
+    /// <returns>Объект класса Book</returns>
     public class Dissertation : CardBase
     {
         /// <summary>
-        /// Вид диссертации.
+        /// Вид диссертации
         /// </summary>
         private string _kindOfDissert;
 
         /// <summary>
-        /// Отрасль наук.
+        /// Отрасль наук
         /// </summary>
         private string _branchOfScience;
 
         /// <summary>
-        /// Код специальности.
+        /// Код специальности
         /// </summary>
         private string _specialtyCode;
 
         /// <summary>
-        /// Организация, где проходила защита.
+        /// Организация, где проходила защита
         /// </summary>
         private string _organization;
 
         /// <summary>
-        /// Название специальности.
+        /// Название специальности
         /// </summary>
         private string _nameOfSpeciality;
 
         /// <summary>
-        /// Город, где получена специальность.
+        /// Город, где получена специальность
         /// </summary>
         private string _city;
 
         /// <summary>
-        /// Количество страниц.
+        /// Количество страниц
         /// </summary>
         private string _sheet;
 
         /// <summary>
-        /// Регулярное выражение, определяющее код.
+        /// Регулярное выражение, определяющее код
         /// </summary>
         private const string _codeRegex = @"^\d{2}\.\d{2}\.\d{2}$";
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры.
+        /// Регулярное выражение, выявляющее цифры
         /// </summary>
         private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
-        /// Объект класс Dissertation по умолчанию.
+        /// Объект класс Dissertation по умолчанию
         /// </summary>
         public Dissertation() : this("Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "Неизвестно",
@@ -68,7 +68,7 @@ namespace LibraryCards
         { }
 
         /// <summary>
-        /// Конструктор класса Dissertation.
+        /// Конструктор класса Dissertation
         /// </summary>
         /// <param name="surname">Фамилия автора.</param>
         /// <param name="name">ФИО автора.</param>
@@ -103,7 +103,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Количество страниц.
+        /// Количество страниц
         /// </summary>
         public string Sheet
         {
@@ -116,7 +116,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Количество страниц.
+        /// Количество страниц
         /// </summary>
         public string SpecialtyCode
         {
@@ -137,7 +137,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Вид диссертации.
+        /// Вид диссертации
         /// </summary>
         public string KindOfDissert
         {
@@ -160,7 +160,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Город, где получена специальность.
+        /// Город, где получена специальность
         /// </summary>
         public string City
         {
@@ -183,7 +183,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Отрасль наук.
+        /// Отрасль наук
         /// </summary>
         public string BranchOfScience
         {
@@ -206,7 +206,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Организация.
+        /// Организация
         /// </summary>
         public string Organization
         {
@@ -229,7 +229,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Отрасль наук.
+        /// Отрасль наук
         /// </summary>
         public string NameOfSpeciality
         {
@@ -252,9 +252,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
-        /// <param name="sheet">Имя объекта.</param>
+        /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
         public string IsCorrectSheet(string sheet)
         {
@@ -289,7 +289,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод вывода библиотечной карточки.
+        /// Метод вывода библиотечной карточки
         /// </summary>
         /// <returns>Данные об издании.</returns>
         public override string GetInfo()

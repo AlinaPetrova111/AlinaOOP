@@ -8,14 +8,14 @@ using LibraryCards;
 namespace ConsoleLoader
 {
     /// <summary>
-    /// Класс чтения библиотечной карточки с клавиатуры.
+    ///Чтение библиотечной карточки с клавиатуры
     /// </summary>
     public class CardsReader
     {
         /// <summary>
-        /// Метод чтения типа и параметров движения с клавиатуры.
+        /// Метод чтения типа и параметров движения с клавиатуры
         /// </summary>
-        /// <returns>Движение.</returns>
+        /// <returns>Движение</returns>
         /// <exception cref="ArgumentException"></exception>
         public static CardBase ReadCard()
         {
@@ -73,9 +73,9 @@ namespace ConsoleLoader
         }
 
         /// <summary>
-        /// Метод чтения книги.
+        /// Метод чтения книги
         /// </summary>
-        /// <returns>Карточка книги.</returns>
+        /// <returns>Карточка книги</returns>
         public static Book ReadBook()
         {
             Book book = new Book();
@@ -141,9 +141,9 @@ namespace ConsoleLoader
         }
 
         /// <summary>
-        /// Метод чтения карточки статьи из журнала.
+        /// Метод чтения карточки статьи из журнала
         /// </summary>
-        /// <returns>Карточка статьи из журнала.</returns>
+        /// <returns>Карточка статьи из журнала</returns>
         public static Magazine ReadMagazine()
         {
             Magazine magazine = new Magazine();
@@ -209,7 +209,7 @@ namespace ConsoleLoader
         }
 
         /// <summary>
-        /// Метод чтения карточки статьи из сборника.
+        /// Метод чтения карточки статьи из сборника
         /// </summary>
         /// <returns>Карточка статьи из сборника.</returns>
         public static Sbornik ReadSbornik()
@@ -283,9 +283,9 @@ namespace ConsoleLoader
         }
 
         /// <summary>
-        /// Метод чтения карточки диссертации.
+        /// Метод чтения карточки диссертации
         /// </summary>
-        /// <returns>Карточка диссертации.</returns>
+        /// <returns>Карточка диссертации</returns>
         public static Dissertation ReadDissertation()
         {
             Dissertation dissertation = new Dissertation();
@@ -370,7 +370,7 @@ namespace ConsoleLoader
         }
 
         /// <summary>
-        /// Обработчик действий.
+        /// Обработчик действий
         /// </summary>
         /// <param name="actions"></param>
         private static void ActionHandler(List<Action> actions)

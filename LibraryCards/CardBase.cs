@@ -8,82 +8,82 @@ using static System.Net.Mime.MediaTypeNames;
 namespace LibraryCards
 {
     /// <summary>
-    /// Базовый класс создания библиотечной карточки.
+    /// Базовый класс создания библиотечной карточки
     /// </summary>
-    /// <returns>Объект класса CardBase.</returns>
+    /// <returns>Объект класса CardBase</returns>
     public abstract class CardBase
     {
         /// <summary>
-        /// Фамилия автора.
+        /// Фамилия автора
         /// </summary>
         private string _surname;
 
         /// <summary>
-        /// Имя автора.
+        /// Имя автора
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Отчество автора.
+        /// Отчество автора
         /// </summary>
         private string _patronymic;
 
         /// <summary>
-        /// Название.
+        /// Название
         /// </summary>
         private string _title;
 
         /// <summary>
-        /// Регулярное выражение, выявляющее русские буквы.
+        /// Регулярное выражение, выявляющее русские буквы
         /// </summary>
         private const string _russianRegex = @"(^[а-яА-Я]+(-[а-яА-Я]+)*$)";
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры.
+        /// Регулярное выражение, выявляющее цифры
         /// </summary>
         private const string _ageRegex = @"^-?\d+$";
 
 
         /// <summary>
-        /// Год издания.
+        /// Год издания
         /// </summary>
         private string _year;
 
         /// <summary>
-        /// Минимальный год издания.
+        /// Минимальный год издания
         /// </summary>
         public int MinYear { get; } = 1;
 
         /// <summary>
-        /// Масимальный год издания.
+        /// Масимальный год издания
         /// </summary>
         public int MaxYear { get; } = 2024;
 
         /// <summary>
-        /// Минимальное количество страниц.
+        /// Минимальное количество страниц
         /// </summary>
         public int MinSheet { get; } = 1;
 
         /// <summary>
-        /// Масимальное количество страниц.
+        /// Масимальное количество страниц
         /// </summary>
         public int MaxSheet { get; } = 5000;
 
         /// <summary>
-        /// Объект класс CardBase по умолчанию.
+        /// Объект класс CardBase по умолчанию
         /// </summary>
         public CardBase() : this("Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "1900")
         { }
 
         /// <summary>
-        /// Конструктор класса CardBase.
+        /// Конструктор класса CardBase
         /// </summary>
-        /// <param name="surname">Фамилия автора.</param>
-        /// <param name="name">ФИО автора.</param>
-        /// <param name="patronymic">ФИО автора.</param>
-        /// <param name="title">Название работы.</param>
-        /// <param name="year">Возраст.</param>
+        /// <param name="surname">Фамилия автора</param>
+        /// <param name="name">ФИО автора</param>
+        /// <param name="patronymic">ФИО автора</param>
+        /// <param name="title">Название работы</param>
+        /// <param name="year">Возраст</param>
         public CardBase(string surname, string name, string patronymic,
             string title, string year)
         {
@@ -95,7 +95,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Имя автора.
+        /// Имя автора
         /// </summary>
         public string Name
         {
@@ -118,7 +118,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Фамилия автора.
+        /// Фамилия автора
         /// </summary>
         public string Surname
         {
@@ -141,7 +141,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Отчество автора.
+        /// Отчество автора
         /// </summary>
         public string Patronymic
         {
@@ -163,7 +163,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Название.
+        /// Название
         /// </summary>
         public string Title
         {
@@ -186,7 +186,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Возраст.
+        /// Возраст
         /// </summary>
         public virtual string Year
         {
@@ -199,9 +199,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет корректность введенных данных./>.
+        /// Проверяет корректность введенных данных./>
         /// </summary>
-        /// <param name="name">Имя объекта.</param>
+        /// <param name="name">Имя объекта</param>
         /// <returns>Корректное имя или фамилия./>.</returns>
         public static string IsCorrectName(string name)
         {
@@ -249,7 +249,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет корректность введенных данных./>.
+        /// Проверяет корректность введенных данных./>
         /// </summary>
         /// <param name="title">Имя объекта.</param>
         /// <returns>Корректное имя или фамилия./>.</returns>
@@ -264,12 +264,12 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод формирования шаблона ФИО.
+        /// Метод формирования шаблона ФИО
         /// </summary>
-        /// <param name="surname">Имя объекта.</param>
-        /// <param name="name">Имя объекта.</param>
-        /// <param name="patronymic">Имя объекта.</param>
-        /// <returns>Данные об издании.</returns>
+        /// <param name="surname">Имя объекта</param>
+        /// <param name="name">Имя объекта</param>
+        /// <param name="patronymic">Имя объекта</param>
+        /// <returns>Данные об издании</returns>
         public static string MakeSample(
             string surname, string name, string patronymic)
         {
@@ -281,10 +281,10 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод изменения порядка ФИО в ИОФ.
+        /// Метод изменения порядка ФИО в ИОФ
         /// </summary>
-        /// <param name="fullName">Имя объекта.</param>
-        /// <returns>Данные об издании.</returns>
+        /// <param name="fullName">Имя объекта</param>
+        /// <returns>Данные об издании</returns>
         public static string ReverseFullname(string fullName)
         {
             string[] parts = fullName.Split(' ');
@@ -295,9 +295,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет возраст на корректность./>.
+        /// Проверяет возраст на корректность./>
         /// </summary>
-        /// <param name="year">Имя объекта.</param>
+        /// <param name="year">Имя объекта</param>
         /// <returns>Возраст/>.</returns>
         public string IsCorrectYear(string year)
         {
@@ -332,9 +332,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Метод вывода библиотечной карточки.
+        /// Метод вывода библиотечной карточки
         /// </summary>
-        /// <returns>Данные об издании.</returns>
+        /// <returns>Данные об издании</returns>
         public virtual string GetInfo()
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title}/" +

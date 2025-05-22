@@ -9,55 +9,55 @@ using System.Xml.Linq;
 namespace LibraryCards
 {
     /// <summary>
-    /// Класс создания библ. карточки по книге.
+    /// Класс создания библ. карточки по книге
     /// </summary>
-    /// <returns>Объект класса Book.</returns>
+    /// <returns>Объект класса Book</returns>
     public class Book : CardBase
     {
         /// <summary>
-        /// Место издания.
+        /// Место издания
         /// </summary>
         private string _placeOfPublication;
 
         /// <summary>
-        /// Издательство.
+        /// Издательство
         /// </summary>
         private string _publishingHouse;
 
         /// <summary>
-        /// Сведение об издании.
+        /// Сведение об издании
         /// </summary>
         private string _additionalInformation;
 
         /// <summary>
-        /// Количество страниц.
+        /// Количество страниц
         /// </summary>
         private string _sheet;
 
         /// <summary>
-        /// Регулярное выражение, выявляющее цифры.
+        /// Регулярное выражение, выявляющее цифры
         /// </summary>
         private const string _ageRegex = @"^-?\d+$";
 
         /// <summary>
-        /// Объект класс Book по умолчанию.
+        /// Объект класс Book по умолчанию
         /// </summary>
         public Book() : this("Неизвестно", "Неизвестно", "Неизвестно",
             "Неизвестно", "Неизвестно", "Неизвестно", null, "1900", "100")
         { }
 
         /// <summary>
-        /// Конструктор класса Book.
+        /// Конструктор класса Book
         /// </summary>
-        /// <param name="surname">Фамилия автора.</param>
-        /// <param name="name">ФИО автора.</param>
-        /// <param name="patronymic">ФИО автора.</param>
-        /// <param name="title">Название работы.</param>
-        /// <param name="placeOfPublication">Место издания.</param>
-        /// <param name="publishingHouse">Издательство.</param>
-        /// <param name="additionalInformation">Сведение об издании.</param>
-        /// <param name="year">Год издания.</param>
-        /// <param name="sheet">Количество страниц.</param>
+        /// <param name="surname">Фамилия автора</param>
+        /// <param name="name">ФИО автора</param>
+        /// <param name="patronymic">ФИО автора</param>
+        /// <param name="title">Название работы</param>
+        /// <param name="placeOfPublication">Место издания</param>
+        /// <param name="publishingHouse">Издательство</param>
+        /// <param name="additionalInformation">Сведение об издании</param>
+        /// <param name="year">Год издания</param>
+        /// <param name="sheet">Количество страниц</param>
         public Book(string surname, string name, string patronymic,
             string title, string placeOfPublication, string publishingHouse,
             string additionalInformation, string year,
@@ -75,7 +75,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Место издания.
+        /// Место издания
         /// </summary>
         public string PlaceOfPublication
         {
@@ -97,9 +97,6 @@ namespace LibraryCards
             }
         }
 
-        /// <summary>
-        /// Издательство.
-        /// </summary>
         public string PublishingHouse
         {
             get
@@ -121,7 +118,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Сведение об издании.
+        /// Сведение об издании
         /// </summary>
         public string AdditionalInformation
         {
@@ -140,7 +137,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Количество страниц.
+        /// Количество страниц
         /// </summary>
         public string Sheet
         {
@@ -153,9 +150,9 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет страницу на корректность./>.
+        /// Проверяет страницу на корректность./>
         /// </summary>
-        /// <param name="sheet">Имя объекта.</param>
+        /// <param name="sheet">Имя объекта</param>
         /// <returns>Страницы/>.</returns>
         public string IsCorrectSheet(string sheet)
         {
@@ -191,9 +188,9 @@ namespace LibraryCards
 
 
         /// <summary>
-        /// Метод вывода библиотечной карточки.
+        /// Метод вывода библиотечной карточки
         /// </summary>
-        /// <returns>Данные об издании.</returns>
+        /// <returns>Данные об издании</returns>
         public override string GetInfo()
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
