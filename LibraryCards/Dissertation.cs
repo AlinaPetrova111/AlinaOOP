@@ -87,7 +87,7 @@ namespace LibraryCards
             Name = name;
             Patronymic = patronymic;
             Title = title;
-            KindOfDissertation = KindOfDissertation;
+            KindOfDissertation = kindOfDissert;
             BranchOfScience = branchOfScience;
             SpecialtyCode = specialtyCode;
             Organization = organization;
