@@ -218,13 +218,15 @@ namespace LibraryCards
             {
                 try
                 {
-                    if (endSheet < StartSheet)
+                    if (endSheet <= StartSheet)
                     {
                         throw new ArgumentException($"Введите число больше {StartSheet}.");
                     }
-                    else if (endSheet == StartSheet)
+                    else if (endSheet > MaxSheet || endSheet < MinSheet)
                     {
-                        return endSheet;
+                        throw new ArgumentException(
+                            $"Введите страницу из диапазона " +
+                            $"от {MinSheet} до {MaxSheet}.");
                     }
                     else
                     {
@@ -253,7 +255,7 @@ namespace LibraryCards
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
                    $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
                    $"// {NameOfArticle}. –{PlaceOfPublication}: - №{PublishingHouse}," +
-                   $" {Year}. - С. {StartSheet}{EndSheet}.";
+                   $" {Year}. - С. {StartSheet}-{EndSheet}.";
         }
 
     }

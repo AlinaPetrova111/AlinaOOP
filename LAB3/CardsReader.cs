@@ -407,9 +407,18 @@ namespace ConsoleLoader
                     }
                     catch (Exception exception)
                     {
-                        //BUG
-                        catchDictionary[exception.GetType()].
-                            Invoke(exception.Message);
+                        if (catchDictionary.TryGetValue(exception.GetType(),
+                            out Action<string> handler))
+                        {
+                            handler.Invoke(exception.Message);
+                        }
+                        else
+                        {
+                            // Обработка других исключений, не перечисленных в словаре
+                            Console.WriteLine($"Произошла непредвиденная ошибка:" +
+                                $" {exception.GetType().Name} - {exception.Message}." +
+                                $" Попробуйте еще раз.");
+                        }
                     }
                 }
             }
