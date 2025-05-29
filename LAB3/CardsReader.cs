@@ -49,7 +49,7 @@ namespace ConsoleLoader
                         }
                         case 3:
                         {
-                            card = ReadSbornik();
+                            card = ReadArticle();
                             break;
                         }
                         case 4:
@@ -209,18 +209,18 @@ namespace ConsoleLoader
             return magazine;
         }
 
-        //TODO: rename
+        //TODO: rename+
         /// <summary>
         /// Метод чтения карточки статьи из сборника
         /// </summary>
         /// <returns>Карточка статьи из сборника.</returns>
-        public static Article ReadSbornik()
+        public static Article ReadArticle()
         {
             Article sbornik = new Article();
             var actions = new List<Action>()
             {
                 () =>
-                {
+                { 
                     Console.Write("Введите фамилию автора: ");
                     sbornik.Surname =Console.ReadLine();
                 },
@@ -246,7 +246,7 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите название сборника: ");
-                    sbornik.NameOfSbornik =Console.ReadLine();
+                    sbornik.NameOfArticle =Console.ReadLine();
                 },
 
                 () =>

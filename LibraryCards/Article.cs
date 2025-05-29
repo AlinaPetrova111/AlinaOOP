@@ -6,14 +6,14 @@ namespace LibraryCards
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника
     /// </summary>
-    /// <returns>Объект класса Sbornik</returns>
+    /// <returns>Объект класса Article</returns>
     public class Article : CardBase
     {
-        //TODO: rename
+        //TODO: rename+
         /// <summary>
         /// Название сборника
         /// </summary>
-        private string _nameOfSbornik;
+        private string _nameOfArticle;
 
         /// <summary>
         /// Издательство
@@ -43,7 +43,7 @@ namespace LibraryCards
         { }
 
         /// <summary>
-        /// Конструктор класса Sbornik
+        /// Конструктор класса Article
         /// </summary>
         /// <param name="surname">Фамилия автора</param>
         /// <param name="name">ФИО автора</param>
@@ -51,12 +51,12 @@ namespace LibraryCards
         /// <param name="title">Название работы</param>
         /// <param name="placeOfPublication">Место публикации</param>
         /// <param name="publishingHouse">Издательство</param>
-        /// <param name="nameOfSbornik">Название сборника</param>
+        /// <param name="nameOfArticle">Название сборника</param>
         /// <param name="year">Год издания</param>
         /// <param name="startSheet">Начальная страница</param>
         /// <param name="endSheet">Последняя страница</param>
         public Article(string surname, string name, string patronymic,
-            string title, string nameOfSbornik, string placeOfPublication,
+            string title, string nameOfArticle, string placeOfPublication,
             string publishingHouse, string year, int startSheet,
             int endSheet) : base(surname, name, patronymic, title, year)
         {
@@ -64,8 +64,8 @@ namespace LibraryCards
             Name = name;
             Patronymic = patronymic;
             Title = title;
-            //TODO: rename
-            NameOfSbornik = nameOfSbornik;
+            //TODO: rename+
+            NameOfArticle = nameOfArticle;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;
             Year = year;
@@ -73,15 +73,15 @@ namespace LibraryCards
             EndSheet = endSheet;
         }
 
-        //TODO: rename
+        //TODO: rename+
         /// <summary>
         /// Название сборника
         /// </summary>
-        public string NameOfSbornik
+        public string NameOfArticle
         {
             get
             {
-                return _nameOfSbornik;
+                return _nameOfArticle;
             }
             set
             {
@@ -92,7 +92,7 @@ namespace LibraryCards
                 }
                 else
                 {
-                    _nameOfSbornik = TitleSplitAndJoin(value);
+                    _nameOfArticle = TitleSplitAndJoin(value);
                 }
             }
         }
@@ -252,7 +252,7 @@ namespace LibraryCards
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
                    $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
-                   $"// {NameOfSbornik}. –{PlaceOfPublication}: - №{PublishingHouse}," +
+                   $"// {NameOfArticle}. –{PlaceOfPublication}: - №{PublishingHouse}," +
                    $" {Year}. - С. {StartSheet}{EndSheet}.";
         }
 
