@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace LibraryCards
 {
-    //TODO: rename+
     /// <summary>
     /// Класс создания библ. карточки по статье из сборника
     /// </summary>
     /// <returns>Объект класса Sbornik</returns>
     public class Article : CardBase
     {
+        //TODO: rename
         /// <summary>
         /// Название сборника
         /// </summary>
@@ -69,6 +64,7 @@ namespace LibraryCards
             Name = name;
             Patronymic = patronymic;
             Title = title;
+            //TODO: rename
             NameOfSbornik = nameOfSbornik;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;
@@ -77,6 +73,7 @@ namespace LibraryCards
             EndSheet = endSheet;
         }
 
+        //TODO: rename
         /// <summary>
         /// Название сборника
         /// </summary>
@@ -123,7 +120,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Издательство
         /// </summary>
@@ -147,7 +143,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int+
         /// <summary>
         /// Начальная страница
         /// </summary>
@@ -161,7 +156,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int+
         /// <summary>
         /// Последняя страница
         /// </summary>

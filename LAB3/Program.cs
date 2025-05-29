@@ -9,7 +9,6 @@ namespace ConsoleLoader
     /// </summary>
     internal class Program
     {
-        //TODO: RSDN+
         /// <summary>
         /// Точка входа в программу 
         /// </summary>
@@ -25,7 +24,6 @@ namespace ConsoleLoader
 
                 switch (userInput.KeyChar)
                 {
-                    //TODO: RSDN+
                     case 'x':
                     case 'X':
                     case 'х':

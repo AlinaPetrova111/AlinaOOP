@@ -209,6 +209,7 @@ namespace ConsoleLoader
             return magazine;
         }
 
+        //TODO: rename
         /// <summary>
         /// Метод чтения карточки статьи из сборника
         /// </summary>
@@ -269,12 +270,14 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
+                    //BUG?
                     sbornik.StartSheet =ReadFromConsoleAndParse();
                 },
 
                 () =>
                 {
                     Console.Write("Введите последнюю страницу: ");
+                    //BUG?
                     sbornik.EndSheet =ReadFromConsoleAndParse();
                 }
             };
@@ -404,6 +407,7 @@ namespace ConsoleLoader
                     }
                     catch (Exception exception)
                     {
+                        //BUG
                         catchDictionary[exception.GetType()].
                             Invoke(exception.Message);
                     }

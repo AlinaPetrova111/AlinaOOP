@@ -92,7 +92,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Издательство
         /// </summary>
@@ -135,7 +134,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: to int+
         /// <summary>
         /// Количество страниц
         /// </summary>

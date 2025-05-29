@@ -110,7 +110,6 @@ namespace LibraryCards
             }
         }
 
-        ////TODO: XML+
         /// <summary>
         /// Специальный код диссертации
         /// </summary>
@@ -132,7 +131,6 @@ namespace LibraryCards
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Вид диссертации
         /// </summary>
