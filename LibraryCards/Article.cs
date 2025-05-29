@@ -9,7 +9,6 @@ namespace LibraryCards
     /// <returns>Объект класса Article</returns>
     public class Article : CardBase
     {
-        //TODO: rename+
         /// <summary>
         /// Название сборника
         /// </summary>
@@ -64,7 +63,6 @@ namespace LibraryCards
             Name = name;
             Patronymic = patronymic;
             Title = title;
-            //TODO: rename+
             NameOfArticle = nameOfArticle;
             PlaceOfPublication = placeOfPublication;
             PublishingHouse = publishingHouse;
@@ -73,7 +71,6 @@ namespace LibraryCards
             EndSheet = endSheet;
         }
 
-        //TODO: rename+
         /// <summary>
         /// Название сборника
         /// </summary>
