@@ -78,6 +78,7 @@
             this.closeSearchButton.TabIndex = 10;
             this.closeSearchButton.Text = "Закрыть";
             this.closeSearchButton.UseVisualStyleBackColor = true;
+            this.closeSearchButton.Click += new System.EventHandler(this.closeSearchButton_Click);
             // 
             // performSearchButton
             // 
@@ -87,6 +88,7 @@
             this.performSearchButton.TabIndex = 1;
             this.performSearchButton.Text = "Найти";
             this.performSearchButton.UseVisualStyleBackColor = true;
+            this.performSearchButton.Click += new System.EventHandler(this.performSearchButton_Click);
             // 
             // searchYearTextBox
             // 

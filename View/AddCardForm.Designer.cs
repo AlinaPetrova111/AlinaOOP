@@ -84,10 +84,11 @@
             // 
             this.cardTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardTypeComboBox.FormattingEnabled = true;
-            this.cardTypeComboBox.Location = new System.Drawing.Point(12, 46);
+            this.cardTypeComboBox.Location = new System.Drawing.Point(12, 25);
             this.cardTypeComboBox.Name = "cardTypeComboBox";
             this.cardTypeComboBox.Size = new System.Drawing.Size(232, 21);
             this.cardTypeComboBox.TabIndex = 0;
+            this.cardTypeComboBox.Click += new System.EventHandler(this.CardTypeComboBox_SelectedIndexChanged);
             // 
             // commonFieldsPanel
             // 
@@ -291,6 +292,7 @@
             this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -300,6 +302,7 @@
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // createRandomDataButton
             // 
@@ -309,11 +312,12 @@
             this.createRandomDataButton.TabIndex = 3;
             this.createRandomDataButton.Text = "Случайные данные";
             this.createRandomDataButton.UseVisualStyleBackColor = true;
+            this.createRandomDataButton.Click += new System.EventHandler(this.createRandomDataButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 30);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 6;

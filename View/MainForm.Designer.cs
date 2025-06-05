@@ -64,14 +64,16 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Открыть как";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Сохранить как";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -95,6 +97,7 @@
             this.removeCardButton.TabIndex = 3;
             this.removeCardButton.Text = "Удалить выбранную";
             this.removeCardButton.UseVisualStyleBackColor = true;
+            this.removeCardButton.Click += new System.EventHandler(this.removeCardButton_Click);
             // 
             // addCardButton
             // 
@@ -104,6 +107,7 @@
             this.addCardButton.TabIndex = 3;
             this.addCardButton.Text = "Добавить карточку";
             this.addCardButton.UseVisualStyleBackColor = true;
+            this.addCardButton.Click += new System.EventHandler(this.addCardButton_Click);
             // 
             // searchCardButton
             // 
@@ -113,9 +117,11 @@
             this.searchCardButton.TabIndex = 3;
             this.searchCardButton.Text = "Искать карточки";
             this.searchCardButton.UseVisualStyleBackColor = true;
+            this.searchCardButton.Click += new System.EventHandler(this.searchCardButton_Click);
             // 
             // cardsDataGridView
             // 
+            this.cardsDataGridView.AllowUserToAddRows = false;
             this.cardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cardsDataGridView.Location = new System.Drawing.Point(12, 31);
             this.cardsDataGridView.Name = "cardsDataGridView";
