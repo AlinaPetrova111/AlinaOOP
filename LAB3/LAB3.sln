@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLoader", "ConsoleLoader.csproj", "{06B5F2D4-2DD3-4996-AC55-864045B8D71B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{3B54AD4A-00C8-4644-9475-E0111C416D17} = {3B54AD4A-00C8-4644-9475-E0111C416D17}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCards", "..\LibraryCards\LibraryCards.csproj", "{3B54AD4A-00C8-4644-9475-E0111C416D17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryView", "..\View\LibraryView.csproj", "{91CDCD3E-8EE3-4CEB-A8FE-7704D930D27D}"
@@ -18,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06B5F2D4-2DD3-4996-AC55-864045B8D71B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06B5F2D4-2DD3-4996-AC55-864045B8D71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06B5F2D4-2DD3-4996-AC55-864045B8D71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06B5F2D4-2DD3-4996-AC55-864045B8D71B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B54AD4A-00C8-4644-9475-E0111C416D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B54AD4A-00C8-4644-9475-E0111C416D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B54AD4A-00C8-4644-9475-E0111C416D17}.Release|Any CPU.ActiveCfg = Release|Any CPU

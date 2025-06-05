@@ -3,10 +3,16 @@ using System.Globalization;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace LibraryCards
 {
+    [XmlInclude(typeof(Book))]
+    [XmlInclude(typeof(Magazine))]
+    [XmlInclude(typeof(Article))]
+    [XmlInclude(typeof(Dissertation))]
+
     /// <summary>
     /// Базовый класс создания библиотечной карточки
     /// </summary>
