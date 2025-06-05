@@ -67,6 +67,9 @@
             this.articleStartSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.articleEndSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.dissertationSheetCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.commonFieldsPanel.SuspendLayout();
             this.magazineSpecificPanel.SuspendLayout();
             this.articleSpecificPanel.SuspendLayout();
@@ -78,17 +81,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleEndSheetNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cardTypeComboBox
             // 
             this.cardTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardTypeComboBox.FormattingEnabled = true;
-            this.cardTypeComboBox.Location = new System.Drawing.Point(12, 25);
+            this.cardTypeComboBox.Location = new System.Drawing.Point(23, 37);
             this.cardTypeComboBox.Name = "cardTypeComboBox";
             this.cardTypeComboBox.Size = new System.Drawing.Size(232, 21);
             this.cardTypeComboBox.TabIndex = 0;
-            this.cardTypeComboBox.Click += new System.EventHandler(this.CardTypeComboBox_SelectedIndexChanged);
             // 
             // commonFieldsPanel
             // 
@@ -102,9 +107,9 @@
             this.commonFieldsPanel.Controls.Add(this.patronymicTextBox);
             this.commonFieldsPanel.Controls.Add(this.nameTextBox);
             this.commonFieldsPanel.Controls.Add(this.surnameTextBox);
-            this.commonFieldsPanel.Location = new System.Drawing.Point(16, 73);
+            this.commonFieldsPanel.Location = new System.Drawing.Point(16, 31);
             this.commonFieldsPanel.Name = "commonFieldsPanel";
-            this.commonFieldsPanel.Size = new System.Drawing.Size(776, 76);
+            this.commonFieldsPanel.Size = new System.Drawing.Size(585, 76);
             this.commonFieldsPanel.TabIndex = 1;
             // 
             // yearTextBox
@@ -286,7 +291,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(26, 425);
+            this.okButton.Location = new System.Drawing.Point(38, 19);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 3;
@@ -296,7 +301,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(169, 425);
+            this.cancelButton.Location = new System.Drawing.Point(137, 19);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -306,7 +311,7 @@
             // 
             // createRandomDataButton
             // 
-            this.createRandomDataButton.Location = new System.Drawing.Point(291, 425);
+            this.createRandomDataButton.Location = new System.Drawing.Point(242, 22);
             this.createRandomDataButton.Name = "createRandomDataButton";
             this.createRandomDataButton.Size = new System.Drawing.Size(152, 23);
             this.createRandomDataButton.TabIndex = 3;
@@ -317,7 +322,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(20, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 6;
@@ -410,21 +415,51 @@
             this.dissertationSheetCountNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.dissertationSheetCountNumericUpDown.TabIndex = 13;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.okButton);
+            this.groupBox1.Controls.Add(this.cancelButton);
+            this.groupBox1.Controls.Add(this.createRandomDataButton);
+            this.groupBox1.Location = new System.Drawing.Point(16, 439);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(544, 61);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.cardTypeComboBox);
+            this.groupBox2.Location = new System.Drawing.Point(685, 39);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(348, 81);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.commonFieldsPanel);
+            this.groupBox3.Location = new System.Drawing.Point(16, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(636, 143);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
             // AddCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 476);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1093, 549);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dissertationSpecificPanel);
             this.Controls.Add(this.articleSpecificPanel);
             this.Controls.Add(this.bookSpecificPanel);
-            this.Controls.Add(this.createRandomDataButton);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.okButton);
             this.Controls.Add(this.magazineSpecificPanel);
-            this.Controls.Add(this.commonFieldsPanel);
-            this.Controls.Add(this.cardTypeComboBox);
             this.Name = "AddCardForm";
             this.Text = "AddCardForm";
             this.commonFieldsPanel.ResumeLayout(false);
@@ -443,8 +478,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleEndSheetNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -489,5 +527,8 @@
         private System.Windows.Forms.NumericUpDown articleStartSheetNumericUpDown;
         private System.Windows.Forms.NumericUpDown bookSheetCountNumericUpDown;
         private System.Windows.Forms.NumericUpDown dissertationSheetCountNumericUpDown;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
