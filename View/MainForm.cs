@@ -14,7 +14,8 @@ using LibraryCards;
 namespace LibraryView
 {
     /// <summary>
-    /// Главная форма приложения для управления списком библиотечных карточек.
+    /// Главная форма приложения для 
+    /// управления списком библиотечных карточек.
     /// </summary>
     public partial class MainForm : Form
     {
@@ -47,58 +48,52 @@ namespace LibraryView
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
 
-            // Колонка "Тип"
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
-                Name = "typeColumn", // Имя колонки для использования в CellFormatting
+                Name = "typeColumn", 
                 HeaderText = "Тип",
-                DataPropertyName = null, // Будет заполняться в CellFormatting
+                DataPropertyName = null, 
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(typeColumn);
 
-            // Колонка "Фамилия"
             DataGridViewTextBoxColumn surnameColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Фамилия",
-                DataPropertyName = nameof(CardBase.Surname), // Привязка к свойству Surname
+                DataPropertyName = nameof(CardBase.Surname), 
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(surnameColumn);
 
-            // Колонка "Имя"
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Имя",
-                DataPropertyName = nameof(CardBase.Name), // Привязка к свойству Name
+                DataPropertyName = nameof(CardBase.Name), 
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(nameColumn);
 
-            // Колонка "Название"
             DataGridViewTextBoxColumn titleColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Название",
-                DataPropertyName = nameof(CardBase.Title), // Привязка к свойству Title
+                DataPropertyName = nameof(CardBase.Title), 
                 ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill // Заполняет оставшееся место
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
             };
             cardsDataGridView.Columns.Add(titleColumn);
 
-            // Колонка "Год"
             DataGridViewTextBoxColumn yearColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Год",
-                DataPropertyName = nameof(CardBase.Year), // Привязка к свойству Year
+                DataPropertyName = nameof(CardBase.Year), 
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(yearColumn);
 
-            // Подписка на событие для форматирования ячейки "Тип"
             cardsDataGridView.CellFormatting += cardsDataGridView_CellFormatting;
         }
 
@@ -120,7 +115,7 @@ namespace LibraryView
         {
             using (AddCardForm addForm = new AddCardForm())
             {
-                if (addForm.ShowDialog(this) == DialogResult.OK) // this - для корректного родительства
+                if (addForm.ShowDialog(this) == DialogResult.OK) 
                 {
                     if (addForm.CreatedCard != null)
                     {
@@ -138,9 +133,11 @@ namespace LibraryView
         /// <param name="e">Данные события.</param>
         private void removeCardButton_Click(object sender, EventArgs e)
         {
-            if (cardsDataGridView.CurrentRow != null && cardsDataGridView.CurrentRow.DataBoundItem is CardBase selectedCard)
+            if (cardsDataGridView.CurrentRow != null
+                && cardsDataGridView.CurrentRow.DataBoundItem is CardBase selectedCard)
             {
-                var confirmResult = MessageBox.Show(this, $"Вы уверены, что хотите удалить карточку: {selectedCard.Title}?",
+                var confirmResult = MessageBox.Show(this, $"Вы уверены, что " +
+                    $"хотите удалить карточку: {selectedCard.Title}?",
                                      "Подтверждение удаления",
                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirmResult == DialogResult.Yes)
@@ -151,7 +148,9 @@ namespace LibraryView
             }
             else
             {
-                MessageBox.Show(this, "Пожалуйста, выберите карточку для удаления.", "Удаление невозможно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "Пожалуйста, выберите" +
+                    " карточку для удаления.", "Удаление невозможно", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -166,24 +165,23 @@ namespace LibraryView
             using (SearchForm searchForm = new SearchForm(_cards))
             {
                 searchForm.ShowDialog(this);
-                // Логика обновления основного грида по результатам поиска, если это необходимо,
-                // может быть реализована через события или возвращаемое значение из SearchForm.
             }
         }
 
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
-        /// Используется для динамического отображения типа карточки в соответствующей колонке.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные события форматирования ячейки.</param>
-        private void cardsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void cardsDataGridView_CellFormatting(object sender, 
+            DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && cardsDataGridView.Columns[e.ColumnIndex].Name == "typeColumn")
+            if (e.RowIndex >= 0 && 
+                cardsDataGridView.Columns[e.ColumnIndex].Name == "typeColumn")
             {
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
-                    e.Value = card.GetType().Name; // Отображаем имя класса (Book, Magazine и т.д.)
+                    e.Value = card.GetType().Name; 
                     e.FormattingApplied = true;
                 }
             }
@@ -191,12 +189,12 @@ namespace LibraryView
 
         /// <summary>
         /// Возвращает массив типов, известных сериализатору (все производные от CardBase).
-        /// Необходимо для корректной XML-сериализации полиморфного списка.
         /// </summary>
         /// <returns>Массив типов.</returns>
         private Type[] GetKnownTypes()
         {
-            return new Type[] { typeof(Book), typeof(Magazine), typeof(Article), typeof(Dissertation) };
+            return new Type[] { typeof(Book), typeof(Magazine), 
+                typeof(Article), typeof(Dissertation) };
         }
 
         /// <summary>
@@ -209,7 +207,8 @@ namespace LibraryView
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "Файлы библиотечных карточек (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+                saveFileDialog.Filter = "Файлы библиотечных карточек" +
+                    " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
                 saveFileDialog.Title = "Сохранить список карточек";
                 saveFileDialog.DefaultExt = "libcard";
                 saveFileDialog.AddExtension = true;
@@ -223,11 +222,14 @@ namespace LibraryView
                         {
                             serializer.Serialize(writer, _cards);
                         }
-                        MessageBox.Show(this, "Данные успешно сохранены!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(this, "Данные успешно сохранены!", 
+                            "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(this, $"Ошибка при сохранении данных: {ex.Message}\n{ex.StackTrace}", "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, $"Ошибка при сохранении данных: " +
+                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка сохранения", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -243,7 +245,8 @@ namespace LibraryView
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Файлы библиотечных карточек (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+                openFileDialog.Filter = "Файлы библиотечных карточек" +
+                    " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
                 openFileDialog.Title = "Открыть список карточек";
                 openFileDialog.DefaultExt = "libcard";
                 openFileDialog.CheckFileExists = true;
@@ -262,17 +265,22 @@ namespace LibraryView
                                 _cards.Clear();
                                 _cards.AddRange(loadedCards);
                                 RefreshGrid();
-                                MessageBox.Show(this, "Данные успешно загружены!", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(this, "Данные успешно загружены!",
+                                    "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show(this, "Не удалось загрузить данные. Файл может быть поврежден или иметь неверный формат.", "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show(this, "Не удалось загрузить данные." +
+                                    " Файл может быть поврежден или иметь неверный формат.", 
+                                    "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(this, $"Ошибка при загрузке данных: {ex.Message}\n{ex.StackTrace}", "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, $"Ошибка при загрузке данных: " +
+                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка загрузки", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

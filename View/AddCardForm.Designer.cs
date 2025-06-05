@@ -3,14 +3,15 @@
     partial class AddCardForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// Требуемая переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Очистка используемых ресурсов.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">значение true, если управляемые ресурсы должны
+        /// быть утилизированы; в противном случае значение false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
