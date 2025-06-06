@@ -31,56 +31,75 @@
         {
             this.cardTypeComboBox = new System.Windows.Forms.ComboBox();
             this.commonFieldsPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.yearTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.patronymicTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.magazineSpecificPanel = new System.Windows.Forms.Panel();
+            this.magazineStartSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.magazineEndSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.magazineNameOfMagazineTextBox = new System.Windows.Forms.TextBox();
             this.articleSpecificPanel = new System.Windows.Forms.Panel();
+            this.articleEndSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.articleStartSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.articlePlaceOfPublicationTextBox = new System.Windows.Forms.TextBox();
             this.articleNameOfCollectionTextBox = new System.Windows.Forms.TextBox();
             this.articlePublishingHouseTextBox = new System.Windows.Forms.TextBox();
             this.bookSpecificPanel = new System.Windows.Forms.Panel();
+            this.bookSheetCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.bookPlaceOfPublicationTextBox = new System.Windows.Forms.TextBox();
+            this.bookAdditionalInformationTextBox = new System.Windows.Forms.TextBox();
+            this.bookPublishingHouseTextBox = new System.Windows.Forms.TextBox();
             this.dissertationSpecificPanel = new System.Windows.Forms.Panel();
+            this.dissertationSheetCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.dissertationCityTextBox = new System.Windows.Forms.TextBox();
             this.dissertationNameOfSpecialityTextBox = new System.Windows.Forms.TextBox();
             this.dissertationSpecialtyCodeTextBox = new System.Windows.Forms.TextBox();
             this.dissertationOrganizationTextBox = new System.Windows.Forms.TextBox();
             this.dissertationKindOfDissertationTextBox = new System.Windows.Forms.TextBox();
             this.dissertationBranchOfScienceTextBox = new System.Windows.Forms.TextBox();
-            this.bookPlaceOfPublicationTextBox = new System.Windows.Forms.TextBox();
-            this.bookAdditionalInformationTextBox = new System.Windows.Forms.TextBox();
-            this.bookPublishingHouseTextBox = new System.Windows.Forms.TextBox();
-            this.magazineNameOfMagazineTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.createRandomDataButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.bookSheetCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.magazineEndSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.magazineStartSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.articleStartSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.articleEndSheetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.dissertationSheetCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Название = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.commonFieldsPanel.SuspendLayout();
             this.magazineSpecificPanel.SuspendLayout();
-            this.articleSpecificPanel.SuspendLayout();
-            this.bookSpecificPanel.SuspendLayout();
-            this.dissertationSpecificPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookSheetCountNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magazineEndSheetNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.magazineStartSheetNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magazineEndSheetNumericUpDown)).BeginInit();
+            this.articleSpecificPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.articleEndSheetNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).BeginInit();
+            this.bookSpecificPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookSheetCountNumericUpDown)).BeginInit();
+            this.dissertationSpecificPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,6 +131,51 @@
             this.commonFieldsPanel.Name = "commonFieldsPanel";
             this.commonFieldsPanel.Size = new System.Drawing.Size(585, 76);
             this.commonFieldsPanel.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(486, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Год издания";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(364, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Название работы";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(247, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Отчество";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(140, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Имя";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Фамилия";
             // 
             // yearTextBox
             // 
@@ -150,6 +214,9 @@
             // 
             // magazineSpecificPanel
             // 
+            this.magazineSpecificPanel.Controls.Add(this.label8);
+            this.magazineSpecificPanel.Controls.Add(this.label7);
+            this.magazineSpecificPanel.Controls.Add(this.Название);
             this.magazineSpecificPanel.Controls.Add(this.magazineStartSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineEndSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineNameOfMagazineTextBox);
@@ -159,18 +226,58 @@
             this.magazineSpecificPanel.TabIndex = 2;
             this.magazineSpecificPanel.Visible = false;
             // 
+            // magazineStartSheetNumericUpDown
+            // 
+            this.magazineStartSheetNumericUpDown.Location = new System.Drawing.Point(157, 23);
+            this.magazineStartSheetNumericUpDown.Name = "magazineStartSheetNumericUpDown";
+            this.magazineStartSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.magazineStartSheetNumericUpDown.TabIndex = 10;
+            // 
+            // magazineEndSheetNumericUpDown
+            // 
+            this.magazineEndSheetNumericUpDown.Location = new System.Drawing.Point(311, 24);
+            this.magazineEndSheetNumericUpDown.Name = "magazineEndSheetNumericUpDown";
+            this.magazineEndSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.magazineEndSheetNumericUpDown.TabIndex = 9;
+            // 
+            // magazineNameOfMagazineTextBox
+            // 
+            this.magazineNameOfMagazineTextBox.Location = new System.Drawing.Point(14, 23);
+            this.magazineNameOfMagazineTextBox.Name = "magazineNameOfMagazineTextBox";
+            this.magazineNameOfMagazineTextBox.Size = new System.Drawing.Size(85, 20);
+            this.magazineNameOfMagazineTextBox.TabIndex = 0;
+            // 
             // articleSpecificPanel
             // 
+            this.articleSpecificPanel.Controls.Add(this.label24);
+            this.articleSpecificPanel.Controls.Add(this.label23);
+            this.articleSpecificPanel.Controls.Add(this.label22);
+            this.articleSpecificPanel.Controls.Add(this.label21);
+            this.articleSpecificPanel.Controls.Add(this.label20);
             this.articleSpecificPanel.Controls.Add(this.articleEndSheetNumericUpDown);
             this.articleSpecificPanel.Controls.Add(this.articleStartSheetNumericUpDown);
             this.articleSpecificPanel.Controls.Add(this.articlePlaceOfPublicationTextBox);
             this.articleSpecificPanel.Controls.Add(this.articleNameOfCollectionTextBox);
             this.articleSpecificPanel.Controls.Add(this.articlePublishingHouseTextBox);
-            this.articleSpecificPanel.Location = new System.Drawing.Point(16, 358);
+            this.articleSpecificPanel.Location = new System.Drawing.Point(16, 368);
             this.articleSpecificPanel.Name = "articleSpecificPanel";
             this.articleSpecificPanel.Size = new System.Drawing.Size(775, 51);
             this.articleSpecificPanel.TabIndex = 4;
             this.articleSpecificPanel.Visible = false;
+            // 
+            // articleEndSheetNumericUpDown
+            // 
+            this.articleEndSheetNumericUpDown.Location = new System.Drawing.Point(514, 18);
+            this.articleEndSheetNumericUpDown.Name = "articleEndSheetNumericUpDown";
+            this.articleEndSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.articleEndSheetNumericUpDown.TabIndex = 11;
+            // 
+            // articleStartSheetNumericUpDown
+            // 
+            this.articleStartSheetNumericUpDown.Location = new System.Drawing.Point(368, 19);
+            this.articleStartSheetNumericUpDown.Name = "articleStartSheetNumericUpDown";
+            this.articleStartSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.articleStartSheetNumericUpDown.TabIndex = 10;
             // 
             // articlePlaceOfPublicationTextBox
             // 
@@ -195,6 +302,10 @@
             // 
             // bookSpecificPanel
             // 
+            this.bookSpecificPanel.Controls.Add(this.label12);
+            this.bookSpecificPanel.Controls.Add(this.label11);
+            this.bookSpecificPanel.Controls.Add(this.label10);
+            this.bookSpecificPanel.Controls.Add(this.label9);
             this.bookSpecificPanel.Controls.Add(this.bookSheetCountNumericUpDown);
             this.bookSpecificPanel.Controls.Add(this.bookPlaceOfPublicationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookAdditionalInformationTextBox);
@@ -205,62 +316,12 @@
             this.bookSpecificPanel.TabIndex = 3;
             this.bookSpecificPanel.Visible = false;
             // 
-            // dissertationSpecificPanel
+            // bookSheetCountNumericUpDown
             // 
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationSheetCountNumericUpDown);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationCityTextBox);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationNameOfSpecialityTextBox);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationSpecialtyCodeTextBox);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationOrganizationTextBox);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationKindOfDissertationTextBox);
-            this.dissertationSpecificPanel.Controls.Add(this.dissertationBranchOfScienceTextBox);
-            this.dissertationSpecificPanel.Location = new System.Drawing.Point(16, 305);
-            this.dissertationSpecificPanel.Name = "dissertationSpecificPanel";
-            this.dissertationSpecificPanel.Size = new System.Drawing.Size(822, 47);
-            this.dissertationSpecificPanel.TabIndex = 5;
-            this.dissertationSpecificPanel.Visible = false;
-            // 
-            // dissertationCityTextBox
-            // 
-            this.dissertationCityTextBox.Location = new System.Drawing.Point(568, 12);
-            this.dissertationCityTextBox.Name = "dissertationCityTextBox";
-            this.dissertationCityTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationCityTextBox.TabIndex = 12;
-            // 
-            // dissertationNameOfSpecialityTextBox
-            // 
-            this.dissertationNameOfSpecialityTextBox.Location = new System.Drawing.Point(471, 12);
-            this.dissertationNameOfSpecialityTextBox.Name = "dissertationNameOfSpecialityTextBox";
-            this.dissertationNameOfSpecialityTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationNameOfSpecialityTextBox.TabIndex = 6;
-            // 
-            // dissertationSpecialtyCodeTextBox
-            // 
-            this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(231, 12);
-            this.dissertationSpecialtyCodeTextBox.Name = "dissertationSpecialtyCodeTextBox";
-            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationSpecialtyCodeTextBox.TabIndex = 8;
-            // 
-            // dissertationOrganizationTextBox
-            // 
-            this.dissertationOrganizationTextBox.Location = new System.Drawing.Point(352, 12);
-            this.dissertationOrganizationTextBox.Name = "dissertationOrganizationTextBox";
-            this.dissertationOrganizationTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationOrganizationTextBox.TabIndex = 7;
-            // 
-            // dissertationKindOfDissertationTextBox
-            // 
-            this.dissertationKindOfDissertationTextBox.Location = new System.Drawing.Point(14, 12);
-            this.dissertationKindOfDissertationTextBox.Name = "dissertationKindOfDissertationTextBox";
-            this.dissertationKindOfDissertationTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationKindOfDissertationTextBox.TabIndex = 10;
-            // 
-            // dissertationBranchOfScienceTextBox
-            // 
-            this.dissertationBranchOfScienceTextBox.Location = new System.Drawing.Point(128, 12);
-            this.dissertationBranchOfScienceTextBox.Name = "dissertationBranchOfScienceTextBox";
-            this.dissertationBranchOfScienceTextBox.Size = new System.Drawing.Size(85, 20);
-            this.dissertationBranchOfScienceTextBox.TabIndex = 9;
+            this.bookSheetCountNumericUpDown.Location = new System.Drawing.Point(356, 23);
+            this.bookSheetCountNumericUpDown.Name = "bookSheetCountNumericUpDown";
+            this.bookSheetCountNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.bookSheetCountNumericUpDown.TabIndex = 8;
             // 
             // bookPlaceOfPublicationTextBox
             // 
@@ -283,12 +344,76 @@
             this.bookPublishingHouseTextBox.Size = new System.Drawing.Size(85, 20);
             this.bookPublishingHouseTextBox.TabIndex = 6;
             // 
-            // magazineNameOfMagazineTextBox
+            // dissertationSpecificPanel
             // 
-            this.magazineNameOfMagazineTextBox.Location = new System.Drawing.Point(14, 23);
-            this.magazineNameOfMagazineTextBox.Name = "magazineNameOfMagazineTextBox";
-            this.magazineNameOfMagazineTextBox.Size = new System.Drawing.Size(85, 20);
-            this.magazineNameOfMagazineTextBox.TabIndex = 0;
+            this.dissertationSpecificPanel.Controls.Add(this.label19);
+            this.dissertationSpecificPanel.Controls.Add(this.label18);
+            this.dissertationSpecificPanel.Controls.Add(this.label17);
+            this.dissertationSpecificPanel.Controls.Add(this.label16);
+            this.dissertationSpecificPanel.Controls.Add(this.label15);
+            this.dissertationSpecificPanel.Controls.Add(this.label14);
+            this.dissertationSpecificPanel.Controls.Add(this.label13);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationSheetCountNumericUpDown);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationCityTextBox);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationNameOfSpecialityTextBox);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationSpecialtyCodeTextBox);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationOrganizationTextBox);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationKindOfDissertationTextBox);
+            this.dissertationSpecificPanel.Controls.Add(this.dissertationBranchOfScienceTextBox);
+            this.dissertationSpecificPanel.Location = new System.Drawing.Point(12, 292);
+            this.dissertationSpecificPanel.Name = "dissertationSpecificPanel";
+            this.dissertationSpecificPanel.Size = new System.Drawing.Size(822, 60);
+            this.dissertationSpecificPanel.TabIndex = 5;
+            this.dissertationSpecificPanel.Visible = false;
+            // 
+            // dissertationSheetCountNumericUpDown
+            // 
+            this.dissertationSheetCountNumericUpDown.Location = new System.Drawing.Point(669, 29);
+            this.dissertationSheetCountNumericUpDown.Name = "dissertationSheetCountNumericUpDown";
+            this.dissertationSheetCountNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.dissertationSheetCountNumericUpDown.TabIndex = 13;
+            // 
+            // dissertationCityTextBox
+            // 
+            this.dissertationCityTextBox.Location = new System.Drawing.Point(566, 29);
+            this.dissertationCityTextBox.Name = "dissertationCityTextBox";
+            this.dissertationCityTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationCityTextBox.TabIndex = 12;
+            // 
+            // dissertationNameOfSpecialityTextBox
+            // 
+            this.dissertationNameOfSpecialityTextBox.Location = new System.Drawing.Point(452, 29);
+            this.dissertationNameOfSpecialityTextBox.Name = "dissertationNameOfSpecialityTextBox";
+            this.dissertationNameOfSpecialityTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationNameOfSpecialityTextBox.TabIndex = 6;
+            // 
+            // dissertationSpecialtyCodeTextBox
+            // 
+            this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(231, 29);
+            this.dissertationSpecialtyCodeTextBox.Name = "dissertationSpecialtyCodeTextBox";
+            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationSpecialtyCodeTextBox.TabIndex = 8;
+            // 
+            // dissertationOrganizationTextBox
+            // 
+            this.dissertationOrganizationTextBox.Location = new System.Drawing.Point(342, 29);
+            this.dissertationOrganizationTextBox.Name = "dissertationOrganizationTextBox";
+            this.dissertationOrganizationTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationOrganizationTextBox.TabIndex = 7;
+            // 
+            // dissertationKindOfDissertationTextBox
+            // 
+            this.dissertationKindOfDissertationTextBox.Location = new System.Drawing.Point(14, 29);
+            this.dissertationKindOfDissertationTextBox.Name = "dissertationKindOfDissertationTextBox";
+            this.dissertationKindOfDissertationTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationKindOfDissertationTextBox.TabIndex = 10;
+            // 
+            // dissertationBranchOfScienceTextBox
+            // 
+            this.dissertationBranchOfScienceTextBox.Location = new System.Drawing.Point(128, 29);
+            this.dissertationBranchOfScienceTextBox.Name = "dissertationBranchOfScienceTextBox";
+            this.dissertationBranchOfScienceTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationBranchOfScienceTextBox.TabIndex = 9;
             // 
             // okButton
             // 
@@ -329,93 +454,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Тип карточки:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Фамилия";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(140, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Имя";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(247, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Отчество";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Название работы";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Год издания";
-            // 
-            // bookSheetCountNumericUpDown
-            // 
-            this.bookSheetCountNumericUpDown.Location = new System.Drawing.Point(356, 23);
-            this.bookSheetCountNumericUpDown.Name = "bookSheetCountNumericUpDown";
-            this.bookSheetCountNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.bookSheetCountNumericUpDown.TabIndex = 8;
-            // 
-            // magazineEndSheetNumericUpDown
-            // 
-            this.magazineEndSheetNumericUpDown.Location = new System.Drawing.Point(311, 24);
-            this.magazineEndSheetNumericUpDown.Name = "magazineEndSheetNumericUpDown";
-            this.magazineEndSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.magazineEndSheetNumericUpDown.TabIndex = 9;
-            // 
-            // magazineStartSheetNumericUpDown
-            // 
-            this.magazineStartSheetNumericUpDown.Location = new System.Drawing.Point(157, 23);
-            this.magazineStartSheetNumericUpDown.Name = "magazineStartSheetNumericUpDown";
-            this.magazineStartSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.magazineStartSheetNumericUpDown.TabIndex = 10;
-            // 
-            // articleStartSheetNumericUpDown
-            // 
-            this.articleStartSheetNumericUpDown.Location = new System.Drawing.Point(367, 18);
-            this.articleStartSheetNumericUpDown.Name = "articleStartSheetNumericUpDown";
-            this.articleStartSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.articleStartSheetNumericUpDown.TabIndex = 10;
-            // 
-            // articleEndSheetNumericUpDown
-            // 
-            this.articleEndSheetNumericUpDown.Location = new System.Drawing.Point(514, 18);
-            this.articleEndSheetNumericUpDown.Name = "articleEndSheetNumericUpDown";
-            this.articleEndSheetNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.articleEndSheetNumericUpDown.TabIndex = 11;
-            // 
-            // dissertationSheetCountNumericUpDown
-            // 
-            this.dissertationSheetCountNumericUpDown.Location = new System.Drawing.Point(669, 12);
-            this.dissertationSheetCountNumericUpDown.Name = "dissertationSheetCountNumericUpDown";
-            this.dissertationSheetCountNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.dissertationSheetCountNumericUpDown.TabIndex = 13;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.okButton);
@@ -449,6 +487,177 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
+            // Название
+            // 
+            this.Название.AutoSize = true;
+            this.Название.Location = new System.Drawing.Point(17, 7);
+            this.Название.Name = "Название";
+            this.Название.Size = new System.Drawing.Size(57, 13);
+            this.Название.TabIndex = 11;
+            this.Название.Text = "Название";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(160, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Первая страница";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(308, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 13);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Последняя страница";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Место публикации";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(129, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Издательство";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(232, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Доп.информация";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(362, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Кол-во страниц";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(26, 13);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Вид";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(131, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(82, 13);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Отрасль науки";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(227, 13);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(97, 13);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Специальный код";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(345, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 13);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "Организация";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(453, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(85, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Специальность";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(566, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Город";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(672, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(85, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "Кол-во страниц";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(11, 2);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(57, 13);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Название";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(123, 2);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Место публикации";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(232, 2);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(79, 13);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Издательство";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(367, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(95, 13);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Первая страница";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(514, 3);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(113, 13);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "Последняя страница";
+            // 
             // AddCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,17 +676,17 @@
             this.commonFieldsPanel.PerformLayout();
             this.magazineSpecificPanel.ResumeLayout(false);
             this.magazineSpecificPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.magazineStartSheetNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magazineEndSheetNumericUpDown)).EndInit();
             this.articleSpecificPanel.ResumeLayout(false);
             this.articleSpecificPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.articleEndSheetNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).EndInit();
             this.bookSpecificPanel.ResumeLayout(false);
             this.bookSpecificPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookSheetCountNumericUpDown)).EndInit();
             this.dissertationSpecificPanel.ResumeLayout(false);
             this.dissertationSpecificPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookSheetCountNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magazineEndSheetNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magazineStartSheetNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.articleStartSheetNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.articleEndSheetNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -531,5 +740,24 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label Название;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label24;
     }
 }

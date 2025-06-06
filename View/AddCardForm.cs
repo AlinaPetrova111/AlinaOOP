@@ -387,6 +387,5 @@ namespace LibraryView
                 "Методика", "Исследование", "Инновация", "Технология" };
             return words[_random.Next(words.Length)];
         }
-
     }
 }
