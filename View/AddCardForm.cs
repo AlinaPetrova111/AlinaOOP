@@ -37,6 +37,77 @@ namespace LibraryView
         /// </summary>
         private Random _random = new Random();
 
+        /// <summary>
+        /// Список фамилий 
+        /// </summary>
+        private readonly List<string> _hpSurnames = new List<string>
+        {
+            "Поттер", "Грейнджер", "Уизли", "Малфой", "Лонгботтом", "Лавгуд",
+            "Дамблдор", "Снейп", "Макгонагалл", "Блэк", "Люпин", "Волан-де-Морт"
+        };
+
+        /// <summary>
+        /// Список мужских имен персонажей.
+        /// </summary>
+        private readonly List<string> _hpMaleNames = new List<string>
+        {
+            "Гарри", "Рон", "Драко", "Альбус", "Северус",
+            "Сириус", "Римус", "Невилл", "Том"
+        };
+
+        /// <summary>
+        /// Список женских имен персонажей.
+        /// </summary>
+        private readonly List<string> _hpFemaleNames = new List<string>
+        {
+            "Гермиона", "Джинни", "Луна", "Минерва", "Беллатриса",
+            "Нимфадора", "Лили"
+        };
+
+        /// <summary>
+        /// Список мужских отчеств.
+        /// </summary>
+        private readonly List<string> _hpMalePatronymics = new List<string>
+        {
+            "Джеймсович", "Артурович", "Люциусович", "Персивалевич",
+            "Тобиасович",
+            "Орионович", "Лайэллович", "Фрэнкович", "Реддлович"
+        };
+
+        /// <summary>
+        /// Список женских отчеств.
+        /// </summary>
+        private readonly List<string> _hpFemalePatronymics = new List<string>
+        {
+            "Дэниеловна", "Артуровна", "Ксенофилиусовна", "Робертовна", "Эвановна"
+        };
+
+        /// <summary>
+        /// Список названий для книг и статей.
+        /// </summary>
+        private readonly List<string> _hpBookTitles = new List<string>
+        {
+            "Современная зельеварение", "Тёмные искусства: Руководство",
+            "История магии", "Квиддич сквозь века", "Фантастические твари" +
+            " и где они обитают",
+            "Тысяча магических трав и грибов", "Теория защитной магии"
+        };
+
+        /// <summary>
+        /// Список названий для журналов.
+        /// </summary>
+        private readonly List<string> _hpMagazineTitles = new List<string>
+        {
+            "Придира", "Ежедневный пророк", "Ведьмин досуг", "Трансфигурация сегодня"
+        };
+
+        /// <summary>
+        /// Список названий магических организаций.
+        /// </summary>
+        private readonly List<string> _hpOrganizations = new List<string>
+        {
+            "Министерство Магии", "Аврорат", "Отдел тайн", "Хогвартс", "Гринготтс"
+        };
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="AddCardForm"/>.
@@ -295,97 +366,61 @@ namespace LibraryView
         /// <param name="e">Данные события.</param>
         private void createRandomDataButton_Click(object sender, EventArgs e)
         {
-        
-            surnameTextBox.Text = GetRandomRussianNamePart(true);
-            nameTextBox.Text = GetRandomRussianNamePart(false);
-            patronymicTextBox.Text = _random.Next(0, 2) == 0 ?
-                GetRandomRussianNamePart(false) : ""; 
-            titleTextBox.Text = "Случайное Название Работы №" + _random.Next(1, 1000);
+            // Определяем пол для корректного выбора имени/отчества
+            bool isMale = _random.Next(0, 2) == 0;
+
+            surnameTextBox.Text = _hpSurnames[_random.Next(_hpSurnames.Count)];
+            if (isMale)
+            {
+                nameTextBox.Text = _hpMaleNames[_random.Next(_hpMaleNames.Count)];
+                // Отчество может отсутствовать
+                patronymicTextBox.Text = _random.Next(0, 3) > 0
+                    ? _hpMalePatronymics[_random.Next(_hpMalePatronymics.Count)]
+                    : string.Empty;
+            }
+            else
+            {
+                nameTextBox.Text = _hpFemaleNames[_random.Next(_hpFemaleNames.Count)];
+                patronymicTextBox.Text = _random.Next(0, 3) > 0
+                    ? _hpFemalePatronymics[_random.Next(_hpFemalePatronymics.Count)]
+                    : string.Empty;
+            }
+
+            titleTextBox.Text = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + " №" + _random.Next(1, 100);
             yearTextBox.Text = _random.Next(1950, DateTime.Now.Year).ToString();
 
-          
             switch (cardTypeComboBox.SelectedIndex)
             {
-                case 0: 
-                    bookPlaceOfPublicationTextBox.Text = "Город " + 
-                        _random.Next(1, 50);
-                    bookPublishingHouseTextBox.Text = "Издательство '" + GetRandomWord() + "'";
-                    bookAdditionalInformationTextBox.Text = _random.Next(0, 3) 
-                        == 0 ? "Переиздание" : "";
+                case 0: // Книга
+                    bookPlaceOfPublicationTextBox.Text = "Лондон";
+                    bookPublishingHouseTextBox.Text = "Издательство 'Мракоборец'";
+                    bookAdditionalInformationTextBox.Text = _random.Next(0, 2) == 0 ? "Расширенное издание" : "";
                     bookSheetCountNumericUpDown.Value = _random.Next(50, 1000);
                     break;
-                case 1: 
-                    magazineNameOfMagazineTextBox.Text = "Журнал '" +
-                        GetRandomWord() + " Науки'";
+                case 1: // Статья из журнала
+                    magazineNameOfMagazineTextBox.Text = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)];
                     int startM = _random.Next(1, 50);
                     magazineStartSheetNumericUpDown.Value = startM;
-                    magazineEndSheetNumericUpDown.Value = Math.Max(startM, 
-                        _random.Next(startM, startM + 30));
+                    magazineEndSheetNumericUpDown.Value = _random.Next(startM + 1, startM + 30);
                     break;
-                case 2: 
-                    articleNameOfCollectionTextBox.Text = "Сборник трудов '" +
-                        GetRandomWord() + "'";
-                    articlePlaceOfPublicationTextBox.Text = "Город " + 
-                        _random.Next(1, 20);
-                    articlePublishingHouseTextBox.Text = "Университетское изд-во";
+                case 2: // Статья из сборника
+                    articleNameOfCollectionTextBox.Text = "Ежегодник заклинаний";
+                    articlePlaceOfPublicationTextBox.Text = "Хогсмид";
+                    articlePublishingHouseTextBox.Text = "Типография 'Флориш и Блоттс'";
                     int startA = _random.Next(1, 100);
                     articleStartSheetNumericUpDown.Value = startA;
-                    articleEndSheetNumericUpDown.Value = Math.Max(startA,
-                        _random.Next(startA, startA + 25));
+                    articleEndSheetNumericUpDown.Value = _random.Next(startA + 1, startA + 25);
                     break;
-                case 3: 
-                    dissertationKindOfDissertationTextBox.Text = _random.Next(0, 2) ==
-                        0 ? "Кандидатская" : "Докторская";
-                    dissertationBranchOfScienceTextBox.Text = "Технические науки"; 
-                    dissertationSpecialtyCodeTextBox.Text = $"{_random.Next(1, 99):D2}" +
-                        $".{_random.Next(1, 99):D2}.{_random.Next(1, 99):D2}";
-                    dissertationOrganizationTextBox.Text = "НИИ '" + GetRandomWord() + "'";
-                    dissertationNameOfSpecialityTextBox.Text = "Специальность " + GetRandomWord();
-                    dissertationCityTextBox.Text = "Наукоград";
+                case 3: // Диссертация
+                    dissertationKindOfDissertationTextBox.Text = "Магистерская";
+                    dissertationBranchOfScienceTextBox.Text = "Защита от Тёмных искусств";
+                    dissertationSpecialtyCodeTextBox.Text = $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}";
+                    dissertationOrganizationTextBox.Text = _hpOrganizations[_random.Next(_hpOrganizations.Count)];
+                    dissertationNameOfSpecialityTextBox.Text = "Боевая магия";
+                    dissertationCityTextBox.Text = "Годрикова впадина";
                     dissertationSheetCountNumericUpDown.Value = _random.Next(100, 400);
                     break;
             }
-        }
-
-        /// <summary>
-        /// Генерирует случайную часть русского ФИО (фамилия или имя/отчество).
-        /// </summary>
-        /// <param name="isSurname">True, если генерируется фамилия 
-        /// (обычно длиннее), иначе false.</param>
-        /// <returns>Случайная строка, похожая на часть ФИО.</returns>
-        private string GetRandomRussianNamePart(bool isSurname)
-        {
-            string[] firstSyllables = { "Ив", "Петр", "Сид", "Куз",
-                "Смир", "Поп", "Вас", "Мих", "Ал", "Серг", 
-                "Добр", "Люд" };
-            string[] middleSyllables = { "ан", "ов", "ев", "ин", "ск",
-                "енк", "ай", "ей", "ий", "он", "ен", "ар" };
-            string[] lastSyllablesMale = { "ов", "ев", "ин", "ский", 
-                "енко", "ич", "ко" };
-            string[] lastSyllablesFemale = { "ова", "ева", "ина", 
-                "ская", "енко", "на", "ая" };
-
-            bool isMale = _random.Next(0, 2) == 0;
-            string[] currentLastSyllables = isMale ? lastSyllablesMale : lastSyllablesFemale;
-
-            string name = firstSyllables[_random.Next(firstSyllables.Length)];
-            if (!isSurname || _random.Next(0, 2) == 0) 
-            {
-                name += middleSyllables[_random.Next(middleSyllables.Length)];
-            }
-            name += currentLastSyllables[_random.Next(currentLastSyllables.Length)];
-            return char.ToUpper(name[0]) + name.Substring(1);
-        }
-
-        /// <summary>
-        /// Генерирует случайное слово.
-        /// </summary>
-        /// <returns>Случайное слово.</returns>
-        private string GetRandomWord()
-        {
-            string[] words = { "Прогресс", "Развитие", "Анализ", "Синтез", 
-                "Методика", "Исследование", "Инновация", "Технология" };
-            return words[_random.Next(words.Length)];
         }
     }
 }

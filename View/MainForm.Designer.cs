@@ -92,7 +92,7 @@
             // 
             // removeCardButton
             // 
-            this.removeCardButton.Location = new System.Drawing.Point(196, 257);
+            this.removeCardButton.Location = new System.Drawing.Point(203, 256);
             this.removeCardButton.Name = "removeCardButton";
             this.removeCardButton.Size = new System.Drawing.Size(136, 23);
             this.removeCardButton.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             // searchCardButton
             // 
-            this.searchCardButton.Location = new System.Drawing.Point(384, 257);
+            this.searchCardButton.Location = new System.Drawing.Point(385, 256);
             this.searchCardButton.Name = "searchCardButton";
             this.searchCardButton.Size = new System.Drawing.Size(153, 23);
             this.searchCardButton.TabIndex = 3;
