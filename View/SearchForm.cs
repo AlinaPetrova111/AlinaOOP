@@ -40,9 +40,10 @@ namespace LibraryView
         public SearchForm(List<CardBase> cardsToSearch)
         {
             InitializeComponent();
-            _allCards = cardsToSearch ?? throw new 
-                ArgumentNullException(nameof(cardsToSearch), 
-                "Список карточек для поиска не может быть null.");
+            //TODO: RSDN
+            _allCards = cardsToSearch 
+                ?? throw new ArgumentNullException(nameof(cardsToSearch), 
+                        "Список карточек для поиска не может быть null.");
             SetupResultsDataGridView();
         }
 
@@ -57,6 +58,7 @@ namespace LibraryView
      
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
+                //TODO: duplication
                 Name = "searchTypeColumn", 
                 HeaderText = "Тип",
                 DataPropertyName = null, 
@@ -65,6 +67,7 @@ namespace LibraryView
             };
             searchResultsDataGridView.Columns.Add(typeColumn);
 
+            //TODO: duplication
             DataGridViewTextBoxColumn surnameColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Фамилия",
@@ -120,6 +123,7 @@ namespace LibraryView
             
             IEnumerable<CardBase> query = _allCards;
 
+            //TODO: RSDN
             if (!string.IsNullOrEmpty(surnameFilter))
             {
                 query = query.Where(c =>
@@ -181,8 +185,10 @@ namespace LibraryView
         private void SearchResultsDataGridView_CellFormatting(object sender, 
             DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && searchResultsDataGridView.Columns
-                [e.ColumnIndex].Name == "searchTypeColumn")
+            if (e.RowIndex >= 0 && 
+                searchResultsDataGridView.Columns[e.ColumnIndex].Name 
+                //TODO: duplication
+                    == "searchTypeColumn")
             {
                 if (searchResultsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {

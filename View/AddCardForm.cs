@@ -32,6 +32,7 @@ namespace LibraryView
         /// </summary>
         private List<Panel> _specificPanels;
 
+        //TODO: remove to randomizer class
         /// <summary>
         /// Генератор случайных чисел для заполнения полей тестовыми данными.
         /// </summary>
@@ -42,8 +43,10 @@ namespace LibraryView
         /// </summary>
         private readonly List<string> _hpSurnames = new List<string>
         {
-            "Поттер", "Грейнджер", "Уизли", "Малфой", "Лонгботтом", "Лавгуд",
-            "Дамблдор", "Снейп", "Макгонагалл", "Блэк", "Люпин", "Волан-де-Морт"
+            "Поттер", "Грейнджер", "Уизли", 
+            "Малфой", "Лонгботтом", "Лавгуд",
+            "Дамблдор", "Снейп", "Макгонагалл", 
+            "Блэк", "Люпин", "Волан-де-Морт"
         };
 
         /// <summary>
@@ -134,6 +137,7 @@ namespace LibraryView
         private void InitializeCardTypeComboBox()
         {
             cardTypeComboBox.Items.Clear();
+            //TODO: duplication
             cardTypeComboBox.Items.Add("Книга");               
             cardTypeComboBox.Items.Add("Статья из журнала");  
             cardTypeComboBox.Items.Add("Статья из сборника"); 
@@ -172,6 +176,7 @@ namespace LibraryView
         /// </summary>
         private void SetupNumericUpDownDefaults()
         {
+            //TODO: rewrite
             bookSheetCountNumericUpDown.Minimum = 1;
             bookSheetCountNumericUpDown.Maximum = 10000;
             bookSheetCountNumericUpDown.Value = 100; 
@@ -239,7 +244,7 @@ namespace LibraryView
                 string title = titleTextBox.Text;
                 string year = yearTextBox.Text;
 
-                
+                //TODO: RSDN
                 if (string.IsNullOrWhiteSpace(surname)) throw new ArgumentException("Фамилия автора не заполнена.");
                 if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Имя автора не заполнено.");
                 if (string.IsNullOrWhiteSpace(title)) throw new ArgumentException("Название работы не заполнено.");
@@ -264,7 +269,8 @@ namespace LibraryView
                         break;
 
                     case 1: 
-                        if ((int)magazineEndSheetNumericUpDown.Value < (int)magazineStartSheetNumericUpDown.Value)
+                        if ((int)magazineEndSheetNumericUpDown.Value 
+                                < (int)magazineStartSheetNumericUpDown.Value)
                             throw new ArgumentException("Конечная страница не может быть меньше начальной.");
                         Magazine magazine = new Magazine
                         {
@@ -358,6 +364,7 @@ namespace LibraryView
             Close();
         }
 
+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Случайные данные".
         /// Заполняет поля формы случайными корректными данными для выбранного типа карточки.
@@ -389,6 +396,7 @@ namespace LibraryView
             titleTextBox.Text = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + " №" + _random.Next(1, 100);
             yearTextBox.Text = _random.Next(1950, DateTime.Now.Year).ToString();
 
+            //TODO: duplication
             switch (cardTypeComboBox.SelectedIndex)
             {
                 case 0: // Книга
@@ -414,6 +422,7 @@ namespace LibraryView
                 case 3: // Диссертация
                     dissertationKindOfDissertationTextBox.Text = "Магистерская";
                     dissertationBranchOfScienceTextBox.Text = "Защита от Тёмных искусств";
+                    //TODO: RSDN
                     dissertationSpecialtyCodeTextBox.Text = $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}";
                     dissertationOrganizationTextBox.Text = _hpOrganizations[_random.Next(_hpOrganizations.Count)];
                     dissertationNameOfSpecialityTextBox.Text = "Боевая магия";

@@ -50,6 +50,7 @@ namespace LibraryView
 
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
+                //TODO: duplication
                 Name = "typeColumn", 
                 HeaderText = "Тип",
                 DataPropertyName = null, 
@@ -58,6 +59,7 @@ namespace LibraryView
             };
             cardsDataGridView.Columns.Add(typeColumn);
 
+            //TODO: duplication
             DataGridViewTextBoxColumn surnameColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Фамилия",
@@ -177,6 +179,7 @@ namespace LibraryView
             DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 && 
+                //TODO: duplication
                 cardsDataGridView.Columns[e.ColumnIndex].Name == "typeColumn")
             {
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
@@ -193,6 +196,7 @@ namespace LibraryView
         /// <returns>Массив типов.</returns>
         private Type[] GetKnownTypes()
         {
+            //TODO: RSDN
             return new Type[] { typeof(Book), typeof(Magazine), 
                 typeof(Article), typeof(Dissertation) };
         }
