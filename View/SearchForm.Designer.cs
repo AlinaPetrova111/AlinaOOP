@@ -67,14 +67,14 @@
             this.searchCriteriaGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchCriteriaGroupBox.Location = new System.Drawing.Point(0, 0);
             this.searchCriteriaGroupBox.Name = "searchCriteriaGroupBox";
-            this.searchCriteriaGroupBox.Size = new System.Drawing.Size(800, 216);
+            this.searchCriteriaGroupBox.Size = new System.Drawing.Size(457, 216);
             this.searchCriteriaGroupBox.TabIndex = 0;
             this.searchCriteriaGroupBox.TabStop = false;
             this.searchCriteriaGroupBox.Text = "Критерии поиска";
             // 
             // closeSearchButton
             // 
-            this.closeSearchButton.Location = new System.Drawing.Point(342, 141);
+            this.closeSearchButton.Location = new System.Drawing.Point(338, 179);
             this.closeSearchButton.Name = "closeSearchButton";
             this.closeSearchButton.Size = new System.Drawing.Size(75, 23);
             this.closeSearchButton.TabIndex = 10;
@@ -84,7 +84,7 @@
             // 
             // performSearchButton
             // 
-            this.performSearchButton.Location = new System.Drawing.Point(342, 81);
+            this.performSearchButton.Location = new System.Drawing.Point(234, 179);
             this.performSearchButton.Name = "performSearchButton";
             this.performSearchButton.Size = new System.Drawing.Size(75, 23);
             this.performSearchButton.TabIndex = 1;
@@ -178,7 +178,7 @@
             this.searchResultsGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchResultsGroupBox.Location = new System.Drawing.Point(0, 238);
             this.searchResultsGroupBox.Name = "searchResultsGroupBox";
-            this.searchResultsGroupBox.Size = new System.Drawing.Size(800, 212);
+            this.searchResultsGroupBox.Size = new System.Drawing.Size(457, 212);
             this.searchResultsGroupBox.TabIndex = 1;
             this.searchResultsGroupBox.TabStop = false;
             this.searchResultsGroupBox.Text = "Результаты поиска";
@@ -195,14 +195,14 @@
             this.searchResultsDataGridView.Name = "searchResultsDataGridView";
             this.searchResultsDataGridView.ReadOnly = true;
             this.searchResultsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.searchResultsDataGridView.Size = new System.Drawing.Size(794, 193);
+            this.searchResultsDataGridView.Size = new System.Drawing.Size(451, 193);
             this.searchResultsDataGridView.TabIndex = 0;
             // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(457, 450);
             this.Controls.Add(this.searchResultsGroupBox);
             this.Controls.Add(this.searchCriteriaGroupBox);
             this.Name = "SearchForm";

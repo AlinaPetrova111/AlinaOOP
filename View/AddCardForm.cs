@@ -91,7 +91,7 @@ namespace LibraryView
             foreach (var panel in _specificPanels)
             {
                 panel.Visible = false;
-                panel.Dock = DockStyle.Fill; 
+               // panel.Dock = DockStyle.Fill; 
             }
         }
 

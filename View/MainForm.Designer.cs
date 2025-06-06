@@ -65,14 +65,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.openToolStripMenuItem.Text = "Открыть как";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.saveAsToolStripMenuItem.Text = "Сохранить как";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -85,14 +85,14 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 418);
+            this.groupBox1.Size = new System.Drawing.Size(554, 307);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Библиотечные карточки";
             // 
             // removeCardButton
             // 
-            this.removeCardButton.Location = new System.Drawing.Point(195, 363);
+            this.removeCardButton.Location = new System.Drawing.Point(196, 257);
             this.removeCardButton.Name = "removeCardButton";
             this.removeCardButton.Size = new System.Drawing.Size(136, 23);
             this.removeCardButton.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             // addCardButton
             // 
-            this.addCardButton.Location = new System.Drawing.Point(12, 363);
+            this.addCardButton.Location = new System.Drawing.Point(12, 256);
             this.addCardButton.Name = "addCardButton";
             this.addCardButton.Size = new System.Drawing.Size(139, 23);
             this.addCardButton.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             // searchCardButton
             // 
-            this.searchCardButton.Location = new System.Drawing.Point(385, 363);
+            this.searchCardButton.Location = new System.Drawing.Point(384, 257);
             this.searchCardButton.Name = "searchCardButton";
             this.searchCardButton.Size = new System.Drawing.Size(153, 23);
             this.searchCardButton.TabIndex = 3;
@@ -126,14 +126,14 @@
             this.cardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cardsDataGridView.Location = new System.Drawing.Point(12, 31);
             this.cardsDataGridView.Name = "cardsDataGridView";
-            this.cardsDataGridView.Size = new System.Drawing.Size(526, 315);
+            this.cardsDataGridView.Size = new System.Drawing.Size(526, 196);
             this.cardsDataGridView.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 442);
+            this.ClientSize = new System.Drawing.Size(554, 331);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

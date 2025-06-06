@@ -90,6 +90,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.specificFieldsContainerPanel = new System.Windows.Forms.Panel();
             this.commonFieldsPanel.SuspendLayout();
             this.magazineSpecificPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.magazineStartSheetNumericUpDown)).BeginInit();
@@ -104,6 +105,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.specificFieldsContainerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // cardTypeComboBox
@@ -127,15 +129,15 @@
             this.commonFieldsPanel.Controls.Add(this.patronymicTextBox);
             this.commonFieldsPanel.Controls.Add(this.nameTextBox);
             this.commonFieldsPanel.Controls.Add(this.surnameTextBox);
-            this.commonFieldsPanel.Location = new System.Drawing.Point(16, 31);
+            this.commonFieldsPanel.Location = new System.Drawing.Point(16, 19);
             this.commonFieldsPanel.Name = "commonFieldsPanel";
-            this.commonFieldsPanel.Size = new System.Drawing.Size(585, 76);
+            this.commonFieldsPanel.Size = new System.Drawing.Size(668, 76);
             this.commonFieldsPanel.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 14);
+            this.label6.Location = new System.Drawing.Point(549, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 10;
@@ -144,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 14);
+            this.label5.Location = new System.Drawing.Point(374, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 9;
@@ -153,7 +155,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(247, 14);
+            this.label4.Location = new System.Drawing.Point(247, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 8;
@@ -162,7 +164,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(140, 14);
+            this.label3.Location = new System.Drawing.Point(154, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 7;
@@ -171,7 +173,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 14);
+            this.label2.Location = new System.Drawing.Point(25, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 6;
@@ -179,16 +181,16 @@
             // 
             // yearTextBox
             // 
-            this.yearTextBox.Location = new System.Drawing.Point(471, 40);
+            this.yearTextBox.Location = new System.Drawing.Point(542, 40);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(85, 20);
             this.yearTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(352, 40);
+            this.titleTextBox.Location = new System.Drawing.Point(335, 40);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(85, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(188, 20);
             this.titleTextBox.TabIndex = 1;
             // 
             // patronymicTextBox
@@ -220,7 +222,7 @@
             this.magazineSpecificPanel.Controls.Add(this.magazineStartSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineEndSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineNameOfMagazineTextBox);
-            this.magazineSpecificPanel.Location = new System.Drawing.Point(12, 164);
+            this.magazineSpecificPanel.Location = new System.Drawing.Point(0, 0);
             this.magazineSpecificPanel.Name = "magazineSpecificPanel";
             this.magazineSpecificPanel.Size = new System.Drawing.Size(776, 60);
             this.magazineSpecificPanel.TabIndex = 2;
@@ -259,9 +261,9 @@
             this.articleSpecificPanel.Controls.Add(this.articlePlaceOfPublicationTextBox);
             this.articleSpecificPanel.Controls.Add(this.articleNameOfCollectionTextBox);
             this.articleSpecificPanel.Controls.Add(this.articlePublishingHouseTextBox);
-            this.articleSpecificPanel.Location = new System.Drawing.Point(16, 368);
+            this.articleSpecificPanel.Location = new System.Drawing.Point(0, 0);
             this.articleSpecificPanel.Name = "articleSpecificPanel";
-            this.articleSpecificPanel.Size = new System.Drawing.Size(775, 51);
+            this.articleSpecificPanel.Size = new System.Drawing.Size(668, 59);
             this.articleSpecificPanel.TabIndex = 4;
             this.articleSpecificPanel.Visible = false;
             // 
@@ -310,9 +312,9 @@
             this.bookSpecificPanel.Controls.Add(this.bookPlaceOfPublicationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookAdditionalInformationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookPublishingHouseTextBox);
-            this.bookSpecificPanel.Location = new System.Drawing.Point(12, 230);
+            this.bookSpecificPanel.Location = new System.Drawing.Point(0, 0);
             this.bookSpecificPanel.Name = "bookSpecificPanel";
-            this.bookSpecificPanel.Size = new System.Drawing.Size(776, 46);
+            this.bookSpecificPanel.Size = new System.Drawing.Size(773, 60);
             this.bookSpecificPanel.TabIndex = 3;
             this.bookSpecificPanel.Visible = false;
             // 
@@ -360,7 +362,7 @@
             this.dissertationSpecificPanel.Controls.Add(this.dissertationOrganizationTextBox);
             this.dissertationSpecificPanel.Controls.Add(this.dissertationKindOfDissertationTextBox);
             this.dissertationSpecificPanel.Controls.Add(this.dissertationBranchOfScienceTextBox);
-            this.dissertationSpecificPanel.Location = new System.Drawing.Point(12, 292);
+            this.dissertationSpecificPanel.Location = new System.Drawing.Point(0, 0);
             this.dissertationSpecificPanel.Name = "dissertationSpecificPanel";
             this.dissertationSpecificPanel.Size = new System.Drawing.Size(822, 60);
             this.dissertationSpecificPanel.TabIndex = 5;
@@ -391,7 +393,7 @@
             // 
             this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(231, 29);
             this.dissertationSpecialtyCodeTextBox.Name = "dissertationSpecialtyCodeTextBox";
-            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(85, 20);
+            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(96, 20);
             this.dissertationSpecialtyCodeTextBox.TabIndex = 8;
             // 
             // dissertationOrganizationTextBox
@@ -417,7 +419,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(38, 19);
+            this.okButton.Location = new System.Drawing.Point(6, 19);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 3;
@@ -427,7 +429,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(137, 19);
+            this.cancelButton.Location = new System.Drawing.Point(94, 19);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -437,7 +439,7 @@
             // 
             // createRandomDataButton
             // 
-            this.createRandomDataButton.Location = new System.Drawing.Point(242, 22);
+            this.createRandomDataButton.Location = new System.Drawing.Point(188, 19);
             this.createRandomDataButton.Name = "createRandomDataButton";
             this.createRandomDataButton.Size = new System.Drawing.Size(152, 23);
             this.createRandomDataButton.TabIndex = 3;
@@ -459,33 +461,31 @@
             this.groupBox1.Controls.Add(this.okButton);
             this.groupBox1.Controls.Add(this.cancelButton);
             this.groupBox1.Controls.Add(this.createRandomDataButton);
-            this.groupBox1.Location = new System.Drawing.Point(16, 439);
+            this.groupBox1.Location = new System.Drawing.Point(32, 225);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(544, 61);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cardTypeComboBox);
-            this.groupBox2.Location = new System.Drawing.Point(685, 39);
+            this.groupBox2.Location = new System.Drawing.Point(724, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(348, 81);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Выберите:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.commonFieldsPanel);
             this.groupBox3.Location = new System.Drawing.Point(16, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(636, 143);
+            this.groupBox3.Size = new System.Drawing.Size(702, 105);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
             // Название
             // 
@@ -553,7 +553,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 13);
+            this.label13.Location = new System.Drawing.Point(14, 13);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(26, 13);
             this.label13.TabIndex = 14;
@@ -562,7 +562,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(131, 13);
+            this.label14.Location = new System.Drawing.Point(128, 13);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(82, 13);
             this.label14.TabIndex = 15;
@@ -571,7 +571,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(227, 13);
+            this.label15.Location = new System.Drawing.Point(230, 13);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(97, 13);
             this.label15.TabIndex = 16;
@@ -607,7 +607,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(672, 13);
+            this.label19.Location = new System.Drawing.Point(669, 13);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(85, 13);
             this.label19.TabIndex = 19;
@@ -658,18 +658,26 @@
             this.label24.TabIndex = 19;
             this.label24.Text = "Последняя страница";
             // 
+            // specificFieldsContainerPanel
+            // 
+            this.specificFieldsContainerPanel.Controls.Add(this.dissertationSpecificPanel);
+            this.specificFieldsContainerPanel.Controls.Add(this.magazineSpecificPanel);
+            this.specificFieldsContainerPanel.Controls.Add(this.articleSpecificPanel);
+            this.specificFieldsContainerPanel.Controls.Add(this.bookSpecificPanel);
+            this.specificFieldsContainerPanel.Location = new System.Drawing.Point(32, 137);
+            this.specificFieldsContainerPanel.Name = "specificFieldsContainerPanel";
+            this.specificFieldsContainerPanel.Size = new System.Drawing.Size(859, 70);
+            this.specificFieldsContainerPanel.TabIndex = 10;
+            // 
             // AddCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 549);
+            this.ClientSize = new System.Drawing.Size(1093, 354);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dissertationSpecificPanel);
-            this.Controls.Add(this.articleSpecificPanel);
-            this.Controls.Add(this.bookSpecificPanel);
-            this.Controls.Add(this.magazineSpecificPanel);
+            this.Controls.Add(this.specificFieldsContainerPanel);
             this.Name = "AddCardForm";
             this.Text = "AddCardForm";
             this.commonFieldsPanel.ResumeLayout(false);
@@ -692,6 +700,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.specificFieldsContainerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -759,5 +768,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel specificFieldsContainerPanel;
     }
 }
