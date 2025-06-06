@@ -74,7 +74,7 @@
             // 
             // closeSearchButton
             // 
-            this.closeSearchButton.Location = new System.Drawing.Point(374, 193);
+            this.closeSearchButton.Location = new System.Drawing.Point(342, 141);
             this.closeSearchButton.Name = "closeSearchButton";
             this.closeSearchButton.Size = new System.Drawing.Size(75, 23);
             this.closeSearchButton.TabIndex = 10;
@@ -84,7 +84,7 @@
             // 
             // performSearchButton
             // 
-            this.performSearchButton.Location = new System.Drawing.Point(251, 193);
+            this.performSearchButton.Location = new System.Drawing.Point(342, 81);
             this.performSearchButton.Name = "performSearchButton";
             this.performSearchButton.Size = new System.Drawing.Size(75, 23);
             this.performSearchButton.TabIndex = 1;
@@ -126,7 +126,7 @@
             // 
             // searchPatronymicTextBox
             // 
-            this.searchPatronymicTextBox.Location = new System.Drawing.Point(98, 103);
+            this.searchPatronymicTextBox.Location = new System.Drawing.Point(114, 103);
             this.searchPatronymicTextBox.Name = "searchPatronymicTextBox";
             this.searchPatronymicTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchPatronymicTextBox.TabIndex = 5;
@@ -142,7 +142,7 @@
             // 
             // searchNameTextBox
             // 
-            this.searchNameTextBox.Location = new System.Drawing.Point(98, 66);
+            this.searchNameTextBox.Location = new System.Drawing.Point(115, 66);
             this.searchNameTextBox.Name = "searchNameTextBox";
             this.searchNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchNameTextBox.TabIndex = 3;
@@ -158,7 +158,7 @@
             // 
             // searchSurnameTextBox
             // 
-            this.searchSurnameTextBox.Location = new System.Drawing.Point(98, 29);
+            this.searchSurnameTextBox.Location = new System.Drawing.Point(115, 29);
             this.searchSurnameTextBox.Name = "searchSurnameTextBox";
             this.searchSurnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchSurnameTextBox.TabIndex = 1;
