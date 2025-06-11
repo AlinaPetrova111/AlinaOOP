@@ -40,10 +40,10 @@ namespace LibraryView
         public SearchForm(List<CardBase> cardsToSearch)
         {
             InitializeComponent();
-            //TODO: RSDN
-            _allCards = cardsToSearch 
-                ?? throw new ArgumentNullException(nameof(cardsToSearch), 
-                        "Список карточек для поиска не может быть null.");
+            //TODO: RSDN +
+            _allCards = cardsToSearch ?? 
+                throw new ArgumentNullException(nameof(cardsToSearch), 
+                    "Список карточек для поиска не может быть null.");
             SetupResultsDataGridView();
         }
 
@@ -123,29 +123,25 @@ namespace LibraryView
             
             IEnumerable<CardBase> query = _allCards;
 
-            //TODO: RSDN
             if (!string.IsNullOrEmpty(surnameFilter))
             {
-                query = query.Where(c =>
-                c.Surname.ToLowerInvariant().Contains(surnameFilter));
+                query = query.Where(c => c.Surname.ToLowerInvariant().Contains(surnameFilter));
             }
 
             if (!string.IsNullOrEmpty(nameFilter))
             {
-                query = query.Where(c =>
-                c.Name.ToLowerInvariant().Contains(nameFilter));
+                query = query.Where(c => c.Name.ToLowerInvariant().Contains(nameFilter));
             }
 
             if (!string.IsNullOrEmpty(patronymicFilter))
             {
-                query = query.Where(c => !string.IsNullOrEmpty(c.Patronymic) 
-                && c.Patronymic.ToLowerInvariant().Contains(patronymicFilter));
+                query = query.Where(c => !string.IsNullOrEmpty(c.Patronymic) && 
+                c.Patronymic.ToLowerInvariant().Contains(patronymicFilter));
             }
   
             if (!string.IsNullOrEmpty(titleFilter))
             {
-                query = query.Where(c => 
-                c.Title.ToLowerInvariant().Contains(titleFilter));
+                query = query.Where(c => c.Title.ToLowerInvariant().Contains(titleFilter));
             }
 
             if (!string.IsNullOrEmpty(yearFilter))

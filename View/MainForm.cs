@@ -20,6 +20,11 @@ namespace LibraryView
     public partial class MainForm : Form
     {
         /// <summary>
+        /// Имя колонки для отображения типа карточки.
+        /// </summary>
+        private const string TypeColumnName = "typeColumn";
+
+        /// <summary>
         /// Список всех библиотечных карточек.
         /// </summary>
         private List<CardBase> _cards = new List<CardBase>();
@@ -50,8 +55,8 @@ namespace LibraryView
 
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
-                //TODO: duplication
-                Name = "typeColumn", 
+                //TODO: duplication+
+                Name = TypeColumnName, 
                 HeaderText = "Тип",
                 DataPropertyName = null, 
                 ReadOnly = true,
@@ -179,8 +184,8 @@ namespace LibraryView
             DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 && 
-                //TODO: duplication
-                cardsDataGridView.Columns[e.ColumnIndex].Name == "typeColumn")
+                //TODO: duplication+
+                cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
             {
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
@@ -196,9 +201,14 @@ namespace LibraryView
         /// <returns>Массив типов.</returns>
         private Type[] GetKnownTypes()
         {
-            //TODO: RSDN
-            return new Type[] { typeof(Book), typeof(Magazine), 
-                typeof(Article), typeof(Dissertation) };
+            //TODO: RSDN+
+            return new Type[] 
+            {
+              typeof(Book), 
+              typeof(Magazine), 
+              typeof(Article), 
+              typeof(Dissertation) 
+            };
         }
 
         /// <summary>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryCards; 
+using LibraryCards;
 
 namespace LibraryView
 {
@@ -24,93 +24,13 @@ namespace LibraryView
         /// </summary>
         public CardBase CreatedCard { get; private set; }
 
-   
+
         /// <summary>
         /// Список панелей, содержащих поля, специфичные для каждого типа карточки.
         /// Порядок панелей должен соответствовать порядку 
         /// элементов в <see cref="cardTypeComboBox"/>.
         /// </summary>
         private List<Panel> _specificPanels;
-
-        //TODO: remove to randomizer class
-        /// <summary>
-        /// Генератор случайных чисел для заполнения полей тестовыми данными.
-        /// </summary>
-        private Random _random = new Random();
-
-        /// <summary>
-        /// Список фамилий 
-        /// </summary>
-        private readonly List<string> _hpSurnames = new List<string>
-        {
-            "Поттер", "Грейнджер", "Уизли", 
-            "Малфой", "Лонгботтом", "Лавгуд",
-            "Дамблдор", "Снейп", "Макгонагалл", 
-            "Блэк", "Люпин", "Волан-де-Морт"
-        };
-
-        /// <summary>
-        /// Список мужских имен персонажей.
-        /// </summary>
-        private readonly List<string> _hpMaleNames = new List<string>
-        {
-            "Гарри", "Рон", "Драко", "Альбус", "Северус",
-            "Сириус", "Римус", "Невилл", "Том"
-        };
-
-        /// <summary>
-        /// Список женских имен персонажей.
-        /// </summary>
-        private readonly List<string> _hpFemaleNames = new List<string>
-        {
-            "Гермиона", "Джинни", "Луна", "Минерва", "Беллатриса",
-            "Нимфадора", "Лили"
-        };
-
-        /// <summary>
-        /// Список мужских отчеств.
-        /// </summary>
-        private readonly List<string> _hpMalePatronymics = new List<string>
-        {
-            "Джеймсович", "Артурович", "Люциусович", "Персивалевич",
-            "Тобиасович",
-            "Орионович", "Лайэллович", "Фрэнкович", "Реддлович"
-        };
-
-        /// <summary>
-        /// Список женских отчеств.
-        /// </summary>
-        private readonly List<string> _hpFemalePatronymics = new List<string>
-        {
-            "Дэниеловна", "Артуровна", "Ксенофилиусовна", "Робертовна", "Эвановна"
-        };
-
-        /// <summary>
-        /// Список названий для книг и статей.
-        /// </summary>
-        private readonly List<string> _hpBookTitles = new List<string>
-        {
-            "Современная зельеварение", "Тёмные искусства: Руководство",
-            "История магии", "Квиддич сквозь века", "Фантастические твари" +
-            " и где они обитают",
-            "Тысяча магических трав и грибов", "Теория защитной магии"
-        };
-
-        /// <summary>
-        /// Список названий для журналов.
-        /// </summary>
-        private readonly List<string> _hpMagazineTitles = new List<string>
-        {
-            "Придира", "Ежедневный пророк", "Ведьмин досуг", "Трансфигурация сегодня"
-        };
-
-        /// <summary>
-        /// Список названий магических организаций.
-        /// </summary>
-        private readonly List<string> _hpOrganizations = new List<string>
-        {
-            "Министерство Магии", "Аврорат", "Отдел тайн", "Хогвартс", "Гринготтс"
-        };
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="AddCardForm"/>.
@@ -120,8 +40,8 @@ namespace LibraryView
             InitializeComponent();
             InitializeCardTypeComboBox();
             InitializeSpecificPanelsList();
-            SetupNumericUpDownDefaults(); 
-            UpdateSpecificPanelVisibility(); 
+            SetupNumericUpDownDefaults();
+            UpdateSpecificPanelVisibility();
 
 #if !DEBUG
             createRandomDataButton.Visible = false;
@@ -138,12 +58,12 @@ namespace LibraryView
         {
             cardTypeComboBox.Items.Clear();
             //TODO: duplication
-            cardTypeComboBox.Items.Add("Книга");               
-            cardTypeComboBox.Items.Add("Статья из журнала");  
-            cardTypeComboBox.Items.Add("Статья из сборника"); 
-            cardTypeComboBox.Items.Add("Диссертация");        
-            cardTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
-            cardTypeComboBox.SelectedIndex = 0; 
+            cardTypeComboBox.Items.Add("Книга");
+            cardTypeComboBox.Items.Add("Статья из журнала");
+            cardTypeComboBox.Items.Add("Статья из сборника");
+            cardTypeComboBox.Items.Add("Диссертация");
+            cardTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            cardTypeComboBox.SelectedIndex = 0;
             cardTypeComboBox.SelectedIndexChanged +=
                 CardTypeComboBox_SelectedIndexChanged;
         }
@@ -157,16 +77,16 @@ namespace LibraryView
         {
             _specificPanels = new List<Panel>
             {
-                bookSpecificPanel,          
-                magazineSpecificPanel,      
-                articleSpecificPanel,       
-                dissertationSpecificPanel   
+                bookSpecificPanel,
+                magazineSpecificPanel,
+                articleSpecificPanel,
+                dissertationSpecificPanel
             };
 
             foreach (var panel in _specificPanels)
             {
                 panel.Visible = false;
-               // panel.Dock = DockStyle.Fill; 
+                // panel.Dock = DockStyle.Fill; 
             }
         }
 
@@ -179,7 +99,7 @@ namespace LibraryView
             //TODO: rewrite
             bookSheetCountNumericUpDown.Minimum = 1;
             bookSheetCountNumericUpDown.Maximum = 10000;
-            bookSheetCountNumericUpDown.Value = 100; 
+            bookSheetCountNumericUpDown.Value = 100;
 
             magazineStartSheetNumericUpDown.Minimum = 1;
             magazineStartSheetNumericUpDown.Maximum = 9999;
@@ -237,22 +157,33 @@ namespace LibraryView
         {
             try
             {
-             
+
                 string surname = surnameTextBox.Text;
                 string name = nameTextBox.Text;
-                string patronymic = patronymicTextBox.Text; 
+                string patronymic = patronymicTextBox.Text;
                 string title = titleTextBox.Text;
                 string year = yearTextBox.Text;
 
-                //TODO: RSDN
-                if (string.IsNullOrWhiteSpace(surname)) throw new ArgumentException("Фамилия автора не заполнена.");
-                if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Имя автора не заполнено.");
-                if (string.IsNullOrWhiteSpace(title)) throw new ArgumentException("Название работы не заполнено.");
-                if (string.IsNullOrWhiteSpace(year)) throw new ArgumentException("Год издания не заполнен.");
-
+                //TODO: RSDN+
+                if (string.IsNullOrWhiteSpace(surname))
+                {
+                    throw new ArgumentException("Фамилия автора не заполнена.");
+                }
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    throw new ArgumentException("Имя автора не заполнено.");
+                }
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    throw new ArgumentException("Название работы не заполнено.");
+                }
+                if (string.IsNullOrWhiteSpace(year))
+                {
+                    throw new ArgumentException("Год издания не заполнен.");
+                }
                 switch (cardTypeComboBox.SelectedIndex)
                 {
-                    case 0: 
+                    case 0:
                         Book book = new Book
                         {
                             Surname = surname,
@@ -263,13 +194,13 @@ namespace LibraryView
                         };
                         book.PlaceOfPublication = bookPlaceOfPublicationTextBox.Text;
                         book.PublishingHouse = bookPublishingHouseTextBox.Text;
-                        book.AdditionalInformation = bookAdditionalInformationTextBox.Text; 
+                        book.AdditionalInformation = bookAdditionalInformationTextBox.Text;
                         book.Sheet = (int)bookSheetCountNumericUpDown.Value;
                         CreatedCard = book;
                         break;
 
-                    case 1: 
-                        if ((int)magazineEndSheetNumericUpDown.Value 
+                    case 1:
+                        if ((int)magazineEndSheetNumericUpDown.Value
                                 < (int)magazineStartSheetNumericUpDown.Value)
                             throw new ArgumentException("Конечная страница не может быть меньше начальной.");
                         Magazine magazine = new Magazine
@@ -286,7 +217,7 @@ namespace LibraryView
                         CreatedCard = magazine;
                         break;
 
-                    case 2: 
+                    case 2:
                         if ((int)articleEndSheetNumericUpDown.Value < (int)articleStartSheetNumericUpDown.Value)
                             throw new ArgumentException("Конечная страница не может быть меньше начальной.");
                         Article article = new Article
@@ -305,7 +236,7 @@ namespace LibraryView
                         CreatedCard = article;
                         break;
 
-                    case 3: 
+                    case 3:
                         Dissertation dissertation = new Dissertation
                         {
                             Surname = surname,
@@ -316,7 +247,7 @@ namespace LibraryView
                         };
                         dissertation.KindOfDissertation = dissertationKindOfDissertationTextBox.Text;
                         dissertation.BranchOfScience = dissertationBranchOfScienceTextBox.Text;
-                        dissertation.SpecialtyCode = dissertationSpecialtyCodeTextBox.Text; 
+                        dissertation.SpecialtyCode = dissertationSpecialtyCodeTextBox.Text;
                         dissertation.Organization = dissertationOrganizationTextBox.Text;
                         dissertation.NameOfSpeciality = dissertationNameOfSpecialityTextBox.Text;
                         dissertation.City = dissertationCityTextBox.Text;
@@ -325,29 +256,29 @@ namespace LibraryView
                         break;
 
                     default:
-                        MessageBox.Show(this, "Неизвестный тип карточки выбран.", 
+                        MessageBox.Show(this, "Неизвестный тип карточки выбран.",
                             "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                 }
 
-                DialogResult = DialogResult.OK; 
+                DialogResult = DialogResult.OK;
                 Close();
             }
-            catch (ArgumentException ex) 
+            catch (ArgumentException ex)
             {
-                MessageBox.Show(this, $"Ошибка ввода: {ex.Message}", 
+                MessageBox.Show(this, $"Ошибка ввода: {ex.Message}",
                     "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
+
             }
-            catch (FormatException ex) 
+            catch (FormatException ex)
             {
-                MessageBox.Show(this, $"Ошибка формата числа: {ex.Message}", 
+                MessageBox.Show(this, $"Ошибка формата числа: {ex.Message}",
                     "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(this, $"Произошла непредвиденная ошибка: " +
-                    $"{ex.Message}\n{ex.StackTrace}", "Критическая ошибка", 
+                    $"{ex.Message}\n{ex.StackTrace}", "Критическая ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -373,62 +304,58 @@ namespace LibraryView
         /// <param name="e">Данные события.</param>
         private void createRandomDataButton_Click(object sender, EventArgs e)
         {
-            // Определяем пол для корректного выбора имени/отчества
-            bool isMale = _random.Next(0, 2) == 0;
-
-            surnameTextBox.Text = _hpSurnames[_random.Next(_hpSurnames.Count)];
-            if (isMale)
+            CardBase randomCard = CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
+            if (randomCard == null)
             {
-                nameTextBox.Text = _hpMaleNames[_random.Next(_hpMaleNames.Count)];
-                // Отчество может отсутствовать
-                patronymicTextBox.Text = _random.Next(0, 3) > 0
-                    ? _hpMalePatronymics[_random.Next(_hpMalePatronymics.Count)]
-                    : string.Empty;
-            }
-            else
-            {
-                nameTextBox.Text = _hpFemaleNames[_random.Next(_hpFemaleNames.Count)];
-                patronymicTextBox.Text = _random.Next(0, 3) > 0
-                    ? _hpFemalePatronymics[_random.Next(_hpFemalePatronymics.Count)]
-                    : string.Empty;
+                MessageBox.Show("Не удалось сгенерировать случайные данные для этого типа карточки.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            titleTextBox.Text = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + " №" + _random.Next(1, 100);
-            yearTextBox.Text = _random.Next(1950, DateTime.Now.Year).ToString();
+            // Заполнение общих полей
+            surnameTextBox.Text = randomCard.Surname;
+            nameTextBox.Text = randomCard.Name;
+            patronymicTextBox.Text = randomCard.Patronymic;
+            titleTextBox.Text = randomCard.Title;
+            yearTextBox.Text = randomCard.Year;
 
-            //TODO: duplication
-            switch (cardTypeComboBox.SelectedIndex)
+            // Заполнение специфичных полей в зависимости от типа карточки
+            if (randomCard is Book book)
             {
-                case 0: // Книга
-                    bookPlaceOfPublicationTextBox.Text = "Лондон";
-                    bookPublishingHouseTextBox.Text = "Издательство 'Мракоборец'";
-                    bookAdditionalInformationTextBox.Text = _random.Next(0, 2) == 0 ? "Расширенное издание" : "";
-                    bookSheetCountNumericUpDown.Value = _random.Next(50, 1000);
-                    break;
-                case 1: // Статья из журнала
-                    magazineNameOfMagazineTextBox.Text = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)];
-                    int startM = _random.Next(1, 50);
-                    magazineStartSheetNumericUpDown.Value = startM;
-                    magazineEndSheetNumericUpDown.Value = _random.Next(startM + 1, startM + 30);
-                    break;
-                case 2: // Статья из сборника
-                    articleNameOfCollectionTextBox.Text = "Ежегодник заклинаний";
-                    articlePlaceOfPublicationTextBox.Text = "Хогсмид";
-                    articlePublishingHouseTextBox.Text = "Типография 'Флориш и Блоттс'";
-                    int startA = _random.Next(1, 100);
-                    articleStartSheetNumericUpDown.Value = startA;
-                    articleEndSheetNumericUpDown.Value = _random.Next(startA + 1, startA + 25);
-                    break;
-                case 3: // Диссертация
-                    dissertationKindOfDissertationTextBox.Text = "Магистерская";
-                    dissertationBranchOfScienceTextBox.Text = "Защита от Тёмных искусств";
-                    //TODO: RSDN
-                    dissertationSpecialtyCodeTextBox.Text = $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}";
-                    dissertationOrganizationTextBox.Text = _hpOrganizations[_random.Next(_hpOrganizations.Count)];
-                    dissertationNameOfSpecialityTextBox.Text = "Боевая магия";
-                    dissertationCityTextBox.Text = "Годрикова впадина";
-                    dissertationSheetCountNumericUpDown.Value = _random.Next(100, 400);
-                    break;
+                bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
+                bookPublishingHouseTextBox.Text = book.PublishingHouse;
+                bookAdditionalInformationTextBox.Text = book.AdditionalInformation;
+                bookSheetCountNumericUpDown.Value = Math.Max(bookSheetCountNumericUpDown.Minimum,
+                    Math.Min(book.Sheet, bookSheetCountNumericUpDown.Maximum));
+            }
+            else if (randomCard is Magazine magazine)
+            {
+                magazineNameOfMagazineTextBox.Text = magazine.NameOfMagazine;
+                magazineStartSheetNumericUpDown.Value = Math.Max(magazineStartSheetNumericUpDown.Minimum,
+                    Math.Min(magazine.StartSheet, magazineStartSheetNumericUpDown.Maximum));
+                magazineEndSheetNumericUpDown.Value = Math.Max(magazineEndSheetNumericUpDown.Minimum,
+                    Math.Min(magazine.EndSheet, magazineEndSheetNumericUpDown.Maximum));
+            }
+            else if (randomCard is Article article)
+            {
+                articleNameOfCollectionTextBox.Text = article.NameOfArticle;
+                articlePlaceOfPublicationTextBox.Text = article.PlaceOfPublication;
+                articlePublishingHouseTextBox.Text = article.PublishingHouse;
+                articleStartSheetNumericUpDown.Value = Math.Max(articleStartSheetNumericUpDown.Minimum,
+                    Math.Min(article.StartSheet, articleStartSheetNumericUpDown.Maximum));
+                articleEndSheetNumericUpDown.Value = Math.Max(articleEndSheetNumericUpDown.Minimum,
+                    Math.Min(article.EndSheet, articleEndSheetNumericUpDown.Maximum));
+            }
+            else if (randomCard is Dissertation dissertation)
+            {
+                dissertationKindOfDissertationTextBox.Text = dissertation.KindOfDissertation;
+                dissertationBranchOfScienceTextBox.Text = dissertation.BranchOfScience;
+                dissertationSpecialtyCodeTextBox.Text = dissertation.SpecialtyCode;
+                dissertationOrganizationTextBox.Text = dissertation.Organization;
+                dissertationNameOfSpecialityTextBox.Text = dissertation.NameOfSpeciality;
+                dissertationCityTextBox.Text = dissertation.City;
+                dissertationSheetCountNumericUpDown.Value = Math.Max(dissertationSheetCountNumericUpDown.Minimum,
+                    Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
             }
         }
     }
