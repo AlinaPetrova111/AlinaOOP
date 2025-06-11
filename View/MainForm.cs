@@ -73,7 +73,6 @@ namespace LibraryView
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
 
-            // Специальная колонка для типа, не привязанная к данным
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 Name = TypeColumnName,

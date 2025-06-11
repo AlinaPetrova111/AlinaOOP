@@ -16,7 +16,11 @@ namespace LibraryView
     /// </summary>
     public partial class SearchForm : Form
     {
- 
+        /// <summary>
+        /// Имя колонки 
+        /// </summary>
+        private const string SerchTypeColumnName = "searchTypeColumn";
+
         /// <summary>
         /// Полный список всех библиотечных карточек, 
         /// переданный из главной формы.
@@ -59,7 +63,7 @@ namespace LibraryView
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 //TODO: duplication
-                Name = "searchTypeColumn", 
+                Name = SerchTypeColumnName, 
                 HeaderText = "Тип",
                 DataPropertyName = null, 
                 ReadOnly = true,
@@ -183,8 +187,8 @@ namespace LibraryView
         {
             if (e.RowIndex >= 0 && 
                 searchResultsDataGridView.Columns[e.ColumnIndex].Name 
-                //TODO: duplication
-                    == "searchTypeColumn")
+                //TODO: duplication +
+                    == SerchTypeColumnName)
             {
                 if (searchResultsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
