@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,25 @@ namespace LibraryView
         }
 
         /// <summary>
+        /// Создает текстовую колонку для DataGridView с общими настройками.
+        /// </summary>
+        /// <param name="headerText">Текст заголовка колонки.</param>
+        /// <param name="dataPropertyName">Имя свойства для привязки данных.</param>
+        /// <param name="autoSizeMode">Режим автоматического изменения размера колонки.</param>
+        /// <returns>Готовый объект DataGridViewTextBoxColumn.</returns>
+        private DataGridViewTextBoxColumn CreateTextColumn(string headerText, string dataPropertyName,
+            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
+        {
+            return new DataGridViewTextBoxColumn
+            {
+                HeaderText = headerText,
+                DataPropertyName = dataPropertyName,
+                ReadOnly = true,
+                AutoSizeMode = autoSizeMode
+            };
+        }
+
+        /// <summary>
         /// Настраивает элемент DataGridView для отображения карточек.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
         /// </summary>
@@ -53,55 +73,41 @@ namespace LibraryView
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
 
+            // Специальная колонка для типа, не привязанная к данным
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
-                //TODO: duplication+
-                Name = TypeColumnName, 
+                Name = TypeColumnName,
                 HeaderText = "Тип",
-                DataPropertyName = null, 
+                DataPropertyName = null, // Важно, т.к. значение задается в CellFormatting
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(typeColumn);
 
-            //TODO: duplication
-            DataGridViewTextBoxColumn surnameColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Фамилия",
-                DataPropertyName = nameof(CardBase.Surname), 
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            cardsDataGridView.Columns.Add(surnameColumn);
-
-            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Имя",
-                DataPropertyName = nameof(CardBase.Name), 
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            cardsDataGridView.Columns.Add(nameColumn);
-
-            DataGridViewTextBoxColumn titleColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Название",
-                DataPropertyName = nameof(CardBase.Title), 
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
-            };
-            cardsDataGridView.Columns.Add(titleColumn);
-
-            DataGridViewTextBoxColumn yearColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Год",
-                DataPropertyName = nameof(CardBase.Year), 
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            cardsDataGridView.Columns.Add(yearColumn);
+            // Используем вспомогательный метод для создания остальных колонок
+            cardsDataGridView.Columns.Add(
+                CreateTextColumn("Фамилия", nameof(CardBase.Surname)));
+            cardsDataGridView.Columns.Add(
+                CreateTextColumn("Имя", nameof(CardBase.Name)));
+            cardsDataGridView.Columns.Add(
+                CreateTextColumn("Название", nameof(CardBase.Title), DataGridViewAutoSizeColumnMode.Fill));
+            cardsDataGridView.Columns.Add(
+                CreateTextColumn("Год", nameof(CardBase.Year)));
 
             cardsDataGridView.CellFormatting += cardsDataGridView_CellFormatting;
+        }
+
+        /// <summary>
+        /// Возвращает массив типов, известных сериализатору, 
+        /// автоматически находя все классы, унаследованные от CardBase.
+        /// </summary>
+        /// <returns>Массив типов.</returns>
+        private Type[] GetKnownTypes()
+        {
+            return Assembly.GetAssembly(typeof(CardBase))
+                           .GetTypes()
+                           .Where(type => type.IsSubclassOf(typeof(CardBase)) && !type.IsAbstract)
+                           .ToArray();
         }
 
         /// <summary>
@@ -113,16 +119,28 @@ namespace LibraryView
         }
 
         /// <summary>
-        /// Обрабатывает нажатие на кнопку добавления новой карточки.
-        /// Открывает диалоговое окно <see cref="AddCardForm"/> для создания карточки.
+        /// Обрабатывает событие форматирования ячейки DataGridView.
+        /// Используется для отображения имени типа в специальной колонке.
         /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
+        private void cardsDataGridView_CellFormatting(object sender,
+            DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 &&
+                cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
+            {
+                if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
+                {
+                    e.Value = card.GetTypeName();
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
         private void addCardButton_Click(object sender, EventArgs e)
         {
             using (AddCardForm addForm = new AddCardForm())
             {
-                if (addForm.ShowDialog(this) == DialogResult.OK) 
+                if (addForm.ShowDialog(this) == DialogResult.OK)
                 {
                     if (addForm.CreatedCard != null)
                     {
@@ -133,11 +151,6 @@ namespace LibraryView
             }
         }
 
-        /// <summary>
-        /// Обрабатывает нажатие на кнопку удаления выбранной карточки.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void removeCardButton_Click(object sender, EventArgs e)
         {
             if (cardsDataGridView.CurrentRow != null
@@ -156,17 +169,11 @@ namespace LibraryView
             else
             {
                 MessageBox.Show(this, "Пожалуйста, выберите" +
-                    " карточку для удаления.", "Удаление невозможно", 
+                    " карточку для удаления.", "Удаление невозможно",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        /// <summary>
-        /// Обрабатывает нажатие на кнопку поиска карточек.
-        /// Открывает диалоговое окно <see cref="SearchForm"/>.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void searchCardButton_Click(object sender, EventArgs e)
         {
             using (SearchForm searchForm = new SearchForm(_cards))
@@ -175,48 +182,6 @@ namespace LibraryView
             }
         }
 
-        /// <summary>
-        /// Обрабатывает событие форматирования ячейки DataGridView.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события форматирования ячейки.</param>
-        private void cardsDataGridView_CellFormatting(object sender, 
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex >= 0 && 
-                //TODO: duplication+
-                cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
-            {
-                if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
-                {
-                    e.Value = card.GetType().Name; 
-                    e.FormattingApplied = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Возвращает массив типов, известных сериализатору (все производные от CardBase).
-        /// </summary>
-        /// <returns>Массив типов.</returns>
-        private Type[] GetKnownTypes()
-        {
-            //TODO: RSDN+
-            return new Type[] 
-            {
-              typeof(Book), 
-              typeof(Magazine), 
-              typeof(Article), 
-              typeof(Dissertation) 
-            };
-        }
-
-        /// <summary>
-        /// Обрабатывает выбор пункта меню "Сохранить как...".
-        /// Сохраняет текущий список карточек в XML-файл.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -236,25 +201,19 @@ namespace LibraryView
                         {
                             serializer.Serialize(writer, _cards);
                         }
-                        MessageBox.Show(this, "Данные успешно сохранены!", 
+                        MessageBox.Show(this, "Данные успешно сохранены!",
                             "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(this, $"Ошибка при сохранении данных: " +
-                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка сохранения", 
+                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка сохранения",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
-        /// <summary>
-        /// Обрабатывает выбор пункта меню "Открыть...".
-        /// Загружает список карточек из XML-файла.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -285,7 +244,7 @@ namespace LibraryView
                             else
                             {
                                 MessageBox.Show(this, "Не удалось загрузить данные." +
-                                    " Файл может быть поврежден или иметь неверный формат.", 
+                                    " Файл может быть поврежден или иметь неверный формат.",
                                     "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
@@ -293,7 +252,7 @@ namespace LibraryView
                     catch (Exception ex)
                     {
                         MessageBox.Show(this, $"Ошибка при загрузке данных: " +
-                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка загрузки", 
+                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка загрузки",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

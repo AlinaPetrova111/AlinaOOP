@@ -337,6 +337,14 @@ namespace LibraryCards
         }
 
         /// <summary>
+        /// Возвращает название типа для отображения в UI.
+        /// </summary>
+        public virtual string GetTypeName()
+        {
+            return this.GetType().Name;
+        }
+
+        /// <summary>
         /// Метод вывода библиотечной карточки
         /// </summary>
         /// <returns>Данные об издании</returns>

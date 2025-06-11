@@ -184,6 +184,13 @@ namespace LibraryCards
             }
         }
 
+        /// <summary>
+        /// Возвращает название типа для отображения в UI.
+        /// </summary>
+        public override string GetTypeName()
+        {
+            return "Книга";
+        }
 
         /// <summary>
         /// Метод вывода библиотечной карточки
