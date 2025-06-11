@@ -17,13 +17,11 @@ namespace LibraryView
     /// </summary>
     public partial class AddCardForm : Form
     {
-
         /// <summary>
         /// Получает созданную на форме библиотечную карточку.
         /// Значение устанавливается после успешного нажатия кнопки "OK".
         /// </summary>
         public CardBase CreatedCard { get; private set; }
-
 
         /// <summary>
         /// Список панелей, содержащих поля, специфичные для каждого типа карточки.
@@ -49,7 +47,6 @@ namespace LibraryView
             createRandomDataButton.Visible = true;
 #endif
         }
-
 
         /// <summary>
         /// Инициализирует ComboBox для выбора типа карточки.
@@ -120,7 +117,6 @@ namespace LibraryView
             dissertationSheetCountNumericUpDown.Value = 150;
         }
 
-
         /// <summary>
         /// Обновляет видимость панелей со специфичными полями 
         /// в зависимости от выбранного типа карточки.
@@ -149,117 +145,14 @@ namespace LibraryView
 
         /// <summary>
         /// Обрабатывает нажатие кнопки "OK".
-        /// Проводит валидацию введенных данных и, в случае успеха, создает объект карточки.
+        /// Запускает процесс валидации и создания карточки.
         /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void okButton_Click(object sender, EventArgs e)
         {
             try
             {
-
-                string surname = surnameTextBox.Text;
-                string name = nameTextBox.Text;
-                string patronymic = patronymicTextBox.Text;
-                string title = titleTextBox.Text;
-                string year = yearTextBox.Text;
-
-                //TODO: RSDN+
-                if (string.IsNullOrWhiteSpace(surname))
-                {
-                    throw new ArgumentException("Фамилия автора не заполнена.");
-                }
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    throw new ArgumentException("Имя автора не заполнено.");
-                }
-                if (string.IsNullOrWhiteSpace(title))
-                {
-                    throw new ArgumentException("Название работы не заполнено.");
-                }
-                if (string.IsNullOrWhiteSpace(year))
-                {
-                    throw new ArgumentException("Год издания не заполнен.");
-                }
-                switch (cardTypeComboBox.SelectedIndex)
-                {
-                    case 0:
-                        Book book = new Book
-                        {
-                            Surname = surname,
-                            Name = name,
-                            Patronymic = patronymic,
-                            Title = title,
-                            Year = year
-                        };
-                        book.PlaceOfPublication = bookPlaceOfPublicationTextBox.Text;
-                        book.PublishingHouse = bookPublishingHouseTextBox.Text;
-                        book.AdditionalInformation = bookAdditionalInformationTextBox.Text;
-                        book.Sheet = (int)bookSheetCountNumericUpDown.Value;
-                        CreatedCard = book;
-                        break;
-
-                    case 1:
-                        if ((int)magazineEndSheetNumericUpDown.Value
-                                < (int)magazineStartSheetNumericUpDown.Value)
-                            throw new ArgumentException("Конечная страница не может быть меньше начальной.");
-                        Magazine magazine = new Magazine
-                        {
-                            Surname = surname,
-                            Name = name,
-                            Patronymic = patronymic,
-                            Title = title,
-                            Year = year
-                        };
-                        magazine.NameOfMagazine = magazineNameOfMagazineTextBox.Text;
-                        magazine.StartSheet = (int)magazineStartSheetNumericUpDown.Value;
-                        magazine.EndSheet = (int)magazineEndSheetNumericUpDown.Value;
-                        CreatedCard = magazine;
-                        break;
-
-                    case 2:
-                        if ((int)articleEndSheetNumericUpDown.Value < (int)articleStartSheetNumericUpDown.Value)
-                            throw new ArgumentException("Конечная страница не может быть меньше начальной.");
-                        Article article = new Article
-                        {
-                            Surname = surname,
-                            Name = name,
-                            Patronymic = patronymic,
-                            Title = title,
-                            Year = year
-                        };
-                        article.NameOfArticle = articleNameOfCollectionTextBox.Text;
-                        article.PlaceOfPublication = articlePlaceOfPublicationTextBox.Text;
-                        article.PublishingHouse = articlePublishingHouseTextBox.Text;
-                        article.StartSheet = (int)articleStartSheetNumericUpDown.Value;
-                        article.EndSheet = (int)articleEndSheetNumericUpDown.Value;
-                        CreatedCard = article;
-                        break;
-
-                    case 3:
-                        Dissertation dissertation = new Dissertation
-                        {
-                            Surname = surname,
-                            Name = name,
-                            Patronymic = patronymic,
-                            Title = title,
-                            Year = year
-                        };
-                        dissertation.KindOfDissertation = dissertationKindOfDissertationTextBox.Text;
-                        dissertation.BranchOfScience = dissertationBranchOfScienceTextBox.Text;
-                        dissertation.SpecialtyCode = dissertationSpecialtyCodeTextBox.Text;
-                        dissertation.Organization = dissertationOrganizationTextBox.Text;
-                        dissertation.NameOfSpeciality = dissertationNameOfSpecialityTextBox.Text;
-                        dissertation.City = dissertationCityTextBox.Text;
-                        dissertation.Sheet = (int)dissertationSheetCountNumericUpDown.Value;
-                        CreatedCard = dissertation;
-                        break;
-
-                    default:
-                        MessageBox.Show(this, "Неизвестный тип карточки выбран.",
-                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                }
+                ValidateCommonFields();
+                CreatedCard = CreateCardFromInput();
 
                 DialogResult = DialogResult.OK;
                 Close();
@@ -268,7 +161,6 @@ namespace LibraryView
             {
                 MessageBox.Show(this, $"Ошибка ввода: {ex.Message}",
                     "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             catch (FormatException ex)
             {
@@ -284,24 +176,155 @@ namespace LibraryView
         }
 
         /// <summary>
+        /// Проверяет заполненность обязательных общих полей.
+        /// </summary>
+        /// <exception cref="ArgumentException">Если одно из полей не заполнено.</exception>
+        private void ValidateCommonFields()
+        {
+            if (string.IsNullOrWhiteSpace(surnameTextBox.Text))
+            {
+                throw new ArgumentException("Фамилия автора не заполнена.");
+            }
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                throw new ArgumentException("Имя автора не заполнено.");
+            }
+            if (string.IsNullOrWhiteSpace(titleTextBox.Text))
+            {
+                throw new ArgumentException("Название работы не заполнено.");
+            }
+            if (string.IsNullOrWhiteSpace(yearTextBox.Text))
+            {
+                throw new ArgumentException("Год издания не заполнен.");
+            }
+        }
+
+        /// <summary>
+        /// Создает объект карточки на основе выбранного типа.
+        /// </summary>
+        /// <returns>Созданный объект, унаследованный от <see cref="CardBase"/>.</returns>
+        /// <exception cref="InvalidOperationException">Если выбран неизвестный тип карточки.</exception>
+        private CardBase CreateCardFromInput()
+        {
+            switch (cardTypeComboBox.SelectedIndex)
+            {
+                case 0: 
+                    return CreateBook();
+                case 1: 
+                    return CreateMagazine();
+                case 2: 
+                    return CreateArticle();
+                case 3: 
+                    return CreateDissertation();
+                default:
+                    throw new InvalidOperationException("Неизвестный тип карточки выбран.");
+            }
+        }
+
+        /// <summary>
+        /// Создает и заполняет объект типа "Книга".
+        /// </summary>
+        private Book CreateBook()
+        {
+            return new Book
+            {
+                Surname = surnameTextBox.Text,
+                Name = nameTextBox.Text,
+                Patronymic = patronymicTextBox.Text,
+                Title = titleTextBox.Text,
+                Year = yearTextBox.Text,
+                PlaceOfPublication = bookPlaceOfPublicationTextBox.Text,
+                PublishingHouse = bookPublishingHouseTextBox.Text,
+                AdditionalInformation = bookAdditionalInformationTextBox.Text,
+                Sheet = (int)bookSheetCountNumericUpDown.Value
+            };
+        }
+
+        /// <summary>
+        /// Создает и заполняет объект типа "Статья из журнала".
+        /// </summary>
+        private Magazine CreateMagazine()
+        {
+            if (magazineEndSheetNumericUpDown.Value < magazineStartSheetNumericUpDown.Value)
+            {
+                throw new ArgumentException("Конечная страница не может быть меньше начальной.");
+            }
+
+            return new Magazine
+            {
+                Surname = surnameTextBox.Text,
+                Name = nameTextBox.Text,
+                Patronymic = patronymicTextBox.Text,
+                Title = titleTextBox.Text,
+                Year = yearTextBox.Text,
+                NameOfMagazine = magazineNameOfMagazineTextBox.Text,
+                StartSheet = (int)magazineStartSheetNumericUpDown.Value,
+                EndSheet = (int)magazineEndSheetNumericUpDown.Value
+            };
+        }
+
+        /// <summary>
+        /// Создает и заполняет объект типа "Статья из сборника".
+        /// </summary>
+        private Article CreateArticle()
+        {
+            if (articleEndSheetNumericUpDown.Value < articleStartSheetNumericUpDown.Value)
+            {
+                throw new ArgumentException("Конечная страница не может быть меньше начальной.");
+            }
+
+            return new Article
+            {
+                Surname = surnameTextBox.Text,
+                Name = nameTextBox.Text,
+                Patronymic = patronymicTextBox.Text,
+                Title = titleTextBox.Text,
+                Year = yearTextBox.Text,
+                NameOfArticle = articleNameOfCollectionTextBox.Text,
+                PlaceOfPublication = articlePlaceOfPublicationTextBox.Text,
+                PublishingHouse = articlePublishingHouseTextBox.Text,
+                StartSheet = (int)articleStartSheetNumericUpDown.Value,
+                EndSheet = (int)articleEndSheetNumericUpDown.Value
+            };
+        }
+
+        /// <summary>
+        /// Создает и заполняет объект типа "Диссертация".
+        /// </summary>
+        private Dissertation CreateDissertation()
+        {
+            return new Dissertation
+            {
+                Surname = surnameTextBox.Text,
+                Name = nameTextBox.Text,
+                Patronymic = patronymicTextBox.Text,
+                Title = titleTextBox.Text,
+                Year = yearTextBox.Text,
+                KindOfDissertation = dissertationKindOfDissertationTextBox.Text,
+                BranchOfScience = dissertationBranchOfScienceTextBox.Text,
+                SpecialtyCode = dissertationSpecialtyCodeTextBox.Text,
+                Organization = dissertationOrganizationTextBox.Text,
+                NameOfSpeciality = dissertationNameOfSpecialityTextBox.Text,
+                City = dissertationCityTextBox.Text,
+                Sheet = (int)dissertationSheetCountNumericUpDown.Value
+            };
+        }
+
+
+        /// <summary>
         /// Обрабатывает нажатие кнопки "Отмена".
         /// Закрывает форму с результатом <see cref="DialogResult.Cancel"/>.
         /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
-
         /// <summary>
         /// Обрабатывает нажатие кнопки "Случайные данные".
         /// Заполняет поля формы случайными корректными данными для выбранного типа карточки.
         /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Данные события.</param>
         private void createRandomDataButton_Click(object sender, EventArgs e)
         {
             CardBase randomCard = CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);

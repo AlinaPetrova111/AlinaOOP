@@ -98,104 +98,79 @@ namespace LibraryView
         /// или null, если индекс некорректен.</returns>
         public static CardBase GenerateRandomCard(int cardTypeIndex)
         {
-            // Определяем пол для корректного выбора имени/отчества
+            // Определяем пол и выбираем соответствующие списки имен/отчеств
             bool isMale = _random.Next(0, 2) == 0;
-            string surname = _hpSurnames[_random.Next(_hpSurnames.Count)];
-            string name;
-            string patronymic;
+            var namesList = isMale ? _hpMaleNames : _hpFemaleNames;
+            var patronymicsList = isMale ? _hpMalePatronymics : _hpFemalePatronymics;
 
-            if (isMale)
-            {
-                name = _hpMaleNames[_random.Next(_hpMaleNames.Count)];
-                // Отчество может отсутствовать
-                patronymic = _random.Next(0, 3) > 0
-                    ? _hpMalePatronymics[_random.Next(_hpMalePatronymics.Count)]
-                    : string.Empty;
-            }
-            else
-            {
-                name = _hpFemaleNames[_random.Next(_hpFemaleNames.Count)];
-                patronymic = _random.Next(0, 3) > 0
-                    ? _hpFemalePatronymics[_random.Next(_hpFemalePatronymics.Count)]
-                    : string.Empty;
-            }
+            // Генерируем общие данные один раз
+            string surname = _hpSurnames[_random.Next(_hpSurnames.Count)];
+            string name = namesList[_random.Next(namesList.Count)];
+            // Отчество может отсутствовать
+            string patronymic = _random.Next(0, 3) > 0
+                ? patronymicsList[_random.Next(patronymicsList.Count)]
+                : string.Empty;
 
             string title = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + " №" + _random.Next(1, 100);
             string year = _random.Next(1950, DateTime.Now.Year + 1).ToString();
 
-            CardBase card = null;
-            //TODO: duplication
+            CardBase card;
+
             switch (cardTypeIndex)
             {
-                case 0: 
-                    var book = new Book
+                case 0:
+                    card = new Book
                     {
-                        Surname = surname,
-                        Name = name,
-                        Patronymic = patronymic,
-                        Title = title,
-                        Year = year,
                         PlaceOfPublication = "Лондон",
                         PublishingHouse = "Издательство 'Мракоборец'",
                         AdditionalInformation = _random.Next(0, 2) == 0 ? "Расширенное издание" : "",
                         Sheet = _random.Next(50, 1000)
                     };
-                    card = book;
                     break;
-                case 1: 
+                case 1:
                     int startM = _random.Next(1, 50);
-                    var magazine = new Magazine
+                    card = new Magazine
                     {
-                        Surname = surname,
-                        Name = name,
-                        Patronymic = patronymic,
-                        Title = title,
-                        Year = year,
                         NameOfMagazine = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)],
                         StartSheet = startM,
                         EndSheet = _random.Next(startM + 1, startM + 30)
                     };
-                    card = magazine;
                     break;
-                case 2: 
+                case 2:
                     int startA = _random.Next(1, 100);
-                    var article = new Article
+                    card = new Article
                     {
-                        Surname = surname,
-                        Name = name,
-                        Patronymic = patronymic,
-                        Title = title,
-                        Year = year,
                         NameOfArticle = "Ежегодник заклинаний",
                         PlaceOfPublication = "Хогсмид",
                         PublishingHouse = "Типография 'Флориш и Блоттс'",
                         StartSheet = startA,
                         EndSheet = _random.Next(startA + 1, startA + 25)
                     };
-                    card = article;
                     break;
-                case 3: 
-                    //TODO: RSDN+
-                    var dissertation = new Dissertation
+                case 3:
+                    card = new Dissertation
                     {
-                        Surname = surname,
-                        Name = name,
-                        Patronymic = patronymic,
-                        Title = title,
-                        Year = year,
                         KindOfDissertation = "Магистерская",
                         BranchOfScience = "Защита от Тёмных искусств",
                         SpecialtyCode = $"{_random.Next(1, 10):D2}." +
-                            $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}",
+                                        $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}",
                         Organization = _hpOrganizations[_random.Next(_hpOrganizations.Count)],
                         NameOfSpeciality = "Боевая магия",
                         City = "Годрикова впадина",
                         Sheet = _random.Next(100, 400)
                     };
-                    card = dissertation;
                     break;
+                default:
+                    return null;
             }
+            card.Surname = surname;
+            card.Name = name;
+            card.Patronymic = patronymic;
+            card.Title = title;
+            card.Year = year;
+
             return card;
+
         }
     }
 }
