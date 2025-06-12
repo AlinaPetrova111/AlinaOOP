@@ -63,6 +63,7 @@ namespace LibraryView
             };
         }
 
+        //TODO: duplication
         /// <summary>
         /// Настраивает элемент DataGridView для отображения карточек.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
@@ -77,13 +78,11 @@ namespace LibraryView
             {
                 Name = TypeColumnName,
                 HeaderText = "Тип",
-                DataPropertyName = null, // Важно, т.к. значение задается в CellFormatting
+                DataPropertyName = null,
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             cardsDataGridView.Columns.Add(typeColumn);
-
-            // Используем вспомогательный метод для создания остальных колонок
             cardsDataGridView.Columns.Add(
                 CreateTextColumn("Фамилия", nameof(CardBase.Surname)));
             cardsDataGridView.Columns.Add(
