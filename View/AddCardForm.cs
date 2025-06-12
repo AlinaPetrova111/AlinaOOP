@@ -24,9 +24,21 @@ namespace LibraryView
         public CardBase CreatedCard { get; private set; }
 
         /// <summary>
+        /// Упорядоченный список типов карточек, используемый для заполнения ComboBox
+        /// и сопоставления с панелями и методами создания.
+        /// Порядок в этом списке является "источником истины".
+        /// </summary>
+        private readonly List<Type> _cardTypes = new List<Type>
+        {
+            typeof(Book),
+            typeof(Magazine),
+            typeof(Article),
+            typeof(Dissertation)
+        };
+
+        /// <summary>
         /// Список панелей, содержащих поля, специфичные для каждого типа карточки.
-        /// Порядок панелей должен соответствовать порядку 
-        /// элементов в <see cref="cardTypeComboBox"/>.
+        /// Порядок панелей должен соответствовать порядку типов в <see cref="_cardTypes"/>.
         /// </summary>
         private List<Panel> _specificPanels;
 
@@ -54,11 +66,15 @@ namespace LibraryView
         private void InitializeCardTypeComboBox()
         {
             cardTypeComboBox.Items.Clear();
-            //TODO: duplication
-            cardTypeComboBox.Items.Add("Книга");
-            cardTypeComboBox.Items.Add("Статья из журнала");
-            cardTypeComboBox.Items.Add("Статья из сборника");
-            cardTypeComboBox.Items.Add("Диссертация");
+
+            foreach (var cardType in _cardTypes)
+            {
+                if (Activator.CreateInstance(cardType) is CardBase instance)
+                {
+                    cardTypeComboBox.Items.Add(instance.GetTypeName());
+                }
+            }
+
             cardTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             cardTypeComboBox.SelectedIndex = 0;
             cardTypeComboBox.SelectedIndexChanged +=
@@ -68,7 +84,7 @@ namespace LibraryView
         /// <summary>
         /// Инициализирует список панелей со специфичными полями.
         /// Важно, чтобы панели были добавлены в список в том же порядке,
-        /// что и типы карточек в <see cref="cardTypeComboBox"/>.
+        /// что и типы карточек в <see cref="_cardTypes"/>.
         /// </summary>
         private void InitializeSpecificPanelsList()
         {
@@ -82,8 +98,7 @@ namespace LibraryView
 
             foreach (var panel in _specificPanels)
             {
-                panel.Visible = false;
-                // panel.Dock = DockStyle.Fill; 
+                panel.Visible = false; 
             }
         }
 
@@ -206,19 +221,26 @@ namespace LibraryView
         /// <exception cref="InvalidOperationException">Если выбран неизвестный тип карточки.</exception>
         private CardBase CreateCardFromInput()
         {
-            switch (cardTypeComboBox.SelectedIndex)
+            var selectedCardType = _cardTypes[cardTypeComboBox.SelectedIndex];
+
+            if (selectedCardType == typeof(Book))
             {
-                case 0: 
-                    return CreateBook();
-                case 1: 
-                    return CreateMagazine();
-                case 2: 
-                    return CreateArticle();
-                case 3: 
-                    return CreateDissertation();
-                default:
-                    throw new InvalidOperationException("Неизвестный тип карточки выбран.");
+                return CreateBook();
             }
+            if (selectedCardType == typeof(Magazine))
+            {
+                return CreateMagazine();
+            }
+            if (selectedCardType == typeof(Article))
+            {
+                return CreateArticle();
+            }
+            if (selectedCardType == typeof(Dissertation))
+            {
+                return CreateDissertation();
+            }
+
+            throw new InvalidOperationException("Неизвестный тип карточки выбран.");
         }
 
         /// <summary>
@@ -335,14 +357,12 @@ namespace LibraryView
                 return;
             }
 
-            // Заполнение общих полей
             surnameTextBox.Text = randomCard.Surname;
             nameTextBox.Text = randomCard.Name;
             patronymicTextBox.Text = randomCard.Patronymic;
             titleTextBox.Text = randomCard.Title;
             yearTextBox.Text = randomCard.Year;
 
-            // Заполнение специфичных полей в зависимости от типа карточки
             if (randomCard is Book book)
             {
                 bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;

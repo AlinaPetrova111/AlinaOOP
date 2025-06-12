@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryCards; 
+using LibraryCards;
 
 namespace LibraryView
 {
@@ -19,7 +19,7 @@ namespace LibraryView
         /// <summary>
         /// Имя колонки 
         /// </summary>
-        private const string SerchTypeColumnName = "searchTypeColumn";
+        private const string SearchTypeColumnName = "searchTypeColumn";
 
         /// <summary>
         /// Полный список всех библиотечных карточек, 
@@ -45,10 +45,30 @@ namespace LibraryView
         {
             InitializeComponent();
             //TODO: RSDN +
-            _allCards = cardsToSearch ?? 
-                throw new ArgumentNullException(nameof(cardsToSearch), 
+            _allCards = cardsToSearch ??
+                throw new ArgumentNullException(nameof(cardsToSearch),
                     "Список карточек для поиска не может быть null.");
             SetupResultsDataGridView();
+        }
+
+        //TODO: duplication +
+        /// <summary>
+        /// Создает текстовую колонку для DataGridView с общими настройками.
+        /// </summary>
+        /// <param name="headerText">Текст заголовка колонки.</param>
+        /// <param name="dataPropertyName">Имя свойства для привязки данных.</param>
+        /// <param name="autoSizeMode">Режим автоматического изменения размера колонки.</param>
+        /// <returns>Готовый объект DataGridViewTextBoxColumn.</returns>
+        private DataGridViewTextBoxColumn CreateTextColumn(string headerText, string dataPropertyName,
+            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
+        {
+            return new DataGridViewTextBoxColumn
+            {
+                HeaderText = headerText,
+                DataPropertyName = dataPropertyName,
+                ReadOnly = true,
+                AutoSizeMode = autoSizeMode
+            };
         }
 
         /// <summary>
@@ -59,56 +79,27 @@ namespace LibraryView
         {
             searchResultsDataGridView.AutoGenerateColumns = false;
             searchResultsDataGridView.DataSource = _searchResultsBindingSource;
-     
+
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
-                //TODO: duplication
-                Name = SerchTypeColumnName, 
+                Name = SearchTypeColumnName,
                 HeaderText = "Тип",
-                DataPropertyName = null, 
+                DataPropertyName = null,
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             searchResultsDataGridView.Columns.Add(typeColumn);
 
-            //TODO: duplication
-            DataGridViewTextBoxColumn surnameColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Фамилия",
-                DataPropertyName = nameof(CardBase.Surname),
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            searchResultsDataGridView.Columns.Add(surnameColumn);
+            searchResultsDataGridView.Columns.Add(
+                CreateTextColumn("Фамилия", nameof(CardBase.Surname)));
+            searchResultsDataGridView.Columns.Add(
+                CreateTextColumn("Имя", nameof(CardBase.Name)));
+            searchResultsDataGridView.Columns.Add(
+                CreateTextColumn("Название", nameof(CardBase.Title), DataGridViewAutoSizeColumnMode.Fill));
+            searchResultsDataGridView.Columns.Add(
+                CreateTextColumn("Год", nameof(CardBase.Year)));
 
-            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Имя",
-                DataPropertyName = nameof(CardBase.Name),
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            searchResultsDataGridView.Columns.Add(nameColumn);
-
-            DataGridViewTextBoxColumn titleColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Название",
-                DataPropertyName = nameof(CardBase.Title),
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            };
-            searchResultsDataGridView.Columns.Add(titleColumn);
-
-            DataGridViewTextBoxColumn yearColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Год",
-                DataPropertyName = nameof(CardBase.Year),
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            searchResultsDataGridView.Columns.Add(yearColumn);
-
-            searchResultsDataGridView.CellFormatting += 
+            searchResultsDataGridView.CellFormatting +=
                 SearchResultsDataGridView_CellFormatting;
         }
 
@@ -123,8 +114,8 @@ namespace LibraryView
             string nameFilter = searchNameTextBox.Text.Trim().ToLowerInvariant();
             string patronymicFilter = searchPatronymicTextBox.Text.Trim().ToLowerInvariant();
             string titleFilter = searchTitleTextBox.Text.Trim().ToLowerInvariant();
-            string yearFilter = searchYearTextBox.Text.Trim(); 
-            
+            string yearFilter = searchYearTextBox.Text.Trim();
+
             IEnumerable<CardBase> query = _allCards;
 
             if (!string.IsNullOrEmpty(surnameFilter))
@@ -139,10 +130,10 @@ namespace LibraryView
 
             if (!string.IsNullOrEmpty(patronymicFilter))
             {
-                query = query.Where(c => !string.IsNullOrEmpty(c.Patronymic) && 
+                query = query.Where(c => !string.IsNullOrEmpty(c.Patronymic) &&
                 c.Patronymic.ToLowerInvariant().Contains(patronymicFilter));
             }
-  
+
             if (!string.IsNullOrEmpty(titleFilter))
             {
                 query = query.Where(c => c.Title.ToLowerInvariant().Contains(titleFilter));
@@ -154,8 +145,8 @@ namespace LibraryView
             }
 
             List<CardBase> results = query.ToList();
-            _searchResultsBindingSource.DataSource = results; 
-            _searchResultsBindingSource.ResetBindings(false); 
+            _searchResultsBindingSource.DataSource = results;
+            _searchResultsBindingSource.ResetBindings(false);
 
             if (!results.Any())
             {
@@ -182,18 +173,17 @@ namespace LibraryView
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные события форматирования ячейки.</param>
-        private void SearchResultsDataGridView_CellFormatting(object sender, 
+        private void SearchResultsDataGridView_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && 
-                searchResultsDataGridView.Columns[e.ColumnIndex].Name 
-                //TODO: duplication +
-                    == SerchTypeColumnName)
+            if (e.RowIndex >= 0 &&
+                searchResultsDataGridView.Columns[e.ColumnIndex].Name
+                    == SearchTypeColumnName)
             {
                 if (searchResultsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
-                    e.Value = card.GetType().Name; 
-                    e.FormattingApplied = true;   
+                    e.Value = card.GetType().Name;
+                    e.FormattingApplied = true;
                 }
             }
         }
