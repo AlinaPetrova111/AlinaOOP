@@ -111,7 +111,8 @@ namespace LibraryView
                 ? patronymicsList[_random.Next(patronymicsList.Count)]
                 : string.Empty;
 
-            string title = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + " №" + _random.Next(1, 100);
+            string title = _hpBookTitles[_random.Next(_hpBookTitles.Count)] + 
+               " №" + _random.Next(1, 100);
             string year = _random.Next(1950, DateTime.Now.Year + 1).ToString();
 
             CardBase card;

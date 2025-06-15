@@ -104,7 +104,8 @@ namespace LibraryView
         {
             return Assembly.GetAssembly(typeof(CardBase))
                            .GetTypes()
-                           .Where(type => type.IsSubclassOf(typeof(CardBase)) && !type.IsAbstract)
+                           .Where(type => type.IsSubclassOf(typeof(CardBase)) &&
+                                !type.IsAbstract)
                            .ToArray();
         }
 
@@ -134,6 +135,9 @@ namespace LibraryView
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие на кнопку добавления новой карточки.
+        /// </summary>
         private void addCardButton_Click(object sender, EventArgs e)
         {
             using (AddCardForm addForm = new AddCardForm())
@@ -149,6 +153,9 @@ namespace LibraryView
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие на кнопку удаления выбранной карточки.
+        /// </summary>
         private void removeCardButton_Click(object sender, EventArgs e)
         {
             if (cardsDataGridView.CurrentRow != null
@@ -172,6 +179,9 @@ namespace LibraryView
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие на кнопку поиска карточек.
+        /// </summary>
         private void searchCardButton_Click(object sender, EventArgs e)
         {
             using (SearchForm searchForm = new SearchForm(_cards))
@@ -180,6 +190,9 @@ namespace LibraryView
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие на пункт меню "Сохранить как".
+        /// </summary>
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -212,6 +225,9 @@ namespace LibraryView
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие на пункт меню "Открыть".
+        /// </summary>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())

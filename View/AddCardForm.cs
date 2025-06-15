@@ -397,7 +397,8 @@ namespace LibraryView
                 dissertationOrganizationTextBox.Text = dissertation.Organization;
                 dissertationNameOfSpecialityTextBox.Text = dissertation.NameOfSpeciality;
                 dissertationCityTextBox.Text = dissertation.City;
-                dissertationSheetCountNumericUpDown.Value = Math.Max(dissertationSheetCountNumericUpDown.Minimum,
+                dissertationSheetCountNumericUpDown.Value = 
+                    Math.Max(dissertationSheetCountNumericUpDown.Minimum,
                     Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
             }
         }
