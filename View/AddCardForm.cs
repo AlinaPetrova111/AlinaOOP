@@ -108,7 +108,7 @@ namespace LibraryView
         /// </summary>
         private void SetupNumericUpDownDefaults()
         {
-            //TODO: rewrite
+            //TODO: rewrite+
             bookSheetCountNumericUpDown.Minimum = 1;
             bookSheetCountNumericUpDown.Maximum = 10000;
             bookSheetCountNumericUpDown.Value = 100;

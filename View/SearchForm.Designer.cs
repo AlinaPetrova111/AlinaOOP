@@ -223,6 +223,7 @@
             this.ClientSize = new System.Drawing.Size(557, 424);
             this.Controls.Add(this.searchResultsGroupBox);
             this.Controls.Add(this.searchCriteriaGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SearchForm";
             this.Text = "Поиск работы";

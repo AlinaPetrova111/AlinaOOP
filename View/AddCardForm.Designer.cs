@@ -800,13 +800,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 754);
+            this.ClientSize = new System.Drawing.Size(575, 754);
             this.Controls.Add(this.createRandomDataButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.commonFieldsPanel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.specificFieldsContainerPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddCardForm";
             this.Text = "Добавление работы";
