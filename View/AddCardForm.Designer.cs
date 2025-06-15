@@ -109,7 +109,7 @@
             this.cardTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardTypeComboBox.FormattingEnabled = true;
             this.cardTypeComboBox.Location = new System.Drawing.Point(31, 46);
-            this.cardTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.cardTypeComboBox.Name = "cardTypeComboBox";
             this.cardTypeComboBox.Size = new System.Drawing.Size(308, 24);
             this.cardTypeComboBox.TabIndex = 0;
@@ -127,7 +127,7 @@
             this.commonFieldsPanel.Controls.Add(this.nameTextBox);
             this.commonFieldsPanel.Controls.Add(this.surnameTextBox);
             this.commonFieldsPanel.Location = new System.Drawing.Point(13, 121);
-            this.commonFieldsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.commonFieldsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.commonFieldsPanel.Name = "commonFieldsPanel";
             this.commonFieldsPanel.Size = new System.Drawing.Size(536, 188);
             this.commonFieldsPanel.TabIndex = 1;
@@ -185,7 +185,7 @@
             // yearTextBox
             // 
             this.yearTextBox.Location = new System.Drawing.Point(180, 154);
-            this.yearTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yearTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(100, 22);
             this.yearTextBox.TabIndex = 1;
@@ -193,7 +193,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Location = new System.Drawing.Point(180, 122);
-            this.titleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(335, 22);
             this.titleTextBox.TabIndex = 1;
@@ -201,7 +201,7 @@
             // patronymicTextBox
             // 
             this.patronymicTextBox.Location = new System.Drawing.Point(91, 80);
-            this.patronymicTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patronymicTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.patronymicTextBox.Name = "patronymicTextBox";
             this.patronymicTextBox.Size = new System.Drawing.Size(167, 22);
             this.patronymicTextBox.TabIndex = 1;
@@ -209,7 +209,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(91, 48);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(167, 22);
             this.nameTextBox.TabIndex = 1;
@@ -217,7 +217,7 @@
             // surnameTextBox
             // 
             this.surnameTextBox.Location = new System.Drawing.Point(91, 16);
-            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(167, 22);
             this.surnameTextBox.TabIndex = 1;
@@ -231,7 +231,7 @@
             this.magazineSpecificPanel.Controls.Add(this.magazineEndSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineNameOfMagazineTextBox);
             this.magazineSpecificPanel.Location = new System.Drawing.Point(0, 0);
-            this.magazineSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineSpecificPanel.Margin = new System.Windows.Forms.Padding(4);
             this.magazineSpecificPanel.Name = "magazineSpecificPanel";
             this.magazineSpecificPanel.Size = new System.Drawing.Size(552, 121);
             this.magazineSpecificPanel.TabIndex = 2;
@@ -270,7 +270,7 @@
             // magazineStartSheetNumericUpDown
             // 
             this.magazineStartSheetNumericUpDown.Location = new System.Drawing.Point(168, 51);
-            this.magazineStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.magazineStartSheetNumericUpDown.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -293,7 +293,7 @@
             // magazineEndSheetNumericUpDown
             // 
             this.magazineEndSheetNumericUpDown.Location = new System.Drawing.Point(168, 86);
-            this.magazineEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.magazineEndSheetNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -316,7 +316,7 @@
             // magazineNameOfMagazineTextBox
             // 
             this.magazineNameOfMagazineTextBox.Location = new System.Drawing.Point(168, 11);
-            this.magazineNameOfMagazineTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineNameOfMagazineTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.magazineNameOfMagazineTextBox.Name = "magazineNameOfMagazineTextBox";
             this.magazineNameOfMagazineTextBox.Size = new System.Drawing.Size(369, 22);
             this.magazineNameOfMagazineTextBox.TabIndex = 0;
@@ -334,7 +334,7 @@
             this.articleSpecificPanel.Controls.Add(this.articleNameOfCollectionTextBox);
             this.articleSpecificPanel.Controls.Add(this.articlePublishingHouseTextBox);
             this.articleSpecificPanel.Location = new System.Drawing.Point(0, 0);
-            this.articleSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleSpecificPanel.Margin = new System.Windows.Forms.Padding(4);
             this.articleSpecificPanel.Name = "articleSpecificPanel";
             this.articleSpecificPanel.Size = new System.Drawing.Size(480, 220);
             this.articleSpecificPanel.TabIndex = 4;
@@ -393,7 +393,7 @@
             // articleEndSheetNumericUpDown
             // 
             this.articleEndSheetNumericUpDown.Location = new System.Drawing.Point(190, 183);
-            this.articleEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.articleEndSheetNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -416,7 +416,7 @@
             // articleStartSheetNumericUpDown
             // 
             this.articleStartSheetNumericUpDown.Location = new System.Drawing.Point(190, 143);
-            this.articleStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.articleStartSheetNumericUpDown.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -439,7 +439,7 @@
             // articlePlaceOfPublicationTextBox
             // 
             this.articlePlaceOfPublicationTextBox.Location = new System.Drawing.Point(189, 54);
-            this.articlePlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articlePlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.articlePlaceOfPublicationTextBox.Name = "articlePlaceOfPublicationTextBox";
             this.articlePlaceOfPublicationTextBox.Size = new System.Drawing.Size(240, 22);
             this.articlePlaceOfPublicationTextBox.TabIndex = 8;
@@ -447,7 +447,7 @@
             // articleNameOfCollectionTextBox
             // 
             this.articleNameOfCollectionTextBox.Location = new System.Drawing.Point(188, 15);
-            this.articleNameOfCollectionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleNameOfCollectionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.articleNameOfCollectionTextBox.Name = "articleNameOfCollectionTextBox";
             this.articleNameOfCollectionTextBox.Size = new System.Drawing.Size(288, 22);
             this.articleNameOfCollectionTextBox.TabIndex = 9;
@@ -455,7 +455,7 @@
             // articlePublishingHouseTextBox
             // 
             this.articlePublishingHouseTextBox.Location = new System.Drawing.Point(189, 95);
-            this.articlePublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articlePublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.articlePublishingHouseTextBox.Name = "articlePublishingHouseTextBox";
             this.articlePublishingHouseTextBox.Size = new System.Drawing.Size(269, 22);
             this.articlePublishingHouseTextBox.TabIndex = 7;
@@ -471,7 +471,7 @@
             this.bookSpecificPanel.Controls.Add(this.bookAdditionalInformationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookPublishingHouseTextBox);
             this.bookSpecificPanel.Location = new System.Drawing.Point(5, 0);
-            this.bookSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookSpecificPanel.Margin = new System.Windows.Forms.Padding(4);
             this.bookSpecificPanel.Name = "bookSpecificPanel";
             this.bookSpecificPanel.Size = new System.Drawing.Size(496, 140);
             this.bookSpecificPanel.TabIndex = 3;
@@ -520,7 +520,7 @@
             // bookSheetCountNumericUpDown
             // 
             this.bookSheetCountNumericUpDown.Location = new System.Drawing.Point(169, 106);
-            this.bookSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.bookSheetCountNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -543,7 +543,7 @@
             // bookPlaceOfPublicationTextBox
             // 
             this.bookPlaceOfPublicationTextBox.Location = new System.Drawing.Point(168, 6);
-            this.bookPlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookPlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.bookPlaceOfPublicationTextBox.Name = "bookPlaceOfPublicationTextBox";
             this.bookPlaceOfPublicationTextBox.Size = new System.Drawing.Size(209, 22);
             this.bookPlaceOfPublicationTextBox.TabIndex = 7;
@@ -551,7 +551,7 @@
             // bookAdditionalInformationTextBox
             // 
             this.bookAdditionalInformationTextBox.Location = new System.Drawing.Point(167, 71);
-            this.bookAdditionalInformationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookAdditionalInformationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.bookAdditionalInformationTextBox.Name = "bookAdditionalInformationTextBox";
             this.bookAdditionalInformationTextBox.Size = new System.Drawing.Size(207, 22);
             this.bookAdditionalInformationTextBox.TabIndex = 5;
@@ -559,7 +559,7 @@
             // bookPublishingHouseTextBox
             // 
             this.bookPublishingHouseTextBox.Location = new System.Drawing.Point(168, 36);
-            this.bookPublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookPublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.bookPublishingHouseTextBox.Name = "bookPublishingHouseTextBox";
             this.bookPublishingHouseTextBox.Size = new System.Drawing.Size(316, 22);
             this.bookPublishingHouseTextBox.TabIndex = 6;
@@ -581,7 +581,7 @@
             this.dissertationSpecificPanel.Controls.Add(this.dissertationKindOfDissertationTextBox);
             this.dissertationSpecificPanel.Controls.Add(this.dissertationBranchOfScienceTextBox);
             this.dissertationSpecificPanel.Location = new System.Drawing.Point(2, 0);
-            this.dissertationSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationSpecificPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationSpecificPanel.Name = "dissertationSpecificPanel";
             this.dissertationSpecificPanel.Size = new System.Drawing.Size(442, 273);
             this.dissertationSpecificPanel.TabIndex = 5;
@@ -660,7 +660,7 @@
             // dissertationSheetCountNumericUpDown
             // 
             this.dissertationSheetCountNumericUpDown.Location = new System.Drawing.Point(161, 241);
-            this.dissertationSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationSheetCountNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -683,7 +683,7 @@
             // dissertationCityTextBox
             // 
             this.dissertationCityTextBox.Location = new System.Drawing.Point(160, 204);
-            this.dissertationCityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationCityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationCityTextBox.Name = "dissertationCityTextBox";
             this.dissertationCityTextBox.Size = new System.Drawing.Size(149, 22);
             this.dissertationCityTextBox.TabIndex = 12;
@@ -691,7 +691,7 @@
             // dissertationNameOfSpecialityTextBox
             // 
             this.dissertationNameOfSpecialityTextBox.Location = new System.Drawing.Point(161, 163);
-            this.dissertationNameOfSpecialityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationNameOfSpecialityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationNameOfSpecialityTextBox.Name = "dissertationNameOfSpecialityTextBox";
             this.dissertationNameOfSpecialityTextBox.Size = new System.Drawing.Size(148, 22);
             this.dissertationNameOfSpecialityTextBox.TabIndex = 6;
@@ -699,7 +699,7 @@
             // dissertationSpecialtyCodeTextBox
             // 
             this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(161, 86);
-            this.dissertationSpecialtyCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationSpecialtyCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationSpecialtyCodeTextBox.Name = "dissertationSpecialtyCodeTextBox";
             this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(151, 22);
             this.dissertationSpecialtyCodeTextBox.TabIndex = 8;
@@ -707,7 +707,7 @@
             // dissertationOrganizationTextBox
             // 
             this.dissertationOrganizationTextBox.Location = new System.Drawing.Point(161, 125);
-            this.dissertationOrganizationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationOrganizationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationOrganizationTextBox.Name = "dissertationOrganizationTextBox";
             this.dissertationOrganizationTextBox.Size = new System.Drawing.Size(160, 22);
             this.dissertationOrganizationTextBox.TabIndex = 7;
@@ -715,7 +715,7 @@
             // dissertationKindOfDissertationTextBox
             // 
             this.dissertationKindOfDissertationTextBox.Location = new System.Drawing.Point(161, 16);
-            this.dissertationKindOfDissertationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationKindOfDissertationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationKindOfDissertationTextBox.Name = "dissertationKindOfDissertationTextBox";
             this.dissertationKindOfDissertationTextBox.Size = new System.Drawing.Size(175, 22);
             this.dissertationKindOfDissertationTextBox.TabIndex = 10;
@@ -723,15 +723,15 @@
             // dissertationBranchOfScienceTextBox
             // 
             this.dissertationBranchOfScienceTextBox.Location = new System.Drawing.Point(161, 50);
-            this.dissertationBranchOfScienceTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationBranchOfScienceTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dissertationBranchOfScienceTextBox.Name = "dissertationBranchOfScienceTextBox";
             this.dissertationBranchOfScienceTextBox.Size = new System.Drawing.Size(285, 22);
             this.dissertationBranchOfScienceTextBox.TabIndex = 9;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(13, 621);
-            this.okButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.okButton.Location = new System.Drawing.Point(50, 614);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 28);
             this.okButton.TabIndex = 3;
@@ -741,8 +741,8 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(13, 671);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Location = new System.Drawing.Point(210, 614);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(100, 28);
             this.cancelButton.TabIndex = 3;
@@ -752,10 +752,10 @@
             // 
             // createRandomDataButton
             // 
-            this.createRandomDataButton.Location = new System.Drawing.Point(13, 715);
-            this.createRandomDataButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.createRandomDataButton.Location = new System.Drawing.Point(368, 614);
+            this.createRandomDataButton.Margin = new System.Windows.Forms.Padding(4);
             this.createRandomDataButton.Name = "createRandomDataButton";
-            this.createRandomDataButton.Size = new System.Drawing.Size(203, 28);
+            this.createRandomDataButton.Size = new System.Drawing.Size(181, 28);
             this.createRandomDataButton.TabIndex = 3;
             this.createRandomDataButton.Text = "Случайные данные";
             this.createRandomDataButton.UseVisualStyleBackColor = true;
@@ -776,9 +776,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cardTypeComboBox);
             this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(357, 100);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
@@ -791,7 +791,7 @@
             this.specificFieldsContainerPanel.Controls.Add(this.articleSpecificPanel);
             this.specificFieldsContainerPanel.Controls.Add(this.dissertationSpecificPanel);
             this.specificFieldsContainerPanel.Location = new System.Drawing.Point(13, 327);
-            this.specificFieldsContainerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specificFieldsContainerPanel.Margin = new System.Windows.Forms.Padding(4);
             this.specificFieldsContainerPanel.Name = "specificFieldsContainerPanel";
             this.specificFieldsContainerPanel.Size = new System.Drawing.Size(638, 276);
             this.specificFieldsContainerPanel.TabIndex = 10;
@@ -800,7 +800,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 754);
+            this.ClientSize = new System.Drawing.Size(575, 646);
             this.Controls.Add(this.createRandomDataButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -808,9 +808,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.specificFieldsContainerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "AddCardForm";
-            this.Text = "Добавление работы";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавление карточки";
             this.commonFieldsPanel.ResumeLayout(false);
             this.commonFieldsPanel.PerformLayout();
             this.magazineSpecificPanel.ResumeLayout(false);

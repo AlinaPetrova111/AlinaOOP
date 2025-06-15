@@ -129,7 +129,7 @@ namespace LibraryCards
                 }
                 else
                 {
-                    _additionalInformation = $"- {value}";
+                    _additionalInformation = $"{value}";
                 }
             }
         }

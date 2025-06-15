@@ -66,9 +66,9 @@
             this.searchCriteriaGroupBox.Controls.Add(this.label1);
             this.searchCriteriaGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchCriteriaGroupBox.Location = new System.Drawing.Point(0, 0);
-            this.searchCriteriaGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchCriteriaGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchCriteriaGroupBox.Name = "searchCriteriaGroupBox";
-            this.searchCriteriaGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchCriteriaGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.searchCriteriaGroupBox.Size = new System.Drawing.Size(557, 255);
             this.searchCriteriaGroupBox.TabIndex = 0;
             this.searchCriteriaGroupBox.TabStop = false;
@@ -77,7 +77,7 @@
             // closeSearchButton
             // 
             this.closeSearchButton.Location = new System.Drawing.Point(440, 220);
-            this.closeSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.closeSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.closeSearchButton.Name = "closeSearchButton";
             this.closeSearchButton.Size = new System.Drawing.Size(100, 28);
             this.closeSearchButton.TabIndex = 10;
@@ -88,7 +88,7 @@
             // performSearchButton
             // 
             this.performSearchButton.Location = new System.Drawing.Point(315, 220);
-            this.performSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.performSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.performSearchButton.Name = "performSearchButton";
             this.performSearchButton.Size = new System.Drawing.Size(100, 28);
             this.performSearchButton.TabIndex = 1;
@@ -99,7 +99,7 @@
             // searchYearTextBox
             // 
             this.searchYearTextBox.Location = new System.Drawing.Point(153, 220);
-            this.searchYearTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchYearTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchYearTextBox.Name = "searchYearTextBox";
             this.searchYearTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchYearTextBox.TabIndex = 9;
@@ -117,7 +117,7 @@
             // searchTitleTextBox
             // 
             this.searchTitleTextBox.Location = new System.Drawing.Point(153, 177);
-            this.searchTitleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchTitleTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchTitleTextBox.Name = "searchTitleTextBox";
             this.searchTitleTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchTitleTextBox.TabIndex = 7;
@@ -135,7 +135,7 @@
             // searchPatronymicTextBox
             // 
             this.searchPatronymicTextBox.Location = new System.Drawing.Point(152, 127);
-            this.searchPatronymicTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchPatronymicTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchPatronymicTextBox.Name = "searchPatronymicTextBox";
             this.searchPatronymicTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchPatronymicTextBox.TabIndex = 5;
@@ -153,7 +153,7 @@
             // searchNameTextBox
             // 
             this.searchNameTextBox.Location = new System.Drawing.Point(153, 81);
-            this.searchNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchNameTextBox.Name = "searchNameTextBox";
             this.searchNameTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchNameTextBox.TabIndex = 3;
@@ -171,7 +171,7 @@
             // searchSurnameTextBox
             // 
             this.searchSurnameTextBox.Location = new System.Drawing.Point(153, 36);
-            this.searchSurnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchSurnameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchSurnameTextBox.Name = "searchSurnameTextBox";
             this.searchSurnameTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchSurnameTextBox.TabIndex = 1;
@@ -191,9 +191,9 @@
             this.searchResultsGroupBox.Controls.Add(this.searchResultsDataGridView);
             this.searchResultsGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchResultsGroupBox.Location = new System.Drawing.Point(0, 264);
-            this.searchResultsGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchResultsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchResultsGroupBox.Name = "searchResultsGroupBox";
-            this.searchResultsGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchResultsGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.searchResultsGroupBox.Size = new System.Drawing.Size(557, 160);
             this.searchResultsGroupBox.TabIndex = 1;
             this.searchResultsGroupBox.TabStop = false;
@@ -207,7 +207,7 @@
             this.searchResultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchResultsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchResultsDataGridView.Location = new System.Drawing.Point(4, 19);
-            this.searchResultsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchResultsDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.searchResultsDataGridView.MultiSelect = false;
             this.searchResultsDataGridView.Name = "searchResultsDataGridView";
             this.searchResultsDataGridView.ReadOnly = true;
@@ -224,9 +224,11 @@
             this.Controls.Add(this.searchResultsGroupBox);
             this.Controls.Add(this.searchCriteriaGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "SearchForm";
-            this.Text = "Поиск работы";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Поиск карточки";
             this.searchCriteriaGroupBox.ResumeLayout(false);
             this.searchCriteriaGroupBox.PerformLayout();
             this.searchResultsGroupBox.ResumeLayout(false);

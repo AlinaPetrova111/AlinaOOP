@@ -85,20 +85,20 @@
             this.groupBox1.Controls.Add(this.cardsDataGridView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 28);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(642, 320);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(642, 304);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Библиотечные карточки";
             // 
             // removeCardButton
             // 
-            this.removeCardButton.Location = new System.Drawing.Point(223, 287);
-            this.removeCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeCardButton.Location = new System.Drawing.Point(240, 269);
+            this.removeCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeCardButton.Name = "removeCardButton";
-            this.removeCardButton.Size = new System.Drawing.Size(181, 28);
+            this.removeCardButton.Size = new System.Drawing.Size(168, 28);
             this.removeCardButton.TabIndex = 3;
             this.removeCardButton.Text = "Удалить выбранную";
             this.removeCardButton.UseVisualStyleBackColor = true;
@@ -106,10 +106,10 @@
             // 
             // addCardButton
             // 
-            this.addCardButton.Location = new System.Drawing.Point(8, 287);
-            this.addCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addCardButton.Location = new System.Drawing.Point(22, 269);
+            this.addCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.addCardButton.Name = "addCardButton";
-            this.addCardButton.Size = new System.Drawing.Size(185, 28);
+            this.addCardButton.Size = new System.Drawing.Size(173, 28);
             this.addCardButton.TabIndex = 3;
             this.addCardButton.Text = "Добавить карточку";
             this.addCardButton.UseVisualStyleBackColor = true;
@@ -117,10 +117,10 @@
             // 
             // searchCardButton
             // 
-            this.searchCardButton.Location = new System.Drawing.Point(430, 287);
-            this.searchCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchCardButton.Location = new System.Drawing.Point(453, 269);
+            this.searchCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchCardButton.Name = "searchCardButton";
-            this.searchCardButton.Size = new System.Drawing.Size(204, 28);
+            this.searchCardButton.Size = new System.Drawing.Size(160, 28);
             this.searchCardButton.TabIndex = 3;
             this.searchCardButton.Text = "Искать карточки";
             this.searchCardButton.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.cardsDataGridView.AllowUserToAddRows = false;
             this.cardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cardsDataGridView.Location = new System.Drawing.Point(8, 23);
-            this.cardsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardsDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.cardsDataGridView.Name = "cardsDataGridView";
             this.cardsDataGridView.RowHeadersWidth = 51;
             this.cardsDataGridView.Size = new System.Drawing.Size(626, 241);
@@ -141,15 +141,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 348);
+            this.ClientSize = new System.Drawing.Size(642, 332);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Библиотека";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
