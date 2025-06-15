@@ -87,9 +87,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.createRandomDataButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.specificFieldsContainerPanel = new System.Windows.Forms.Panel();
             this.commonFieldsPanel.SuspendLayout();
             this.magazineSpecificPanel.SuspendLayout();
@@ -102,9 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bookSheetCountNumericUpDown)).BeginInit();
             this.dissertationSpecificPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.specificFieldsContainerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,9 +108,10 @@
             // 
             this.cardTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardTypeComboBox.FormattingEnabled = true;
-            this.cardTypeComboBox.Location = new System.Drawing.Point(23, 37);
+            this.cardTypeComboBox.Location = new System.Drawing.Point(31, 46);
+            this.cardTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cardTypeComboBox.Name = "cardTypeComboBox";
-            this.cardTypeComboBox.Size = new System.Drawing.Size(232, 21);
+            this.cardTypeComboBox.Size = new System.Drawing.Size(308, 24);
             this.cardTypeComboBox.TabIndex = 0;
             // 
             // commonFieldsPanel
@@ -129,89 +126,100 @@
             this.commonFieldsPanel.Controls.Add(this.patronymicTextBox);
             this.commonFieldsPanel.Controls.Add(this.nameTextBox);
             this.commonFieldsPanel.Controls.Add(this.surnameTextBox);
-            this.commonFieldsPanel.Location = new System.Drawing.Point(7, 14);
+            this.commonFieldsPanel.Location = new System.Drawing.Point(13, 121);
+            this.commonFieldsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.commonFieldsPanel.Name = "commonFieldsPanel";
-            this.commonFieldsPanel.Size = new System.Drawing.Size(402, 163);
+            this.commonFieldsPanel.Size = new System.Drawing.Size(536, 188);
             this.commonFieldsPanel.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 141);
+            this.label6.Location = new System.Drawing.Point(10, 158);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(88, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Год издания";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 115);
+            this.label5.Location = new System.Drawing.Point(9, 126);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(124, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Название работы";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 68);
+            this.label4.Location = new System.Drawing.Point(10, 84);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Отчество";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Location = new System.Drawing.Point(10, 51);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(33, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Имя";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Location = new System.Drawing.Point(8, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Фамилия";
             // 
             // yearTextBox
             // 
-            this.yearTextBox.Location = new System.Drawing.Point(135, 138);
+            this.yearTextBox.Location = new System.Drawing.Point(180, 154);
+            this.yearTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(76, 20);
+            this.yearTextBox.Size = new System.Drawing.Size(100, 22);
             this.yearTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(135, 112);
+            this.titleTextBox.Location = new System.Drawing.Point(180, 122);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(252, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(335, 22);
             this.titleTextBox.TabIndex = 1;
             // 
             // patronymicTextBox
             // 
-            this.patronymicTextBox.Location = new System.Drawing.Point(68, 65);
+            this.patronymicTextBox.Location = new System.Drawing.Point(91, 80);
+            this.patronymicTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.patronymicTextBox.Name = "patronymicTextBox";
-            this.patronymicTextBox.Size = new System.Drawing.Size(126, 20);
+            this.patronymicTextBox.Size = new System.Drawing.Size(167, 22);
             this.patronymicTextBox.TabIndex = 1;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(68, 39);
+            this.nameTextBox.Location = new System.Drawing.Point(91, 48);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(126, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(167, 22);
             this.nameTextBox.TabIndex = 1;
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Location = new System.Drawing.Point(68, 13);
+            this.surnameTextBox.Location = new System.Drawing.Point(91, 16);
+            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(126, 20);
+            this.surnameTextBox.Size = new System.Drawing.Size(167, 22);
             this.surnameTextBox.TabIndex = 1;
             // 
             // magazineSpecificPanel
@@ -223,57 +231,94 @@
             this.magazineSpecificPanel.Controls.Add(this.magazineEndSheetNumericUpDown);
             this.magazineSpecificPanel.Controls.Add(this.magazineNameOfMagazineTextBox);
             this.magazineSpecificPanel.Location = new System.Drawing.Point(0, 0);
+            this.magazineSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.magazineSpecificPanel.Name = "magazineSpecificPanel";
-            this.magazineSpecificPanel.Size = new System.Drawing.Size(776, 60);
+            this.magazineSpecificPanel.Size = new System.Drawing.Size(552, 121);
             this.magazineSpecificPanel.TabIndex = 2;
             this.magazineSpecificPanel.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(485, 7);
+            this.label8.Location = new System.Drawing.Point(3, 86);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 13);
+            this.label8.Size = new System.Drawing.Size(143, 16);
             this.label8.TabIndex = 12;
             this.label8.Text = "Последняя страница";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(337, 7);
+            this.label7.Location = new System.Drawing.Point(3, 51);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 13);
+            this.label7.Size = new System.Drawing.Size(121, 16);
             this.label7.TabIndex = 9;
             this.label7.Text = "Первая страница";
             // 
             // Название
             // 
             this.Название.AutoSize = true;
-            this.Название.Location = new System.Drawing.Point(128, 7);
+            this.Название.Location = new System.Drawing.Point(3, 17);
+            this.Название.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Название.Name = "Название";
-            this.Название.Size = new System.Drawing.Size(57, 13);
+            this.Название.Size = new System.Drawing.Size(73, 16);
             this.Название.TabIndex = 11;
             this.Название.Text = "Название";
             // 
             // magazineStartSheetNumericUpDown
             // 
-            this.magazineStartSheetNumericUpDown.Location = new System.Drawing.Point(347, 24);
+            this.magazineStartSheetNumericUpDown.Location = new System.Drawing.Point(168, 51);
+            this.magazineStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineStartSheetNumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.magazineStartSheetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.magazineStartSheetNumericUpDown.Name = "magazineStartSheetNumericUpDown";
-            this.magazineStartSheetNumericUpDown.Size = new System.Drawing.Size(65, 20);
+            this.magazineStartSheetNumericUpDown.Size = new System.Drawing.Size(87, 22);
             this.magazineStartSheetNumericUpDown.TabIndex = 10;
+            this.magazineStartSheetNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // magazineEndSheetNumericUpDown
             // 
-            this.magazineEndSheetNumericUpDown.Location = new System.Drawing.Point(507, 24);
+            this.magazineEndSheetNumericUpDown.Location = new System.Drawing.Point(168, 86);
+            this.magazineEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.magazineEndSheetNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.magazineEndSheetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.magazineEndSheetNumericUpDown.Name = "magazineEndSheetNumericUpDown";
-            this.magazineEndSheetNumericUpDown.Size = new System.Drawing.Size(68, 20);
+            this.magazineEndSheetNumericUpDown.Size = new System.Drawing.Size(91, 22);
             this.magazineEndSheetNumericUpDown.TabIndex = 9;
+            this.magazineEndSheetNumericUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // magazineNameOfMagazineTextBox
             // 
-            this.magazineNameOfMagazineTextBox.Location = new System.Drawing.Point(14, 23);
+            this.magazineNameOfMagazineTextBox.Location = new System.Drawing.Point(168, 11);
+            this.magazineNameOfMagazineTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.magazineNameOfMagazineTextBox.Name = "magazineNameOfMagazineTextBox";
-            this.magazineNameOfMagazineTextBox.Size = new System.Drawing.Size(287, 20);
+            this.magazineNameOfMagazineTextBox.Size = new System.Drawing.Size(369, 22);
             this.magazineNameOfMagazineTextBox.TabIndex = 0;
             // 
             // articleSpecificPanel
@@ -289,89 +334,130 @@
             this.articleSpecificPanel.Controls.Add(this.articleNameOfCollectionTextBox);
             this.articleSpecificPanel.Controls.Add(this.articlePublishingHouseTextBox);
             this.articleSpecificPanel.Location = new System.Drawing.Point(0, 0);
+            this.articleSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.articleSpecificPanel.Name = "articleSpecificPanel";
-            this.articleSpecificPanel.Size = new System.Drawing.Size(925, 59);
+            this.articleSpecificPanel.Size = new System.Drawing.Size(480, 220);
             this.articleSpecificPanel.TabIndex = 4;
             this.articleSpecificPanel.Visible = false;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(796, 3);
+            this.label24.Location = new System.Drawing.Point(7, 183);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(113, 13);
+            this.label24.Size = new System.Drawing.Size(143, 16);
             this.label24.TabIndex = 19;
             this.label24.Text = "Последняя страница";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(679, 3);
+            this.label23.Location = new System.Drawing.Point(7, 145);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(95, 13);
+            this.label23.Size = new System.Drawing.Size(121, 16);
             this.label23.TabIndex = 18;
             this.label23.Text = "Первая страница";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(524, 2);
+            this.label22.Location = new System.Drawing.Point(7, 95);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(79, 13);
+            this.label22.Size = new System.Drawing.Size(101, 16);
             this.label22.TabIndex = 17;
             this.label22.Text = "Издательство";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(292, 2);
+            this.label21.Location = new System.Drawing.Point(7, 57);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(101, 13);
+            this.label21.Size = new System.Drawing.Size(130, 16);
             this.label21.TabIndex = 16;
             this.label21.Text = "Место публикации";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(73, 2);
+            this.label20.Location = new System.Drawing.Point(7, 21);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(94, 13);
+            this.label20.Size = new System.Drawing.Size(120, 16);
             this.label20.TabIndex = 15;
             this.label20.Text = "Название статьи";
             // 
             // articleEndSheetNumericUpDown
             // 
-            this.articleEndSheetNumericUpDown.Location = new System.Drawing.Point(815, 24);
+            this.articleEndSheetNumericUpDown.Location = new System.Drawing.Point(190, 183);
+            this.articleEndSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleEndSheetNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.articleEndSheetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.articleEndSheetNumericUpDown.Name = "articleEndSheetNumericUpDown";
-            this.articleEndSheetNumericUpDown.Size = new System.Drawing.Size(80, 20);
+            this.articleEndSheetNumericUpDown.Size = new System.Drawing.Size(107, 22);
             this.articleEndSheetNumericUpDown.TabIndex = 11;
+            this.articleEndSheetNumericUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // articleStartSheetNumericUpDown
             // 
-            this.articleStartSheetNumericUpDown.Location = new System.Drawing.Point(681, 19);
+            this.articleStartSheetNumericUpDown.Location = new System.Drawing.Point(190, 143);
+            this.articleStartSheetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.articleStartSheetNumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.articleStartSheetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.articleStartSheetNumericUpDown.Name = "articleStartSheetNumericUpDown";
-            this.articleStartSheetNumericUpDown.Size = new System.Drawing.Size(88, 20);
+            this.articleStartSheetNumericUpDown.Size = new System.Drawing.Size(117, 22);
             this.articleStartSheetNumericUpDown.TabIndex = 10;
+            this.articleStartSheetNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // articlePlaceOfPublicationTextBox
             // 
-            this.articlePlaceOfPublicationTextBox.Location = new System.Drawing.Point(255, 18);
+            this.articlePlaceOfPublicationTextBox.Location = new System.Drawing.Point(189, 54);
+            this.articlePlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.articlePlaceOfPublicationTextBox.Name = "articlePlaceOfPublicationTextBox";
-            this.articlePlaceOfPublicationTextBox.Size = new System.Drawing.Size(181, 20);
+            this.articlePlaceOfPublicationTextBox.Size = new System.Drawing.Size(240, 22);
             this.articlePlaceOfPublicationTextBox.TabIndex = 8;
             // 
             // articleNameOfCollectionTextBox
             // 
-            this.articleNameOfCollectionTextBox.Location = new System.Drawing.Point(15, 18);
+            this.articleNameOfCollectionTextBox.Location = new System.Drawing.Point(188, 15);
+            this.articleNameOfCollectionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.articleNameOfCollectionTextBox.Name = "articleNameOfCollectionTextBox";
-            this.articleNameOfCollectionTextBox.Size = new System.Drawing.Size(217, 20);
+            this.articleNameOfCollectionTextBox.Size = new System.Drawing.Size(288, 22);
             this.articleNameOfCollectionTextBox.TabIndex = 9;
             // 
             // articlePublishingHouseTextBox
             // 
-            this.articlePublishingHouseTextBox.Location = new System.Drawing.Point(460, 18);
+            this.articlePublishingHouseTextBox.Location = new System.Drawing.Point(189, 95);
+            this.articlePublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.articlePublishingHouseTextBox.Name = "articlePublishingHouseTextBox";
-            this.articlePublishingHouseTextBox.Size = new System.Drawing.Size(203, 20);
+            this.articlePublishingHouseTextBox.Size = new System.Drawing.Size(269, 22);
             this.articlePublishingHouseTextBox.TabIndex = 7;
             // 
             // bookSpecificPanel
@@ -384,74 +470,98 @@
             this.bookSpecificPanel.Controls.Add(this.bookPlaceOfPublicationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookAdditionalInformationTextBox);
             this.bookSpecificPanel.Controls.Add(this.bookPublishingHouseTextBox);
-            this.bookSpecificPanel.Location = new System.Drawing.Point(0, 0);
+            this.bookSpecificPanel.Location = new System.Drawing.Point(5, 0);
+            this.bookSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bookSpecificPanel.Name = "bookSpecificPanel";
-            this.bookSpecificPanel.Size = new System.Drawing.Size(773, 60);
+            this.bookSpecificPanel.Size = new System.Drawing.Size(496, 140);
             this.bookSpecificPanel.TabIndex = 3;
             this.bookSpecificPanel.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(667, 8);
+            this.label12.Location = new System.Drawing.Point(4, 108);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(85, 13);
+            this.label12.Size = new System.Drawing.Size(108, 16);
             this.label12.TabIndex = 16;
             this.label12.Text = "Кол-во страниц";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(492, 7);
+            this.label11.Location = new System.Drawing.Point(5, 71);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.Size = new System.Drawing.Size(118, 16);
             this.label11.TabIndex = 15;
             this.label11.Text = "Доп.информация";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(279, 7);
+            this.label10.Location = new System.Drawing.Point(5, 39);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.Size = new System.Drawing.Size(101, 16);
             this.label10.TabIndex = 14;
             this.label10.Text = "Издательство";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(34, 7);
+            this.label9.Location = new System.Drawing.Point(5, 9);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 13);
+            this.label9.Size = new System.Drawing.Size(130, 16);
             this.label9.TabIndex = 13;
             this.label9.Text = "Место публикации";
             // 
             // bookSheetCountNumericUpDown
             // 
-            this.bookSheetCountNumericUpDown.Location = new System.Drawing.Point(673, 24);
+            this.bookSheetCountNumericUpDown.Location = new System.Drawing.Point(169, 106);
+            this.bookSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookSheetCountNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.bookSheetCountNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.bookSheetCountNumericUpDown.Name = "bookSheetCountNumericUpDown";
-            this.bookSheetCountNumericUpDown.Size = new System.Drawing.Size(64, 20);
+            this.bookSheetCountNumericUpDown.Size = new System.Drawing.Size(85, 22);
             this.bookSheetCountNumericUpDown.TabIndex = 8;
+            this.bookSheetCountNumericUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // bookPlaceOfPublicationTextBox
             // 
-            this.bookPlaceOfPublicationTextBox.Location = new System.Drawing.Point(14, 23);
+            this.bookPlaceOfPublicationTextBox.Location = new System.Drawing.Point(168, 6);
+            this.bookPlaceOfPublicationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bookPlaceOfPublicationTextBox.Name = "bookPlaceOfPublicationTextBox";
-            this.bookPlaceOfPublicationTextBox.Size = new System.Drawing.Size(158, 20);
+            this.bookPlaceOfPublicationTextBox.Size = new System.Drawing.Size(209, 22);
             this.bookPlaceOfPublicationTextBox.TabIndex = 7;
             // 
             // bookAdditionalInformationTextBox
             // 
-            this.bookAdditionalInformationTextBox.Location = new System.Drawing.Point(462, 23);
+            this.bookAdditionalInformationTextBox.Location = new System.Drawing.Point(167, 71);
+            this.bookAdditionalInformationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bookAdditionalInformationTextBox.Name = "bookAdditionalInformationTextBox";
-            this.bookAdditionalInformationTextBox.Size = new System.Drawing.Size(156, 20);
+            this.bookAdditionalInformationTextBox.Size = new System.Drawing.Size(207, 22);
             this.bookAdditionalInformationTextBox.TabIndex = 5;
             // 
             // bookPublishingHouseTextBox
             // 
-            this.bookPublishingHouseTextBox.Location = new System.Drawing.Point(196, 23);
+            this.bookPublishingHouseTextBox.Location = new System.Drawing.Point(168, 36);
+            this.bookPublishingHouseTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bookPublishingHouseTextBox.Name = "bookPublishingHouseTextBox";
-            this.bookPublishingHouseTextBox.Size = new System.Drawing.Size(238, 20);
+            this.bookPublishingHouseTextBox.Size = new System.Drawing.Size(316, 22);
             this.bookPublishingHouseTextBox.TabIndex = 6;
             // 
             // dissertationSpecificPanel
@@ -470,129 +580,160 @@
             this.dissertationSpecificPanel.Controls.Add(this.dissertationOrganizationTextBox);
             this.dissertationSpecificPanel.Controls.Add(this.dissertationKindOfDissertationTextBox);
             this.dissertationSpecificPanel.Controls.Add(this.dissertationBranchOfScienceTextBox);
-            this.dissertationSpecificPanel.Location = new System.Drawing.Point(0, 0);
+            this.dissertationSpecificPanel.Location = new System.Drawing.Point(2, 0);
+            this.dissertationSpecificPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationSpecificPanel.Name = "dissertationSpecificPanel";
-            this.dissertationSpecificPanel.Size = new System.Drawing.Size(1015, 60);
+            this.dissertationSpecificPanel.Size = new System.Drawing.Size(442, 273);
             this.dissertationSpecificPanel.TabIndex = 5;
             this.dissertationSpecificPanel.Visible = false;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(921, 13);
+            this.label19.Location = new System.Drawing.Point(6, 240);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(85, 13);
+            this.label19.Size = new System.Drawing.Size(108, 16);
             this.label19.TabIndex = 19;
             this.label19.Text = "Кол-во страниц";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(827, 13);
+            this.label18.Location = new System.Drawing.Point(6, 204);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.Size = new System.Drawing.Size(46, 16);
             this.label18.TabIndex = 19;
             this.label18.Text = "Город";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(675, 13);
+            this.label17.Location = new System.Drawing.Point(6, 165);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 13);
+            this.label17.Size = new System.Drawing.Size(108, 16);
             this.label17.TabIndex = 18;
             this.label17.Text = "Специальность";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(546, 13);
+            this.label16.Location = new System.Drawing.Point(6, 128);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 13);
+            this.label16.Size = new System.Drawing.Size(94, 16);
             this.label16.TabIndex = 17;
             this.label16.Text = "Организация";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(399, 13);
+            this.label15.Location = new System.Drawing.Point(5, 92);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(97, 13);
+            this.label15.Size = new System.Drawing.Size(122, 16);
             this.label15.TabIndex = 16;
             this.label15.Text = "Специальный код";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(233, 13);
+            this.label14.Location = new System.Drawing.Point(6, 57);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 13);
+            this.label14.Size = new System.Drawing.Size(104, 16);
             this.label14.TabIndex = 15;
             this.label14.Text = "Отрасль науки";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(65, 13);
+            this.label13.Location = new System.Drawing.Point(6, 21);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(26, 13);
+            this.label13.Size = new System.Drawing.Size(32, 16);
             this.label13.TabIndex = 14;
             this.label13.Text = "Вид";
             // 
             // dissertationSheetCountNumericUpDown
             // 
-            this.dissertationSheetCountNumericUpDown.Location = new System.Drawing.Point(934, 29);
+            this.dissertationSheetCountNumericUpDown.Location = new System.Drawing.Point(161, 241);
+            this.dissertationSheetCountNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dissertationSheetCountNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.dissertationSheetCountNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.dissertationSheetCountNumericUpDown.Name = "dissertationSheetCountNumericUpDown";
-            this.dissertationSheetCountNumericUpDown.Size = new System.Drawing.Size(57, 20);
+            this.dissertationSheetCountNumericUpDown.Size = new System.Drawing.Size(76, 22);
             this.dissertationSheetCountNumericUpDown.TabIndex = 13;
+            this.dissertationSheetCountNumericUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // dissertationCityTextBox
             // 
-            this.dissertationCityTextBox.Location = new System.Drawing.Point(791, 29);
+            this.dissertationCityTextBox.Location = new System.Drawing.Point(160, 204);
+            this.dissertationCityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationCityTextBox.Name = "dissertationCityTextBox";
-            this.dissertationCityTextBox.Size = new System.Drawing.Size(113, 20);
+            this.dissertationCityTextBox.Size = new System.Drawing.Size(149, 22);
             this.dissertationCityTextBox.TabIndex = 12;
             // 
             // dissertationNameOfSpecialityTextBox
             // 
-            this.dissertationNameOfSpecialityTextBox.Location = new System.Drawing.Point(661, 29);
+            this.dissertationNameOfSpecialityTextBox.Location = new System.Drawing.Point(161, 163);
+            this.dissertationNameOfSpecialityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationNameOfSpecialityTextBox.Name = "dissertationNameOfSpecialityTextBox";
-            this.dissertationNameOfSpecialityTextBox.Size = new System.Drawing.Size(112, 20);
+            this.dissertationNameOfSpecialityTextBox.Size = new System.Drawing.Size(148, 22);
             this.dissertationNameOfSpecialityTextBox.TabIndex = 6;
             // 
             // dissertationSpecialtyCodeTextBox
             // 
-            this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(392, 29);
+            this.dissertationSpecialtyCodeTextBox.Location = new System.Drawing.Point(161, 86);
+            this.dissertationSpecialtyCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationSpecialtyCodeTextBox.Name = "dissertationSpecialtyCodeTextBox";
-            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(114, 20);
+            this.dissertationSpecialtyCodeTextBox.Size = new System.Drawing.Size(151, 22);
             this.dissertationSpecialtyCodeTextBox.TabIndex = 8;
             // 
             // dissertationOrganizationTextBox
             // 
-            this.dissertationOrganizationTextBox.Location = new System.Drawing.Point(523, 29);
+            this.dissertationOrganizationTextBox.Location = new System.Drawing.Point(161, 125);
+            this.dissertationOrganizationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationOrganizationTextBox.Name = "dissertationOrganizationTextBox";
-            this.dissertationOrganizationTextBox.Size = new System.Drawing.Size(121, 20);
+            this.dissertationOrganizationTextBox.Size = new System.Drawing.Size(160, 22);
             this.dissertationOrganizationTextBox.TabIndex = 7;
             // 
             // dissertationKindOfDissertationTextBox
             // 
-            this.dissertationKindOfDissertationTextBox.Location = new System.Drawing.Point(15, 29);
+            this.dissertationKindOfDissertationTextBox.Location = new System.Drawing.Point(161, 16);
+            this.dissertationKindOfDissertationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationKindOfDissertationTextBox.Name = "dissertationKindOfDissertationTextBox";
-            this.dissertationKindOfDissertationTextBox.Size = new System.Drawing.Size(132, 20);
+            this.dissertationKindOfDissertationTextBox.Size = new System.Drawing.Size(175, 22);
             this.dissertationKindOfDissertationTextBox.TabIndex = 10;
             // 
             // dissertationBranchOfScienceTextBox
             // 
-            this.dissertationBranchOfScienceTextBox.Location = new System.Drawing.Point(163, 29);
+            this.dissertationBranchOfScienceTextBox.Location = new System.Drawing.Point(161, 50);
+            this.dissertationBranchOfScienceTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dissertationBranchOfScienceTextBox.Name = "dissertationBranchOfScienceTextBox";
-            this.dissertationBranchOfScienceTextBox.Size = new System.Drawing.Size(215, 20);
+            this.dissertationBranchOfScienceTextBox.Size = new System.Drawing.Size(285, 22);
             this.dissertationBranchOfScienceTextBox.TabIndex = 9;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(6, 19);
+            this.okButton.Location = new System.Drawing.Point(13, 621);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(100, 28);
             this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -600,9 +741,10 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(94, 19);
+            this.cancelButton.Location = new System.Drawing.Point(13, 667);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(100, 28);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -610,9 +752,10 @@
             // 
             // createRandomDataButton
             // 
-            this.createRandomDataButton.Location = new System.Drawing.Point(188, 19);
+            this.createRandomDataButton.Location = new System.Drawing.Point(13, 715);
+            this.createRandomDataButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createRandomDataButton.Name = "createRandomDataButton";
-            this.createRandomDataButton.Size = new System.Drawing.Size(152, 23);
+            this.createRandomDataButton.Size = new System.Drawing.Size(203, 28);
             this.createRandomDataButton.TabIndex = 3;
             this.createRandomDataButton.Text = "Случайные данные";
             this.createRandomDataButton.UseVisualStyleBackColor = true;
@@ -621,42 +764,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 21);
+            this.label1.Location = new System.Drawing.Point(27, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "Тип карточки:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.okButton);
-            this.groupBox1.Controls.Add(this.cancelButton);
-            this.groupBox1.Controls.Add(this.createRandomDataButton);
-            this.groupBox1.Location = new System.Drawing.Point(32, 305);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(365, 61);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cardTypeComboBox);
-            this.groupBox2.Location = new System.Drawing.Point(927, 29);
+            this.groupBox2.Location = new System.Drawing.Point(13, 13);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(268, 81);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(357, 100);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выберите:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.commonFieldsPanel);
-            this.groupBox3.Location = new System.Drawing.Point(16, 15);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(911, 196);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
             // 
             // specificFieldsContainerPanel
             // 
@@ -664,22 +790,26 @@
             this.specificFieldsContainerPanel.Controls.Add(this.magazineSpecificPanel);
             this.specificFieldsContainerPanel.Controls.Add(this.articleSpecificPanel);
             this.specificFieldsContainerPanel.Controls.Add(this.dissertationSpecificPanel);
-            this.specificFieldsContainerPanel.Location = new System.Drawing.Point(32, 229);
+            this.specificFieldsContainerPanel.Location = new System.Drawing.Point(13, 327);
+            this.specificFieldsContainerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.specificFieldsContainerPanel.Name = "specificFieldsContainerPanel";
-            this.specificFieldsContainerPanel.Size = new System.Drawing.Size(1041, 70);
+            this.specificFieldsContainerPanel.Size = new System.Drawing.Size(638, 276);
             this.specificFieldsContainerPanel.TabIndex = 10;
             // 
             // AddCardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 439);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(1303, 744);
+            this.Controls.Add(this.createRandomDataButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.commonFieldsPanel);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.specificFieldsContainerPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddCardForm";
-            this.Text = "AddCardForm";
+            this.Text = "Добавление работы";
             this.commonFieldsPanel.ResumeLayout(false);
             this.commonFieldsPanel.PerformLayout();
             this.magazineSpecificPanel.ResumeLayout(false);
@@ -696,10 +826,8 @@
             this.dissertationSpecificPanel.ResumeLayout(false);
             this.dissertationSpecificPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dissertationSheetCountNumericUpDown)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.specificFieldsContainerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -746,9 +874,7 @@
         private System.Windows.Forms.NumericUpDown articleStartSheetNumericUpDown;
         private System.Windows.Forms.NumericUpDown bookSheetCountNumericUpDown;
         private System.Windows.Forms.NumericUpDown dissertationSheetCountNumericUpDown;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label Название;

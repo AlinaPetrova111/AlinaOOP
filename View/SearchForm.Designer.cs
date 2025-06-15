@@ -66,17 +66,20 @@
             this.searchCriteriaGroupBox.Controls.Add(this.label1);
             this.searchCriteriaGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchCriteriaGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.searchCriteriaGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchCriteriaGroupBox.Name = "searchCriteriaGroupBox";
-            this.searchCriteriaGroupBox.Size = new System.Drawing.Size(457, 216);
+            this.searchCriteriaGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchCriteriaGroupBox.Size = new System.Drawing.Size(557, 255);
             this.searchCriteriaGroupBox.TabIndex = 0;
             this.searchCriteriaGroupBox.TabStop = false;
             this.searchCriteriaGroupBox.Text = "Критерии поиска";
             // 
             // closeSearchButton
             // 
-            this.closeSearchButton.Location = new System.Drawing.Point(338, 179);
+            this.closeSearchButton.Location = new System.Drawing.Point(440, 220);
+            this.closeSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closeSearchButton.Name = "closeSearchButton";
-            this.closeSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.closeSearchButton.Size = new System.Drawing.Size(100, 28);
             this.closeSearchButton.TabIndex = 10;
             this.closeSearchButton.Text = "Закрыть";
             this.closeSearchButton.UseVisualStyleBackColor = true;
@@ -84,9 +87,10 @@
             // 
             // performSearchButton
             // 
-            this.performSearchButton.Location = new System.Drawing.Point(234, 179);
+            this.performSearchButton.Location = new System.Drawing.Point(315, 220);
+            this.performSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.performSearchButton.Name = "performSearchButton";
-            this.performSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.performSearchButton.Size = new System.Drawing.Size(100, 28);
             this.performSearchButton.TabIndex = 1;
             this.performSearchButton.Text = "Найти";
             this.performSearchButton.UseVisualStyleBackColor = true;
@@ -94,81 +98,91 @@
             // 
             // searchYearTextBox
             // 
-            this.searchYearTextBox.Location = new System.Drawing.Point(115, 179);
+            this.searchYearTextBox.Location = new System.Drawing.Point(153, 220);
+            this.searchYearTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchYearTextBox.Name = "searchYearTextBox";
-            this.searchYearTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchYearTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchYearTextBox.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 182);
+            this.label5.Location = new System.Drawing.Point(16, 224);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.Size = new System.Drawing.Size(88, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Год издания";
             // 
             // searchTitleTextBox
             // 
-            this.searchTitleTextBox.Location = new System.Drawing.Point(115, 144);
+            this.searchTitleTextBox.Location = new System.Drawing.Point(153, 177);
+            this.searchTitleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchTitleTextBox.Name = "searchTitleTextBox";
-            this.searchTitleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchTitleTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchTitleTextBox.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 147);
+            this.label4.Location = new System.Drawing.Point(16, 181);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 13);
+            this.label4.Size = new System.Drawing.Size(124, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Название работы";
             // 
             // searchPatronymicTextBox
             // 
-            this.searchPatronymicTextBox.Location = new System.Drawing.Point(114, 103);
+            this.searchPatronymicTextBox.Location = new System.Drawing.Point(152, 127);
+            this.searchPatronymicTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchPatronymicTextBox.Name = "searchPatronymicTextBox";
-            this.searchPatronymicTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchPatronymicTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchPatronymicTextBox.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 106);
+            this.label3.Location = new System.Drawing.Point(16, 130);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Отчестсво";
             // 
             // searchNameTextBox
             // 
-            this.searchNameTextBox.Location = new System.Drawing.Point(115, 66);
+            this.searchNameTextBox.Location = new System.Drawing.Point(153, 81);
+            this.searchNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchNameTextBox.Name = "searchNameTextBox";
-            this.searchNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchNameTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchNameTextBox.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 69);
+            this.label2.Location = new System.Drawing.Point(16, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(33, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Имя";
             // 
             // searchSurnameTextBox
             // 
-            this.searchSurnameTextBox.Location = new System.Drawing.Point(115, 29);
+            this.searchSurnameTextBox.Location = new System.Drawing.Point(153, 36);
+            this.searchSurnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchSurnameTextBox.Name = "searchSurnameTextBox";
-            this.searchSurnameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchSurnameTextBox.Size = new System.Drawing.Size(132, 22);
             this.searchSurnameTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Location = new System.Drawing.Point(16, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Фамилия";
             // 
@@ -176,9 +190,11 @@
             // 
             this.searchResultsGroupBox.Controls.Add(this.searchResultsDataGridView);
             this.searchResultsGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchResultsGroupBox.Location = new System.Drawing.Point(0, 238);
+            this.searchResultsGroupBox.Location = new System.Drawing.Point(0, 264);
+            this.searchResultsGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchResultsGroupBox.Name = "searchResultsGroupBox";
-            this.searchResultsGroupBox.Size = new System.Drawing.Size(457, 212);
+            this.searchResultsGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchResultsGroupBox.Size = new System.Drawing.Size(557, 160);
             this.searchResultsGroupBox.TabIndex = 1;
             this.searchResultsGroupBox.TabStop = false;
             this.searchResultsGroupBox.Text = "Результаты поиска";
@@ -190,23 +206,26 @@
             this.searchResultsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.searchResultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchResultsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchResultsDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.searchResultsDataGridView.Location = new System.Drawing.Point(4, 19);
+            this.searchResultsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchResultsDataGridView.MultiSelect = false;
             this.searchResultsDataGridView.Name = "searchResultsDataGridView";
             this.searchResultsDataGridView.ReadOnly = true;
+            this.searchResultsDataGridView.RowHeadersWidth = 51;
             this.searchResultsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.searchResultsDataGridView.Size = new System.Drawing.Size(451, 193);
+            this.searchResultsDataGridView.Size = new System.Drawing.Size(549, 137);
             this.searchResultsDataGridView.TabIndex = 0;
             // 
             // SearchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 450);
+            this.ClientSize = new System.Drawing.Size(557, 424);
             this.Controls.Add(this.searchResultsGroupBox);
             this.Controls.Add(this.searchCriteriaGroupBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SearchForm";
-            this.Text = "SearchForm";
+            this.Text = "Поиск работы";
             this.searchCriteriaGroupBox.ResumeLayout(false);
             this.searchCriteriaGroupBox.PerformLayout();
             this.searchResultsGroupBox.ResumeLayout(false);

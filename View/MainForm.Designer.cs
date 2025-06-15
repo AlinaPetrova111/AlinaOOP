@@ -45,11 +45,12 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(552, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(642, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -59,20 +60,20 @@
             this.openToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.openToolStripMenuItem.Text = "Открыть как";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.saveAsToolStripMenuItem.Text = "Сохранить как";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -83,18 +84,21 @@
             this.groupBox1.Controls.Add(this.searchCardButton);
             this.groupBox1.Controls.Add(this.cardsDataGridView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 24);
+            this.groupBox1.Location = new System.Drawing.Point(0, 28);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(552, 307);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(642, 320);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Библиотечные карточки";
             // 
             // removeCardButton
             // 
-            this.removeCardButton.Location = new System.Drawing.Point(203, 256);
+            this.removeCardButton.Location = new System.Drawing.Point(223, 287);
+            this.removeCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeCardButton.Name = "removeCardButton";
-            this.removeCardButton.Size = new System.Drawing.Size(136, 23);
+            this.removeCardButton.Size = new System.Drawing.Size(181, 28);
             this.removeCardButton.TabIndex = 3;
             this.removeCardButton.Text = "Удалить выбранную";
             this.removeCardButton.UseVisualStyleBackColor = true;
@@ -102,9 +106,10 @@
             // 
             // addCardButton
             // 
-            this.addCardButton.Location = new System.Drawing.Point(12, 256);
+            this.addCardButton.Location = new System.Drawing.Point(8, 287);
+            this.addCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addCardButton.Name = "addCardButton";
-            this.addCardButton.Size = new System.Drawing.Size(139, 23);
+            this.addCardButton.Size = new System.Drawing.Size(185, 28);
             this.addCardButton.TabIndex = 3;
             this.addCardButton.Text = "Добавить карточку";
             this.addCardButton.UseVisualStyleBackColor = true;
@@ -112,9 +117,10 @@
             // 
             // searchCardButton
             // 
-            this.searchCardButton.Location = new System.Drawing.Point(385, 256);
+            this.searchCardButton.Location = new System.Drawing.Point(430, 287);
+            this.searchCardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchCardButton.Name = "searchCardButton";
-            this.searchCardButton.Size = new System.Drawing.Size(153, 23);
+            this.searchCardButton.Size = new System.Drawing.Size(204, 28);
             this.searchCardButton.TabIndex = 3;
             this.searchCardButton.Text = "Искать карточки";
             this.searchCardButton.UseVisualStyleBackColor = true;
@@ -124,24 +130,27 @@
             // 
             this.cardsDataGridView.AllowUserToAddRows = false;
             this.cardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cardsDataGridView.Location = new System.Drawing.Point(12, 31);
+            this.cardsDataGridView.Location = new System.Drawing.Point(8, 23);
+            this.cardsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cardsDataGridView.Name = "cardsDataGridView";
-            this.cardsDataGridView.Size = new System.Drawing.Size(526, 196);
+            this.cardsDataGridView.RowHeadersWidth = 51;
+            this.cardsDataGridView.Size = new System.Drawing.Size(626, 241);
             this.cardsDataGridView.TabIndex = 2;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 331);
+            this.ClientSize = new System.Drawing.Size(642, 348);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Библиотека";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

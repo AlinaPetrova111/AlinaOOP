@@ -63,7 +63,7 @@ namespace LibraryView
             };
         }
 
-        //TODO: duplication
+        //TODO: duplication+
         /// <summary>
         /// Настраивает элемент DataGridView для отображения карточек.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
