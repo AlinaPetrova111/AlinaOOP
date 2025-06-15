@@ -95,7 +95,7 @@
             // 
             // removeCardButton
             // 
-            this.removeCardButton.Location = new System.Drawing.Point(240, 269);
+            this.removeCardButton.Location = new System.Drawing.Point(189, 269);
             this.removeCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeCardButton.Name = "removeCardButton";
             this.removeCardButton.Size = new System.Drawing.Size(168, 28);
@@ -106,7 +106,7 @@
             // 
             // addCardButton
             // 
-            this.addCardButton.Location = new System.Drawing.Point(22, 269);
+            this.addCardButton.Location = new System.Drawing.Point(8, 269);
             this.addCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.addCardButton.Name = "addCardButton";
             this.addCardButton.Size = new System.Drawing.Size(173, 28);
@@ -117,7 +117,7 @@
             // 
             // searchCardButton
             // 
-            this.searchCardButton.Location = new System.Drawing.Point(453, 269);
+            this.searchCardButton.Location = new System.Drawing.Point(365, 269);
             this.searchCardButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchCardButton.Name = "searchCardButton";
             this.searchCardButton.Size = new System.Drawing.Size(160, 28);
