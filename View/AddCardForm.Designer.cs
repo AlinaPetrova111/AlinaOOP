@@ -741,7 +741,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(13, 667);
+            this.cancelButton.Location = new System.Drawing.Point(13, 671);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(100, 28);
@@ -800,7 +800,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 744);
+            this.ClientSize = new System.Drawing.Size(655, 754);
             this.Controls.Add(this.createRandomDataButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
