@@ -50,7 +50,6 @@ namespace LibraryView
             InitializeComponent();
             InitializeCardTypeComboBox();
             InitializeSpecificPanelsList();
-            SetupNumericUpDownDefaults();
             UpdateSpecificPanelVisibility();
 
 #if !DEBUG
@@ -100,36 +99,6 @@ namespace LibraryView
             {
                 panel.Visible = false; 
             }
-        }
-
-        /// <summary>
-        /// Устанавливает значения по умолчанию 
-        /// (минимум, максимум) для элементов NumericUpDown.
-        /// </summary>
-        private void SetupNumericUpDownDefaults()
-        {
-            //TODO: rewrite+
-            bookSheetCountNumericUpDown.Minimum = 1;
-            bookSheetCountNumericUpDown.Maximum = 10000;
-            bookSheetCountNumericUpDown.Value = 100;
-
-            magazineStartSheetNumericUpDown.Minimum = 1;
-            magazineStartSheetNumericUpDown.Maximum = 9999;
-            magazineStartSheetNumericUpDown.Value = 1;
-            magazineEndSheetNumericUpDown.Minimum = 1;
-            magazineEndSheetNumericUpDown.Maximum = 10000;
-            magazineEndSheetNumericUpDown.Value = 10;
-
-            articleStartSheetNumericUpDown.Minimum = 1;
-            articleStartSheetNumericUpDown.Maximum = 9999;
-            articleStartSheetNumericUpDown.Value = 1;
-            articleEndSheetNumericUpDown.Minimum = 1;
-            articleEndSheetNumericUpDown.Maximum = 10000;
-            articleEndSheetNumericUpDown.Value = 10;
-
-            dissertationSheetCountNumericUpDown.Minimum = 1;
-            dissertationSheetCountNumericUpDown.Maximum = 10000;
-            dissertationSheetCountNumericUpDown.Value = 150;
         }
 
         /// <summary>
@@ -267,6 +236,7 @@ namespace LibraryView
         /// </summary>
         private Magazine CreateMagazine()
         {
+            //TODO: remove
             if (magazineEndSheetNumericUpDown.Value < magazineStartSheetNumericUpDown.Value)
             {
                 throw new ArgumentException("Конечная страница не может быть меньше начальной.");
@@ -290,6 +260,7 @@ namespace LibraryView
         /// </summary>
         private Article CreateArticle()
         {
+            //TODO: remove
             if (articleEndSheetNumericUpDown.Value < articleStartSheetNumericUpDown.Value)
             {
                 throw new ArgumentException("Конечная страница не может быть меньше начальной.");
@@ -332,7 +303,7 @@ namespace LibraryView
             };
         }
 
-
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Отмена".
         /// Закрывает форму с результатом <see cref="DialogResult.Cancel"/>.
@@ -343,6 +314,7 @@ namespace LibraryView
             Close();
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Случайные данные".
         /// Заполняет поля формы случайными корректными данными для выбранного типа карточки.
@@ -362,7 +334,7 @@ namespace LibraryView
             patronymicTextBox.Text = randomCard.Patronymic;
             titleTextBox.Text = randomCard.Title;
             yearTextBox.Text = randomCard.Year;
-
+            //TODO: to switch
             if (randomCard is Book book)
             {
                 bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;

@@ -117,7 +117,6 @@ namespace LibraryView
 
             CardBase card;
 
-            //TODO: duplication +
             switch (cardTypeIndex)
             {
                 case 0:

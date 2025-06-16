@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryCards;
 
@@ -44,14 +40,12 @@ namespace LibraryView
         public SearchForm(List<CardBase> cardsToSearch)
         {
             InitializeComponent();
-            //TODO: RSDN +
             _allCards = cardsToSearch ??
                 throw new ArgumentNullException(nameof(cardsToSearch),
                     "Список карточек для поиска не может быть null.");
             SetupResultsDataGridView();
         }
 
-        //TODO: duplication +
         /// <summary>
         /// Создает текстовую колонку для DataGridView с общими настройками.
         /// </summary>
@@ -103,6 +97,7 @@ namespace LibraryView
                 SearchResultsDataGridView_CellFormatting;
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Найти".
         /// </summary>
@@ -156,6 +151,7 @@ namespace LibraryView
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Закрыть".
         /// Закрывает форму поиска.

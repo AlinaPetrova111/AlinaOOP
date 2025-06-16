@@ -63,7 +63,6 @@ namespace LibraryView
             };
         }
 
-        //TODO: duplication+
         /// <summary>
         /// Настраивает элемент DataGridView для отображения карточек.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
@@ -117,6 +116,7 @@ namespace LibraryView
             _bindingSource.ResetBindings(false);
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
         /// Используется для отображения имени типа в специальной колонке.
@@ -127,6 +127,7 @@ namespace LibraryView
             if (e.RowIndex >= 0 &&
                 cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
             {
+                //BUG:
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
                     e.Value = card.GetTypeName();
@@ -135,6 +136,7 @@ namespace LibraryView
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие на кнопку добавления новой карточки.
         /// </summary>
@@ -179,6 +181,7 @@ namespace LibraryView
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие на кнопку поиска карточек.
         /// </summary>
@@ -190,6 +193,7 @@ namespace LibraryView
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие на пункт меню "Сохранить как".
         /// </summary>
@@ -197,6 +201,7 @@ namespace LibraryView
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
+                //TODO: duplication
                 saveFileDialog.Filter = "Файлы библиотечных карточек" +
                     " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
                 saveFileDialog.Title = "Сохранить список карточек";
@@ -207,6 +212,7 @@ namespace LibraryView
                 {
                     try
                     {
+                        //TODO: RSDN
                         XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
                         using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                         {
@@ -217,6 +223,7 @@ namespace LibraryView
                     }
                     catch (Exception ex)
                     {
+                        //BUG: довести исключение до пользователя
                         MessageBox.Show(this, $"Ошибка при сохранении данных: " +
                             $"{ex.Message}\n{ex.StackTrace}", "Ошибка сохранения",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -232,6 +239,7 @@ namespace LibraryView
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+                //TODO: duplication
                 openFileDialog.Filter = "Файлы библиотечных карточек" +
                     " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
                 openFileDialog.Title = "Открыть список карточек";
@@ -243,6 +251,7 @@ namespace LibraryView
                 {
                     try
                     {
+                        //TODO: RSDN
                         XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
                         using (StreamReader reader = new StreamReader(openFileDialog.FileName))
                         {
