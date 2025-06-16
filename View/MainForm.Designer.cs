@@ -75,7 +75,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.saveAsToolStripMenuItem.Text = "Сохранить как";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -113,7 +113,7 @@
             this.addCardButton.TabIndex = 3;
             this.addCardButton.Text = "Добавить карточку";
             this.addCardButton.UseVisualStyleBackColor = true;
-            this.addCardButton.Click += new System.EventHandler(this.addCardButton_Click);
+            this.addCardButton.Click += new System.EventHandler(this.AddCardButton_Click);
             // 
             // searchCardButton
             // 
@@ -124,7 +124,7 @@
             this.searchCardButton.TabIndex = 3;
             this.searchCardButton.Text = "Искать карточки";
             this.searchCardButton.UseVisualStyleBackColor = true;
-            this.searchCardButton.Click += new System.EventHandler(this.searchCardButton_Click);
+            this.searchCardButton.Click += new System.EventHandler(this.SearchCardButton_Click);
             // 
             // cardsDataGridView
             // 

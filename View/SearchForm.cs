@@ -97,13 +97,13 @@ namespace LibraryView
                 SearchResultsDataGridView_CellFormatting;
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Найти".
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные события.</param>
-        private void performSearchButton_Click(object sender, EventArgs e)
+        private void PerformSearchButton_Click(object sender, EventArgs e)
         {
             string surnameFilter = searchSurnameTextBox.Text.Trim().ToLowerInvariant();
             string nameFilter = searchNameTextBox.Text.Trim().ToLowerInvariant();
@@ -151,14 +151,14 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Закрыть".
         /// Закрывает форму поиска.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные события.</param>
-        private void closeSearchButton_Click(object sender, EventArgs e)
+        private void CloseSearchButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -26,6 +26,16 @@ namespace LibraryView
         private const string TypeColumnName = "typeColumn";
 
         /// <summary>
+        /// Тип карточки 
+        /// </summary>
+        private const string TypeCard = " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+
+        /// <summary>
+        /// Расширение  
+        /// </summary>
+        private const string DefaultExt = "libcard";
+
+        /// <summary>
         /// Список всех библиотечных карточек.
         /// </summary>
         private List<CardBase> _cards = new List<CardBase>();
@@ -91,7 +101,7 @@ namespace LibraryView
             cardsDataGridView.Columns.Add(
                 CreateTextColumn("Год", nameof(CardBase.Year)));
 
-            cardsDataGridView.CellFormatting += cardsDataGridView_CellFormatting;
+            cardsDataGridView.CellFormatting += CardsDataGridView_CellFormatting;
         }
 
         /// <summary>
@@ -116,12 +126,12 @@ namespace LibraryView
             _bindingSource.ResetBindings(false);
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
         /// Используется для отображения имени типа в специальной колонке.
         /// </summary>
-        private void cardsDataGridView_CellFormatting(object sender,
+        private void CardsDataGridView_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 &&
@@ -136,11 +146,11 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку добавления новой карточки.
         /// </summary>
-        private void addCardButton_Click(object sender, EventArgs e)
+        private void AddCardButton_Click(object sender, EventArgs e)
         {
             using (AddCardForm addForm = new AddCardForm())
             {
@@ -181,11 +191,11 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку поиска карточек.
         /// </summary>
-        private void searchCardButton_Click(object sender, EventArgs e)
+        private void SearchCardButton_Click(object sender, EventArgs e)
         {
             using (SearchForm searchForm = new SearchForm(_cards))
             {
@@ -193,27 +203,29 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на пункт меню "Сохранить как".
         /// </summary>
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                //TODO: duplication
+                //TODO: duplication+
                 saveFileDialog.Filter = "Файлы библиотечных карточек" +
-                    " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+                    TypeCard;
                 saveFileDialog.Title = "Сохранить список карточек";
-                saveFileDialog.DefaultExt = "libcard";
+                saveFileDialog.DefaultExt = DefaultExt;
                 saveFileDialog.AddExtension = true;
 
                 if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     try
                     {
-                        //TODO: RSDN
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
+                        //TODO: RSDN+
+                        XmlSerializer serializer = 
+                            new XmlSerializer(typeof(List<CardBase>), 
+                                GetKnownTypes());
                         using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                         {
                             serializer.Serialize(writer, _cards);
@@ -239,11 +251,11 @@ namespace LibraryView
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                //TODO: duplication
+                //TODO: duplication+
                 openFileDialog.Filter = "Файлы библиотечных карточек" +
-                    " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+                    TypeCard;
                 openFileDialog.Title = "Открыть список карточек";
-                openFileDialog.DefaultExt = "libcard";
+                openFileDialog.DefaultExt = DefaultExt;
                 openFileDialog.CheckFileExists = true;
                 openFileDialog.CheckPathExists = true;
 
@@ -251,8 +263,10 @@ namespace LibraryView
                 {
                     try
                     {
-                        //TODO: RSDN
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
+                        //TODO: RSDN+
+                        XmlSerializer serializer = 
+                            new XmlSerializer(typeof(List<CardBase>),
+                                GetKnownTypes());
                         using (StreamReader reader = new StreamReader(openFileDialog.FileName))
                         {
                             var loadedCards = serializer.Deserialize(reader) as List<CardBase>;
@@ -268,7 +282,8 @@ namespace LibraryView
                             {
                                 MessageBox.Show(this, "Не удалось загрузить данные." +
                                     " Файл может быть поврежден или иметь неверный формат.",
-                                    "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    "Ошибка загрузки", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
                             }
                         }
                     }
