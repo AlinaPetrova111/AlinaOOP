@@ -68,7 +68,7 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.openToolStripMenuItem.Text = "Открыть как";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -102,7 +102,7 @@
             this.removeCardButton.TabIndex = 3;
             this.removeCardButton.Text = "Удалить выбранную";
             this.removeCardButton.UseVisualStyleBackColor = true;
-            this.removeCardButton.Click += new System.EventHandler(this.removeCardButton_Click);
+            this.removeCardButton.Click += new System.EventHandler(this.RemoveCardButton_Click);
             // 
             // addCardButton
             // 

@@ -168,7 +168,7 @@ namespace LibraryView
         /// <summary>
         /// Обрабатывает нажатие на кнопку удаления выбранной карточки.
         /// </summary>
-        private void removeCardButton_Click(object sender, EventArgs e)
+        private void RemoveCardButton_Click(object sender, EventArgs e)
         {
             if (cardsDataGridView.CurrentRow != null
                 && cardsDataGridView.CurrentRow.DataBoundItem is CardBase selectedCard)
@@ -190,7 +190,6 @@ namespace LibraryView
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку поиска карточек.
@@ -223,8 +222,8 @@ namespace LibraryView
                     try
                     {
                         //TODO: RSDN+
-                        XmlSerializer serializer = 
-                            new XmlSerializer(typeof(List<CardBase>), 
+                        XmlSerializer serializer =
+                            new XmlSerializer(typeof(List<CardBase>),
                                 GetKnownTypes());
                         using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                         {
@@ -244,16 +243,16 @@ namespace LibraryView
             }
         }
 
+
+
         /// <summary>
         /// Обрабатывает нажатие на пункт меню "Открыть".
         /// </summary>
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                //TODO: duplication+
-                openFileDialog.Filter = "Файлы библиотечных карточек" +
-                    TypeCard;
+                openFileDialog.Filter = "Файлы библиотечных карточек" + TypeCard;
                 openFileDialog.Title = "Открыть список карточек";
                 openFileDialog.DefaultExt = DefaultExt;
                 openFileDialog.CheckFileExists = true;
@@ -263,35 +262,35 @@ namespace LibraryView
                 {
                     try
                     {
-                        //TODO: RSDN+
-                        XmlSerializer serializer = 
-                            new XmlSerializer(typeof(List<CardBase>),
-                                GetKnownTypes());
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
+
+                        List<CardBase> loadedCards;
                         using (StreamReader reader = new StreamReader(openFileDialog.FileName))
                         {
-                            var loadedCards = serializer.Deserialize(reader) as List<CardBase>;
-                            if (loadedCards != null)
-                            {
-                                _cards.Clear();
-                                _cards.AddRange(loadedCards);
-                                RefreshGrid();
-                                MessageBox.Show(this, "Данные успешно загружены!",
-                                    "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show(this, "Не удалось загрузить данные." +
-                                    " Файл может быть поврежден или иметь неверный формат.",
-                                    "Ошибка загрузки", MessageBoxButtons.OK,
-                                        MessageBoxIcon.Warning);
-                            }
+                            loadedCards = serializer.Deserialize(reader) as List<CardBase>;
+                        }
+
+                        if (loadedCards != null)
+                        {
+                            _cards.Clear();
+                            _cards.AddRange(loadedCards);
+                            RefreshGrid();
+                            MessageBox.Show(this, "Данные успешно загружены!", "Загрузка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "Не удалось загрузить данные. Файл может" +
+                                " быть поврежден или иметь неверный формат.", "Ошибка загрузки",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(this, $"Ошибка при загрузке данных: " +
-                            $"{ex.Message}\n{ex.StackTrace}", "Ошибка загрузки",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        string errorMessage = ex.InnerException?.Message ?? ex.Message;
+
+                        MessageBox.Show(this, $"Ошибка при загрузке данных: {errorMessage}",
+                            "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

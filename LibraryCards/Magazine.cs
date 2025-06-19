@@ -152,8 +152,6 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет страницу на корректность./>
         /// </summary>
-        /// <param name="endSheet">Имя объекта.</param>
-        /// <returns>True or False/>.</returns>
         public int IsCorrectSheet(int endSheet)
         {
             string sheetStr = Convert.ToString(endSheet);
@@ -161,29 +159,42 @@ namespace LibraryCards
             {
                 try
                 {
-                    if (endSheet < StartSheet)
+
+                    if (endSheet > MaxSheet || endSheet < MinSheet)
                     {
-                        throw new ArgumentException($"Введите число больше {StartSheet}.");
+                        throw new ArgumentOutOfRangeException(nameof(endSheet),
+                           $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
                     }
-                    else if (endSheet == StartSheet)
-                    {
-                        return endSheet;
-                    }
-                    else
-                    {
-                        return endSheet;
-                    }
+                    return endSheet;
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
-                            $"Введите страницу из диапазона " +
-                            $"от {MinSheet} до {MaxSheet}.");
+                            $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
             {
                 throw new ArgumentException($"Введите последнюю страницу.");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет корректность всех полей объекта, включая зависимые.
+        /// </summary>
+        public override void Validate()
+        {
+            base.Validate();
+
+            this.NameOfMagazine = this.NameOfMagazine;
+            this.StartSheet = this.StartSheet;
+            this.EndSheet = this.EndSheet;
+
+            if (this.EndSheet < this.StartSheet)
+            {
+                throw new ArgumentException($"Для работы '{this.Title}':" +
+                    $" конечная страница ({this.EndSheet}) не может быть" +
+                    $" меньше начальной ({this.StartSheet}).");
             }
         }
 

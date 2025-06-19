@@ -737,7 +737,7 @@
             this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
@@ -748,7 +748,7 @@
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // createRandomDataButton
             // 
@@ -759,7 +759,7 @@
             this.createRandomDataButton.TabIndex = 3;
             this.createRandomDataButton.Text = "Случайные данные";
             this.createRandomDataButton.UseVisualStyleBackColor = true;
-            this.createRandomDataButton.Click += new System.EventHandler(this.createRandomDataButton_Click);
+            this.createRandomDataButton.Click += new System.EventHandler(this.CreateRandomDataButton_Click);
             // 
             // label1
             // 

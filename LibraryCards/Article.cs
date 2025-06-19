@@ -162,7 +162,7 @@ namespace LibraryCards
 
             set
             {
-                _endSheet = IsCorrectSheet(value);
+                _endSheet = IsCorrectEndSheet(value);
             }
         }
 
@@ -206,40 +206,49 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет страницу на корректность/>
         /// </summary>
-        /// <param name="endSheet">Имя объекта.</param>
-        /// <returns>True or False/>.</returns>
-        public int IsCorrectSheet(int endSheet)
+        public int IsCorrectEndSheet(int endSheet)
         {
             string sheetStr = Convert.ToString(endSheet);
             if (Regex.IsMatch(sheetStr, _ageRegex))
             {
                 try
                 {
-                    if (endSheet <= StartSheet)
+                    if (endSheet > MaxSheet || endSheet < MinSheet)
                     {
-                        throw new ArgumentException($"Введите число больше {StartSheet}.");
+                        throw new ArgumentOutOfRangeException(nameof(endSheet),
+                            $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
                     }
-                    else if (endSheet > MaxSheet || endSheet < MinSheet)
-                    {
-                        throw new ArgumentException(
-                            $"Введите страницу из диапазона " +
-                            $"от {MinSheet} до {MaxSheet}.");
-                    }
-                    else
-                    {
-                        return endSheet;
-                    }
+                    return endSheet;
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
-                            $"Введите страницу из диапазона " +
-                            $"от {MinSheet} до {MaxSheet}.");
+                           $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
                 }
             }
             else
             {
                 throw new ArgumentException($"Введите последнюю страницу.");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет корректность всех полей объекта, включая зависимые.
+        /// </summary>
+        public override void Validate()
+        {
+            base.Validate(); 
+            this.NameOfArticle = this.NameOfArticle;
+            this.PlaceOfPublication = this.PlaceOfPublication;
+            this.PublishingHouse = this.PublishingHouse;
+            this.StartSheet = this.StartSheet;
+            this.EndSheet = this.EndSheet;
+
+            if (this.EndSheet <= this.StartSheet)
+            {
+                throw new ArgumentException($"Для статьи '{this.Title}':" +
+                    $" конечная страница ({this.EndSheet}) должна быть" +
+                    $" больше начальной ({this.StartSheet}).");
             }
         }
 
