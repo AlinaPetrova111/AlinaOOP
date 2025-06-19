@@ -345,20 +345,6 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет корректность всех полей объекта.
-        /// Выбрасывает исключение в случае ошибки.
-        /// Этот метод следует вызывать после полной инициализации объекта.
-        /// </summary>
-        public virtual void Validate()
-        {
-            this.Surname = this.Surname;
-            this.Name = this.Name;
-            this.Patronymic = this.Patronymic;
-            this.Title = this.Title;
-            this.Year = this.Year;
-        }
-
-        /// <summary>
         /// Метод вывода библиотечной карточки
         /// </summary>
         /// <returns>Данные об издании</returns>

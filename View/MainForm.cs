@@ -137,7 +137,7 @@ namespace LibraryView
             if (e.RowIndex >= 0 &&
                 cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
             {
-                //BUG:
+                //BUG+:
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
                     e.Value = card.GetTypeName();
@@ -170,26 +170,44 @@ namespace LibraryView
         /// </summary>
         private void RemoveCardButton_Click(object sender, EventArgs e)
         {
-            if (cardsDataGridView.CurrentRow != null
-                && cardsDataGridView.CurrentRow.DataBoundItem is CardBase selectedCard)
+            if (cardsDataGridView.SelectedRows.Count > 0)
             {
-                var confirmResult = MessageBox.Show(this, $"Вы уверены, что " +
-                    $"хотите удалить карточку: {selectedCard.Title}?",
-                                     "Подтверждение удаления",
-                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirmResult == DialogResult.Yes)
+                var cardsToRemove = new List<CardBase>();
+                foreach (DataGridViewRow row in cardsDataGridView.SelectedRows)
                 {
-                    _cards.Remove(selectedCard);
-                    RefreshGrid();
+                    if (row.DataBoundItem is CardBase selectedCard)
+                    {
+                        cardsToRemove.Add(selectedCard);
+                    }
+                }
+
+                if (cardsToRemove.Any())
+                {
+                    string message = cardsToRemove.Count == 1
+                        ? $"Вы уверены, что хотите удалить карточку: {cardsToRemove.First().Title}?"
+                        : $"Вы уверены, что хотите удалить выбранные карточки ({cardsToRemove.Count} шт.)?";
+
+                    var confirmResult = MessageBox.Show(this, message,
+                                             "Подтверждение удаления",
+                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        foreach (var card in cardsToRemove)
+                        {
+                            _cards.Remove(card);
+                        }
+                        RefreshGrid();
+                    }
                 }
             }
             else
             {
-                MessageBox.Show(this, "Пожалуйста, выберите" +
-                    " карточку для удаления.", "Удаление невозможно",
+                MessageBox.Show(this, "Пожалуйста, выберите одну или " +
+                    "несколько карточек для удаления.", "Удаление невозможно",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку поиска карточек.

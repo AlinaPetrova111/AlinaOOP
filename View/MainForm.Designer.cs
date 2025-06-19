@@ -129,6 +129,7 @@
             // cardsDataGridView
             // 
             this.cardsDataGridView.AllowUserToAddRows = false;
+            this.cardsDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.cardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cardsDataGridView.Location = new System.Drawing.Point(8, 23);
             this.cardsDataGridView.Margin = new System.Windows.Forms.Padding(4);

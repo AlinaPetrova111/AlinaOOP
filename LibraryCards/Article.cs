@@ -233,26 +233,6 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Проверяет корректность всех полей объекта, включая зависимые.
-        /// </summary>
-        public override void Validate()
-        {
-            base.Validate(); 
-            this.NameOfArticle = this.NameOfArticle;
-            this.PlaceOfPublication = this.PlaceOfPublication;
-            this.PublishingHouse = this.PublishingHouse;
-            this.StartSheet = this.StartSheet;
-            this.EndSheet = this.EndSheet;
-
-            if (this.EndSheet <= this.StartSheet)
-            {
-                throw new ArgumentException($"Для статьи '{this.Title}':" +
-                    $" конечная страница ({this.EndSheet}) должна быть" +
-                    $" больше начальной ({this.StartSheet}).");
-            }
-        }
-
-        /// <summary>
         /// Возвращает название типа для отображения в UI.
         /// </summary>
         public override string GetTypeName()
