@@ -109,6 +109,7 @@ namespace LibraryCards
             set
             {
                 _endSheet = IsCorrectSheet(value);
+                _endSheet = IsEndSheetBigger(value);
             }
         }
 
@@ -176,6 +177,22 @@ namespace LibraryCards
             else
             {
                 throw new ArgumentException($"Введите последнюю страницу.");
+            }
+        }
+
+        /// <summary>
+        /// Возвращает название типа для отображения в UI.
+        /// </summary>
+        public int IsEndSheetBigger(int endSheet)
+        {
+            if (endSheet < this.StartSheet)
+            {
+                throw new ArgumentException(
+                    "Последняя страница не может быть меньше начальной.");
+            }
+            else
+            {
+                return endSheet;
             }
         }
 

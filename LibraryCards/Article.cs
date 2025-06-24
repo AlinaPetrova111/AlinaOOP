@@ -159,10 +159,10 @@ namespace LibraryCards
         public int EndSheet
         {
             get => _endSheet;
-
             set
             {
                 _endSheet = IsCorrectEndSheet(value);
+                _endSheet = IsEndSheetBigger(value);
             }
         }
 
@@ -238,6 +238,22 @@ namespace LibraryCards
         public override string GetTypeName()
         {
             return "Статья";
+        }
+
+        /// <summary>
+        /// Возвращает название типа для отображения в UI.
+        /// </summary>
+        public int IsEndSheetBigger(int endSheet)
+        {
+            if (endSheet < this.StartSheet)
+            {
+                throw new ArgumentException(
+                    "Последняя страница не может быть меньше начальной.");
+            }
+            else
+            {
+                return endSheet;
+            }
         }
 
         /// <summary>
