@@ -323,7 +323,7 @@ namespace LibraryCards
                         return year;
                     }
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
                             $"Введите год из диапазона " +

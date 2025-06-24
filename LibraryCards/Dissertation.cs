@@ -270,7 +270,7 @@ namespace LibraryCards
                         return sheet;
                     }
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
                             $"Введите страницу из диапазона " +

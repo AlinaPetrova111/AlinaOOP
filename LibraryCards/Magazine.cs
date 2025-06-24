@@ -108,7 +108,7 @@ namespace LibraryCards
 
             set
             {
-                _endSheet = IsCorrectSheet(value);
+                _endSheet = IsCorrectEndSheet(value);
                 _endSheet = IsEndSheetBigger(value);
             }
         }
@@ -137,7 +137,7 @@ namespace LibraryCards
                         return sheet;
                     }
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     throw new ArgumentException(
                             $"Введите число из диапазона " +
@@ -153,7 +153,7 @@ namespace LibraryCards
         /// <summary>
         /// Проверяет страницу на корректность./>
         /// </summary>
-        public int IsCorrectSheet(int endSheet)
+        public int IsCorrectEndSheet(int endSheet)
         {
             string sheetStr = Convert.ToString(endSheet);
             if (Regex.IsMatch(sheetStr, _ageRegex))
