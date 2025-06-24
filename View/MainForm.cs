@@ -305,20 +305,15 @@ namespace LibraryView
                     }
                     catch (Exception ex)
                     {
-                        // Получаем сообщение из самого глубокого внутреннего исключения, если оно есть
                         string specificErrorMessage = ex.Message;
                         if (ex.InnerException != null)
                         {
                             specificErrorMessage = ex.InnerException.Message;
                         }
 
-                        // Показываем пользователю КОНКРЕТНУЮ причину ошибки
                         MessageBox.Show(this, $"Ошибка при загрузке данных: {specificErrorMessage}",
                             "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        // Для отладки очень полезно выводить в консоль или лог полный стектрейс,
-                        // чтобы видеть всю цепочку исключений.
-                        //Console.WriteLine(ex.ToString());
                     }
                 }
             }

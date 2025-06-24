@@ -181,7 +181,7 @@ namespace LibraryCards
         }
 
         /// <summary>
-        /// Возвращает название типа для отображения в UI.
+        /// Проверяет больше ли последняя страница чем первая
         /// </summary>
         public int IsEndSheetBigger(int endSheet)
         {
