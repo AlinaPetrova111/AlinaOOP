@@ -119,6 +119,7 @@ namespace LibraryView
 
             switch (cardTypeIndex)
             {
+                //TODO: RSDN
                 case 0:
                     card = new Book
                     {

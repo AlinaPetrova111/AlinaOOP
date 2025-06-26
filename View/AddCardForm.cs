@@ -192,6 +192,7 @@ namespace LibraryView
         {
             var selectedCardType = _cardTypes[cardTypeComboBox.SelectedIndex];
 
+            //TODO: switch-case
             if (selectedCardType == typeof(Book))
             {
                 return CreateBook();
@@ -291,7 +292,6 @@ namespace LibraryView
             };
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Отмена".
         /// Закрывает форму с результатом <see cref="DialogResult.Cancel"/>.
@@ -309,6 +309,7 @@ namespace LibraryView
         /// </summary>
         private void CreateRandomDataButton_Click(object sender, EventArgs e)
         {
+            //TODO: RSDN
             CardBase randomCard = CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
             if (randomCard == null)
             {
@@ -322,9 +323,9 @@ namespace LibraryView
             patronymicTextBox.Text = randomCard.Patronymic;
             titleTextBox.Text = randomCard.Title;
             yearTextBox.Text = randomCard.Year;
-            //TODO: to switch+
             switch (randomCard)
             {
+                //TODO: RSDN
                 case Book book:
                     { 
                         bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using LibraryCards;
@@ -83,6 +79,7 @@ namespace LibraryView
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
 
+            //TODO: duplication
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 Name = TypeColumnName,
@@ -113,8 +110,8 @@ namespace LibraryView
         {
             return Assembly.GetAssembly(typeof(CardBase))
                            .GetTypes()
-                           .Where(type => type.IsSubclassOf(typeof(CardBase)) &&
-                                !type.IsAbstract)
+                           .Where(type => type.IsSubclassOf(typeof(CardBase)) 
+                                            && !type.IsAbstract)
                            .ToArray();
         }
 
@@ -126,7 +123,6 @@ namespace LibraryView
             _bindingSource.ResetBindings(false);
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
         /// Используется для отображения имени типа в специальной колонке.
@@ -137,7 +133,6 @@ namespace LibraryView
             if (e.RowIndex >= 0 &&
                 cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
             {
-                //BUG+:
                 if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
                 {
                     e.Value = card.GetTypeName();
@@ -146,7 +141,6 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку добавления новой карточки.
         /// </summary>
@@ -184,6 +178,7 @@ namespace LibraryView
                 if (cardsToRemove.Any())
                 {
                     string message = cardsToRemove.Count == 1
+                        //TODO: RSDN
                         ? $"Вы уверены, что хотите удалить карточку: {cardsToRemove.First().Title}?"
                         : $"Вы уверены, что хотите удалить выбранные карточки ({cardsToRemove.Count} шт.)?";
 
@@ -208,7 +203,6 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на кнопку поиска карточек.
         /// </summary>
@@ -220,7 +214,6 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие на пункт меню "Сохранить как".
         /// </summary>
@@ -228,7 +221,6 @@ namespace LibraryView
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                //TODO: duplication+
                 saveFileDialog.Filter = "Файлы библиотечных карточек" +
                     TypeCard;
                 saveFileDialog.Title = "Сохранить список карточек";
@@ -239,7 +231,6 @@ namespace LibraryView
                 {
                     try
                     {
-                        //TODO: RSDN+
                         XmlSerializer serializer =
                             new XmlSerializer(typeof(List<CardBase>),
                                 GetKnownTypes());
@@ -260,8 +251,6 @@ namespace LibraryView
                 }
             }
         }
-
-
 
         /// <summary>
         /// Обрабатывает нажатие на пункт меню "Открыть".

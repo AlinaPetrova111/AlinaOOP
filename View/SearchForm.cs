@@ -74,6 +74,7 @@ namespace LibraryView
             searchResultsDataGridView.AutoGenerateColumns = false;
             searchResultsDataGridView.DataSource = _searchResultsBindingSource;
 
+            //TODO: duplication
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 Name = SearchTypeColumnName,
@@ -97,7 +98,6 @@ namespace LibraryView
                 SearchResultsDataGridView_CellFormatting;
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Найти".
         /// </summary>
@@ -151,7 +151,6 @@ namespace LibraryView
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Закрыть".
         /// Закрывает форму поиска.
