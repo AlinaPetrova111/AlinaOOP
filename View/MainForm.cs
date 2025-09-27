@@ -79,6 +79,13 @@ namespace LibraryView
             cardsDataGridView.RowHeadersVisible = false;
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
+            // Настройки для выделения всей строки
+            cardsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            cardsDataGridView.MultiSelect = true; // Разрешаем множественное выделение
+            cardsDataGridView.CellClick += CardsDataGridView_CellClick; // Обработчик клика
+
+            _bindingSource.DataSource = _cards;
+            cardsDataGridView.DataSource = _bindingSource;
 
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
@@ -101,7 +108,22 @@ namespace LibraryView
 
             cardsDataGridView.CellFormatting += CardsDataGridView_CellFormatting;
         }
+        /// <summary>
+        /// Обрабатывает клик по ячейке DataGridView.
+        /// Обеспечивает выделение всей строки при клике на любую ячейку.
+        /// </summary>
+        private void CardsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Игнорируем клики по заголовкам
+            if (e.RowIndex < 0) return;
 
+            // Выделяем всю строку
+            if (!cardsDataGridView.Rows[e.RowIndex].Selected)
+            {
+                cardsDataGridView.ClearSelection();
+                cardsDataGridView.Rows[e.RowIndex].Selected = true;
+            }
+        }
         /// <summary>
         /// Возвращает массив типов, известных сериализатору, 
         /// автоматически находя все классы, унаследованные от CardBase.
