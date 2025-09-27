@@ -76,10 +76,10 @@ namespace LibraryView
         private void SetupDataGridView()
         {
             cardsDataGridView.AutoGenerateColumns = false;
+            cardsDataGridView.RowHeadersVisible = false;
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
 
-            //TODO: duplication
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 Name = TypeColumnName,
@@ -248,7 +248,6 @@ namespace LibraryView
                     }
                     catch (Exception ex)
                     {
-                        //BUG: довести исключение до пользователя
                         MessageBox.Show(this, $"Ошибка при сохранении данных: " +
                             $"{ex.Message}\n{ex.StackTrace}", "Ошибка сохранения",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
