@@ -264,7 +264,8 @@ namespace LibraryCards
         {
             return $"{MakeSample(Surname, Name, Patronymic)} {Title} /" +
                    $"{ReverseFullname(MakeSample(Surname, Name, Patronymic))}. " +
-                   $"// {NameOfArticle}. –{PlaceOfPublication}: - №{PublishingHouse}," +
+                   $"// {NameOfArticle}. –{PlaceOfPublication}:" +
+                   $" - №{PublishingHouse}," +
                    $" {Year}. - С. {StartSheet}-{EndSheet}.";
         }
 

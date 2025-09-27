@@ -164,14 +164,16 @@ namespace LibraryCards
                     if (endSheet > MaxSheet || endSheet < MinSheet)
                     {
                         throw new ArgumentOutOfRangeException(nameof(endSheet),
-                           $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                           $"Введите страницу из диапазона от {MinSheet}" +
+                           $" до {MaxSheet}.");
                     }
                     return endSheet;
                 }
                 catch (OverflowException)
                 {
                     throw new ArgumentException(
-                            $"Введите страницу из диапазона от {MinSheet} до {MaxSheet}.");
+                            $"Введите страницу из диапазона от {MinSheet} " +
+                            $"до {MaxSheet}.");
                 }
             }
             else

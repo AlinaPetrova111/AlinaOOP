@@ -94,7 +94,8 @@ namespace LibraryView
             cardsDataGridView.Columns.Add(
                 CreateTextColumn("Имя", nameof(CardBase.Name)));
             cardsDataGridView.Columns.Add(
-                CreateTextColumn("Название", nameof(CardBase.Title), DataGridViewAutoSizeColumnMode.Fill));
+                CreateTextColumn("Название", nameof(CardBase.Title),
+                DataGridViewAutoSizeColumnMode.Fill));
             cardsDataGridView.Columns.Add(
                 CreateTextColumn("Год", nameof(CardBase.Year)));
 
@@ -178,13 +179,16 @@ namespace LibraryView
                 if (cardsToRemove.Any())
                 {
                     string message = cardsToRemove.Count == 1
-                        //TODO: RSDN
-                        ? $"Вы уверены, что хотите удалить карточку: {cardsToRemove.First().Title}?"
-                        : $"Вы уверены, что хотите удалить выбранные карточки ({cardsToRemove.Count} шт.)?";
+                        //TODO: RSDN+
+                        ? $"Вы уверены, что хотите удалить карточку:" +
+                            $"{cardsToRemove.First().Title}?"
+                        : $"Вы уверены, что хотите удалить выбранные карточки" +
+                            $" ({cardsToRemove.Count} шт.)?";
 
                     var confirmResult = MessageBox.Show(this, message,
                                              "Подтверждение удаления",
-                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                             MessageBoxButtons.YesNo, 
+                                             MessageBoxIcon.Warning);
                     if (confirmResult == DialogResult.Yes)
                     {
                         foreach (var card in cardsToRemove)
@@ -234,7 +238,8 @@ namespace LibraryView
                         XmlSerializer serializer =
                             new XmlSerializer(typeof(List<CardBase>),
                                 GetKnownTypes());
-                        using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                        using (StreamWriter writer = 
+                               new StreamWriter(saveFileDialog.FileName))
                         {
                             serializer.Serialize(writer, _cards);
                         }
@@ -269,10 +274,12 @@ namespace LibraryView
                 {
                     try
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
+                        XmlSerializer serializer = 
+                            new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
 
                         List<CardBase> loadedCards;
-                        using (StreamReader reader = new StreamReader(openFileDialog.FileName))
+                        using (StreamReader reader =
+                            new StreamReader(openFileDialog.FileName))
                         {
                             loadedCards = serializer.Deserialize(reader) as List<CardBase>;
                         }

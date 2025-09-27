@@ -187,7 +187,8 @@ namespace LibraryView
         /// Создает объект карточки на основе выбранного типа.
         /// </summary>
         /// <returns>Созданный объект, унаследованный от <see cref="CardBase"/>.</returns>
-        /// <exception cref="InvalidOperationException">Если выбран неизвестный тип карточки.</exception>
+        /// <exception cref="InvalidOperationException">Если выбран неизвестный 
+        /// тип карточки.</exception>
         private CardBase CreateCardFromInput()
         {
             var selectedCardType = _cardTypes[cardTypeComboBox.SelectedIndex];
@@ -302,19 +303,20 @@ namespace LibraryView
             Close();
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Случайные данные".
         /// Заполняет поля формы случайными корректными данными для выбранного типа карточки.
         /// </summary>
         private void CreateRandomDataButton_Click(object sender, EventArgs e)
         {
-            //TODO: RSDN
-            CardBase randomCard = CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
+            //TODO: RSDN+
+            CardBase randomCard = 
+                CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
             if (randomCard == null)
             {
-                MessageBox.Show("Не удалось сгенерировать случайные данные для этого типа карточки.",
-                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Не удалось сгенерировать" +
+                         " случайные данные для этого типа карточки.",
+                          "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -325,49 +327,49 @@ namespace LibraryView
             yearTextBox.Text = randomCard.Year;
             switch (randomCard)
             {
-                //TODO: RSDN
+                //TODO: RSDN+
                 case Book book:
-                    { 
-                        bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
-                        bookPublishingHouseTextBox.Text = book.PublishingHouse;
-                        bookAdditionalInformationTextBox.Text = book.AdditionalInformation;
-                        bookSheetCountNumericUpDown.Value = Math.Max(bookSheetCountNumericUpDown.Minimum,
-                            Math.Min(book.Sheet, bookSheetCountNumericUpDown.Maximum));
-                        break;
-                    }
+                { 
+                bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
+                bookPublishingHouseTextBox.Text = book.PublishingHouse;
+                bookAdditionalInformationTextBox.Text = book.AdditionalInformation;
+                bookSheetCountNumericUpDown.Value = Math.Max(bookSheetCountNumericUpDown.Minimum,
+                     Math.Min(book.Sheet, bookSheetCountNumericUpDown.Maximum));
+                     break;
+                }
                 case Magazine magazine:
-                    {
-                        magazineNameOfMagazineTextBox.Text = magazine.NameOfMagazine;
-                        magazineStartSheetNumericUpDown.Value = Math.Max(magazineStartSheetNumericUpDown.Minimum,
-                            Math.Min(magazine.StartSheet, magazineStartSheetNumericUpDown.Maximum));
-                        magazineEndSheetNumericUpDown.Value = Math.Max(magazineEndSheetNumericUpDown.Minimum,
-                            Math.Min(magazine.EndSheet, magazineEndSheetNumericUpDown.Maximum));
-                        break;
-                    }
+                {
+                magazineNameOfMagazineTextBox.Text = magazine.NameOfMagazine;
+                magazineStartSheetNumericUpDown.Value = Math.Max(magazineStartSheetNumericUpDown.Minimum,
+                      Math.Min(magazine.StartSheet, magazineStartSheetNumericUpDown.Maximum));
+                magazineEndSheetNumericUpDown.Value = Math.Max(magazineEndSheetNumericUpDown.Minimum,
+                      Math.Min(magazine.EndSheet, magazineEndSheetNumericUpDown.Maximum));
+                      break;
+                }
                 case Article article:
-                    {
-                        articleNameOfCollectionTextBox.Text = article.NameOfArticle;
-                        articlePlaceOfPublicationTextBox.Text = article.PlaceOfPublication;
-                        articlePublishingHouseTextBox.Text = article.PublishingHouse;
-                        articleStartSheetNumericUpDown.Value = Math.Max(articleStartSheetNumericUpDown.Minimum,
-                            Math.Min(article.StartSheet, articleStartSheetNumericUpDown.Maximum));
-                        articleEndSheetNumericUpDown.Value = Math.Max(articleEndSheetNumericUpDown.Minimum,
-                            Math.Min(article.EndSheet, articleEndSheetNumericUpDown.Maximum));
-                        break;
-                    }
+                {
+                articleNameOfCollectionTextBox.Text = article.NameOfArticle;
+                articlePlaceOfPublicationTextBox.Text = article.PlaceOfPublication;
+                articlePublishingHouseTextBox.Text = article.PublishingHouse;
+                articleStartSheetNumericUpDown.Value = Math.Max(articleStartSheetNumericUpDown.Minimum,
+                      Math.Min(article.StartSheet, articleStartSheetNumericUpDown.Maximum));
+                articleEndSheetNumericUpDown.Value = Math.Max(articleEndSheetNumericUpDown.Minimum,
+                      Math.Min(article.EndSheet, articleEndSheetNumericUpDown.Maximum));
+                      break;
+                }
                 case Dissertation dissertation:
-                    {
-                        dissertationKindOfDissertationTextBox.Text = dissertation.KindOfDissertation;
-                        dissertationBranchOfScienceTextBox.Text = dissertation.BranchOfScience;
-                        dissertationSpecialtyCodeTextBox.Text = dissertation.SpecialtyCode;
-                        dissertationOrganizationTextBox.Text = dissertation.Organization;
-                        dissertationNameOfSpecialityTextBox.Text = dissertation.NameOfSpeciality;
-                        dissertationCityTextBox.Text = dissertation.City;
-                        dissertationSheetCountNumericUpDown.Value =
-                            Math.Max(dissertationSheetCountNumericUpDown.Minimum,
-                            Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
-                        break;
-                    }
+                {
+                dissertationKindOfDissertationTextBox.Text = dissertation.KindOfDissertation;
+                dissertationBranchOfScienceTextBox.Text = dissertation.BranchOfScience;
+                dissertationSpecialtyCodeTextBox.Text = dissertation.SpecialtyCode;
+                dissertationOrganizationTextBox.Text = dissertation.Organization;
+                dissertationNameOfSpecialityTextBox.Text = dissertation.NameOfSpeciality;
+                dissertationCityTextBox.Text = dissertation.City;
+                dissertationSheetCountNumericUpDown.Value =
+                      Math.Max(dissertationSheetCountNumericUpDown.Minimum,
+                      Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
+                      break;
+                }
             }
         }
     }

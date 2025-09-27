@@ -270,14 +270,12 @@ namespace ConsoleLoader
                 () =>
                 {
                     Console.Write("Введите начальную страницу: ");
-                    //BUG?
                     sbornik.StartSheet =ReadFromConsoleAndParse();
                 },
 
                 () =>
                 {
                     Console.Write("Введите последнюю страницу: ");
-                    //BUG?
                     sbornik.EndSheet =ReadFromConsoleAndParse();
                 }
             };

@@ -74,7 +74,6 @@ namespace LibraryView
             searchResultsDataGridView.AutoGenerateColumns = false;
             searchResultsDataGridView.DataSource = _searchResultsBindingSource;
 
-            //TODO: duplication
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
             {
                 Name = SearchTypeColumnName,
@@ -90,7 +89,8 @@ namespace LibraryView
             searchResultsDataGridView.Columns.Add(
                 CreateTextColumn("Имя", nameof(CardBase.Name)));
             searchResultsDataGridView.Columns.Add(
-                CreateTextColumn("Название", nameof(CardBase.Title), DataGridViewAutoSizeColumnMode.Fill));
+                CreateTextColumn("Название", nameof(CardBase.Title), 
+                DataGridViewAutoSizeColumnMode.Fill));
             searchResultsDataGridView.Columns.Add(
                 CreateTextColumn("Год", nameof(CardBase.Year)));
 
