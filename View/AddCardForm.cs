@@ -42,6 +42,9 @@ namespace LibraryView
         /// </summary>
         private List<Panel> _specificPanels;
 
+        // NEW: ErrorProvider для валидации и подсветки ошибок
+        private ErrorProvider errorProvider;
+
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="AddCardForm"/>.
         /// </summary>
@@ -51,6 +54,10 @@ namespace LibraryView
             InitializeCardTypeComboBox();
             InitializeSpecificPanelsList();
             UpdateSpecificPanelVisibility();
+
+            // Инициализация ErrorProvider
+            errorProvider = new ErrorProvider(this);
+            errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError; 
 
 #if !DEBUG
             createRandomDataButton.Visible = false;
@@ -97,7 +104,7 @@ namespace LibraryView
 
             foreach (var panel in _specificPanels)
             {
-                panel.Visible = false; 
+                panel.Visible = false;
             }
         }
 
@@ -133,54 +140,192 @@ namespace LibraryView
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            try
+            // CHANGED: Вместо try-catch, вызываем валидацию
+            if (ValidateForm())
             {
-                ValidateCommonFields();
                 CreatedCard = CreateCardFromInput();
-
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            catch (ArgumentException ex)
+            else
             {
-                MessageBox.Show(this, $"Ошибка ввода: {ex.Message}",
+                MessageBox.Show(this, "Исправьте ошибки в полях, выделенных красным.",
                     "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show(this, $"Ошибка формата числа: {ex.Message}",
-                    "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, $"Произошла непредвиденная ошибка: " +
-                    $"{ex.Message}\n{ex.StackTrace}", "Критическая ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        /// <summary>
-        /// Проверяет заполненность обязательных общих полей.
-        /// </summary>
-        /// <exception cref="ArgumentException">Если одно из полей не заполнено.</exception>
-        private void ValidateCommonFields()
+        //  Метод полной валидации формы. Возвращает true, если все OK. Устанавливает ошибки.
+        private bool ValidateForm()
         {
+            bool isValid = true;
+            errorProvider.Clear(); // Очищаем предыдущие ошибки
+
+            // Валидация общих полей
             if (string.IsNullOrWhiteSpace(surnameTextBox.Text))
             {
-                throw new ArgumentException("Фамилия автора не заполнена.");
+                errorProvider.SetError(surnameTextBox, 
+                    "Фамилия автора не заполнена.");
+                isValid = false;
             }
+
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
-                throw new ArgumentException("Имя автора не заполнено.");
+                errorProvider.SetError(nameTextBox, 
+                    "Имя автора не заполнено.");
+                isValid = false;
             }
+
             if (string.IsNullOrWhiteSpace(titleTextBox.Text))
             {
-                throw new ArgumentException("Название работы не заполнено.");
+                errorProvider.SetError(titleTextBox, 
+                    "Название работы не заполнено.");
+                isValid = false;
             }
+
             if (string.IsNullOrWhiteSpace(yearTextBox.Text))
             {
-                throw new ArgumentException("Год издания не заполнен.");
+                errorProvider.SetError(yearTextBox,
+                    "Год издания не заполнен.");
+                isValid = false;
             }
+            else
+            {
+                if (!int.TryParse(yearTextBox.Text, out int year) 
+                    || year < 1000 || year > DateTime.Now.Year + 10)
+                {
+                    errorProvider.SetError(yearTextBox, 
+                        "Год должен быть числом в диапазоне 1000–" + (DateTime.Now.Year + 10) + ".");
+                    isValid = false;
+                }
+            }
+
+            // Валидация специфических полей в зависимости от типа
+            int selectedIndex = cardTypeComboBox.SelectedIndex;
+            switch (selectedIndex)
+            {
+                case 0: // Book
+                    if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
+                    {
+                        errorProvider.SetError(bookPlaceOfPublicationTextBox,
+                            "Место издания не заполнено.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(bookPublishingHouseTextBox.Text))
+                    {
+                        errorProvider.SetError(bookPublishingHouseTextBox,
+                            "Издательство не заполнено.");
+                        isValid = false;
+                    }
+                    if (bookSheetCountNumericUpDown.Value <= 0)
+                    {
+                        errorProvider.SetError(bookSheetCountNumericUpDown,
+                            "Количество страниц должно быть больше 0.");
+                        isValid = false;
+                    }
+                    break;
+
+                case 1: // Magazine
+                    if (string.IsNullOrWhiteSpace(magazineNameOfMagazineTextBox.Text))
+                    {
+                        errorProvider.SetError(magazineNameOfMagazineTextBox, 
+                            "Название журнала не заполнено.");
+                        isValid = false;
+                    }
+                    if (magazineStartSheetNumericUpDown.Value <= 0)
+                    {
+                        errorProvider.SetError(magazineStartSheetNumericUpDown,
+                            "Начальная страница должна быть больше 0.");
+                        isValid = false;
+                    }
+                    if (magazineEndSheetNumericUpDown.Value <= magazineStartSheetNumericUpDown.Value)
+                    {
+                        errorProvider.SetError(magazineEndSheetNumericUpDown, 
+                            "Конечная страница должна быть больше начальной.");
+                        isValid = false;
+                    }
+                    break;
+
+                case 2: // Article
+                    if (string.IsNullOrWhiteSpace(articleNameOfCollectionTextBox.Text))
+                    {
+                        errorProvider.SetError(articleNameOfCollectionTextBox,
+                            "Название сборника не заполнено.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(articlePlaceOfPublicationTextBox.Text))
+                    {
+                        errorProvider.SetError(articlePlaceOfPublicationTextBox,
+                            "Место издания не заполнено.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(articlePublishingHouseTextBox.Text))
+                    {
+                        errorProvider.SetError(articlePublishingHouseTextBox,
+                            "Издательство не заполнено.");
+                        isValid = false;
+                    }
+                    if (articleStartSheetNumericUpDown.Value <= 0)
+                    {
+                        errorProvider.SetError(articleStartSheetNumericUpDown,
+                            "Начальная страница должна быть больше 0.");
+                        isValid = false;
+                    }
+                    if (articleEndSheetNumericUpDown.Value <= articleStartSheetNumericUpDown.Value)
+                    {
+                        errorProvider.SetError(articleEndSheetNumericUpDown, 
+                            "Конечная страница должна быть больше начальной.");
+                        isValid = false;
+                    }
+                    break;
+
+                case 3: // Dissertation
+                    if (string.IsNullOrWhiteSpace(dissertationKindOfDissertationTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationKindOfDissertationTextBox, 
+                            "Вид диссертации не заполнен.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(dissertationBranchOfScienceTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationBranchOfScienceTextBox, 
+                            "Отрасль науки не заполнена.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(dissertationSpecialtyCodeTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationSpecialtyCodeTextBox,
+                            "Код специальности не заполнен.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(dissertationOrganizationTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationOrganizationTextBox,
+                            "Организация не заполнена.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(dissertationNameOfSpecialityTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationNameOfSpecialityTextBox, 
+                            "Название специальности не заполнено.");
+                        isValid = false;
+                    }
+                    if (string.IsNullOrWhiteSpace(dissertationCityTextBox.Text))
+                    {
+                        errorProvider.SetError(dissertationCityTextBox,
+                            "Город не заполнен.");
+                        isValid = false;
+                    }
+                    if (dissertationSheetCountNumericUpDown.Value <= 0)
+                    {
+                        errorProvider.SetError(dissertationSheetCountNumericUpDown,
+                            "Количество страниц должно быть больше 0.");
+                        isValid = false;
+                    }
+                    break;
+            }
+
+
+            return isValid;
         }
 
         /// <summary>
@@ -310,7 +455,7 @@ namespace LibraryView
         private void CreateRandomDataButton_Click(object sender, EventArgs e)
         {
             //TODO: RSDN+
-            CardBase randomCard = 
+            CardBase randomCard =
                 CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
             if (randomCard == null)
             {
@@ -329,22 +474,22 @@ namespace LibraryView
             {
                 //TODO: RSDN+
                 case Book book:
-                { 
+                {
                 bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
                 bookPublishingHouseTextBox.Text = book.PublishingHouse;
                 bookAdditionalInformationTextBox.Text = book.AdditionalInformation;
                 bookSheetCountNumericUpDown.Value = Math.Max(bookSheetCountNumericUpDown.Minimum,
-                     Math.Min(book.Sheet, bookSheetCountNumericUpDown.Maximum));
-                     break;
+                    Math.Min(book.Sheet, bookSheetCountNumericUpDown.Maximum));
+                    break;
                 }
                 case Magazine magazine:
                 {
                 magazineNameOfMagazineTextBox.Text = magazine.NameOfMagazine;
                 magazineStartSheetNumericUpDown.Value = Math.Max(magazineStartSheetNumericUpDown.Minimum,
-                      Math.Min(magazine.StartSheet, magazineStartSheetNumericUpDown.Maximum));
+                    Math.Min(magazine.StartSheet, magazineStartSheetNumericUpDown.Maximum));
                 magazineEndSheetNumericUpDown.Value = Math.Max(magazineEndSheetNumericUpDown.Minimum,
-                      Math.Min(magazine.EndSheet, magazineEndSheetNumericUpDown.Maximum));
-                      break;
+                    Math.Min(magazine.EndSheet, magazineEndSheetNumericUpDown.Maximum));
+                    break;
                 }
                 case Article article:
                 {
@@ -352,10 +497,10 @@ namespace LibraryView
                 articlePlaceOfPublicationTextBox.Text = article.PlaceOfPublication;
                 articlePublishingHouseTextBox.Text = article.PublishingHouse;
                 articleStartSheetNumericUpDown.Value = Math.Max(articleStartSheetNumericUpDown.Minimum,
-                      Math.Min(article.StartSheet, articleStartSheetNumericUpDown.Maximum));
+                    Math.Min(article.StartSheet, articleStartSheetNumericUpDown.Maximum));
                 articleEndSheetNumericUpDown.Value = Math.Max(articleEndSheetNumericUpDown.Minimum,
-                      Math.Min(article.EndSheet, articleEndSheetNumericUpDown.Maximum));
-                      break;
+                    Math.Min(article.EndSheet, articleEndSheetNumericUpDown.Maximum));
+                    break;
                 }
                 case Dissertation dissertation:
                 {
@@ -366,9 +511,9 @@ namespace LibraryView
                 dissertationNameOfSpecialityTextBox.Text = dissertation.NameOfSpeciality;
                 dissertationCityTextBox.Text = dissertation.City;
                 dissertationSheetCountNumericUpDown.Value =
-                      Math.Max(dissertationSheetCountNumericUpDown.Minimum,
-                      Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
-                      break;
+                    Math.Max(dissertationSheetCountNumericUpDown.Minimum,
+                    Math.Min(dissertation.Sheet, dissertationSheetCountNumericUpDown.Maximum));
+                    break;
                 }
             }
         }
