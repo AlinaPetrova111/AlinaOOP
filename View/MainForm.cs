@@ -201,7 +201,6 @@ namespace LibraryView
                 if (cardsToRemove.Any())
                 {
                     string message = cardsToRemove.Count == 1
-                        //TODO: RSDN+
                         ? $"Вы уверены, что хотите удалить карточку:" +
                             $"{cardsToRemove.First().Title}?"
                         : $"Вы уверены, что хотите удалить выбранные карточки" +

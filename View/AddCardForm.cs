@@ -454,7 +454,6 @@ namespace LibraryView
         /// </summary>
         private void CreateRandomDataButton_Click(object sender, EventArgs e)
         {
-            //TODO: RSDN+
             CardBase randomCard =
                 CardDataRandomizer.GenerateRandomCard(cardTypeComboBox.SelectedIndex);
             if (randomCard == null)
@@ -472,7 +471,7 @@ namespace LibraryView
             yearTextBox.Text = randomCard.Year;
             switch (randomCard)
             {
-                //TODO: RSDN+
+                //TODO: RSDN
                 case Book book:
                 {
                 bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
