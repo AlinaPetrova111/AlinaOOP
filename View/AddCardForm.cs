@@ -42,6 +42,8 @@ namespace LibraryView
         /// </summary>
         private List<Panel> _specificPanels;
 
+        //TODO: RSDN
+        //TODO: XML
         // NEW: ErrorProvider для валидации и подсветки ошибок
         private ErrorProvider errorProvider;
 
@@ -203,6 +205,7 @@ namespace LibraryView
             int selectedIndex = cardTypeComboBox.SelectedIndex;
             switch (selectedIndex)
             {
+                //TODO: RSDN
                 case 0: // Book
                     if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
                     {
@@ -338,7 +341,6 @@ namespace LibraryView
         {
             var selectedCardType = _cardTypes[cardTypeComboBox.SelectedIndex];
 
-            //TODO: switch-case+
             switch (selectedCardType.Name)
             {
                 case nameof(Book):
@@ -466,7 +468,6 @@ namespace LibraryView
             yearTextBox.Text = randomCard.Year;
             switch (randomCard)
             {
-                //TODO: RSDN+
                 case Book book:
                 {
                     bookPlaceOfPublicationTextBox.Text = book.PlaceOfPublication;
