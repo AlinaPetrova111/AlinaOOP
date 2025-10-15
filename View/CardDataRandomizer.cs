@@ -119,7 +119,7 @@ namespace LibraryView
 
             switch (cardTypeIndex)
             {
-                //TODO: RSDN
+                //TODO: RSDN+
                 case 0:
                 {
                     card = new Book
@@ -132,38 +132,44 @@ namespace LibraryView
                     break;
                 }
                 case 1:
-                int startM = _random.Next(1, 50);
-                card = new Magazine
                 {
-                    NameOfMagazine = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)],
-                    StartSheet = startM,
-                    EndSheet = _random.Next(startM + 1, startM + 30)
-                };
+                        int startM = _random.Next(1, 50);
+                    card = new Magazine
+                    {
+                        NameOfMagazine = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)],
+                        StartSheet = startM,
+                        EndSheet = _random.Next(startM + 1, startM + 30)
+                    };
                     break;
+                }
                 case 2:
-                int startA = _random.Next(1, 100);
-                card = new Article
                 {
-                    NameOfArticle = "Ежегодник заклинаний",
-                    PlaceOfPublication = "Хогсмид",
-                    PublishingHouse = "Типография 'Флориш и Блоттс'",
-                    StartSheet = startA,
-                    EndSheet = _random.Next(startA + 1, startA + 25)
-                };
+                        int startA = _random.Next(1, 100);
+                    card = new Article
+                    {
+                        NameOfArticle = "Ежегодник заклинаний",
+                        PlaceOfPublication = "Хогсмид",
+                        PublishingHouse = "Типография 'Флориш и Блоттс'",
+                        StartSheet = startA,
+                        EndSheet = _random.Next(startA + 1, startA + 25)
+                    };
                     break;
+                }
                 case 3:
-                card = new Dissertation
                 {
-                    KindOfDissertation = "Магистерская",
-                    BranchOfScience = "Защита от Тёмных искусств",
-                    SpecialtyCode = $"{_random.Next(1, 10):D2}." +
-                                  $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}",
-                    Organization = _hpOrganizations[_random.Next(_hpOrganizations.Count)],
-                    NameOfSpeciality = "Боевая магия",
-                    City = "Годрикова впадина",
-                    Sheet = _random.Next(100, 400)
-                };
+                    card = new Dissertation
+                    {
+                        KindOfDissertation = "Магистерская",
+                        BranchOfScience = "Защита от Тёмных искусств",
+                        SpecialtyCode = $"{_random.Next(1, 10):D2}." +
+                                      $"{_random.Next(1, 10):D2}.{_random.Next(1, 10):D2}",
+                        Organization = _hpOrganizations[_random.Next(_hpOrganizations.Count)],
+                        NameOfSpeciality = "Боевая магия",
+                        City = "Годрикова впадина",
+                        Sheet = _random.Next(100, 400)
+                    };
                     break;
+                }
                 default:
                     return null;
             }

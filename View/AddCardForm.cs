@@ -42,10 +42,12 @@ namespace LibraryView
         /// </summary>
         private List<Panel> _specificPanels;
 
-        //TODO: RSDN
-        //TODO: XML
-        // NEW: ErrorProvider для валидации и подсветки ошибок
-        private ErrorProvider errorProvider;
+        //TODO: RSDN+
+        //TODO: XML+
+        /// <summary>
+        /// ErrorProvider для валидации и подсветки ошибок.
+        /// </summary>
+        private ErrorProvider _errorProvider;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="AddCardForm"/>.
@@ -58,8 +60,8 @@ namespace LibraryView
             UpdateSpecificPanelVisibility();
 
             // Инициализация ErrorProvider
-            errorProvider = new ErrorProvider(this);
-            errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError; 
+            _errorProvider = new ErrorProvider(this);
+            _errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError; 
 
 #if !DEBUG
             createRandomDataButton.Visible = false;
@@ -142,7 +144,6 @@ namespace LibraryView
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            // CHANGED: Вместо try-catch, вызываем валидацию
             if (ValidateForm())
             {
                 CreatedCard = CreateCardFromInput();
@@ -160,33 +161,33 @@ namespace LibraryView
         private bool ValidateForm()
         {
             bool isValid = true;
-            errorProvider.Clear(); // Очищаем предыдущие ошибки
+            _errorProvider.Clear(); // Очищаем предыдущие ошибки
 
             // Валидация общих полей
             if (string.IsNullOrWhiteSpace(surnameTextBox.Text))
             {
-                errorProvider.SetError(surnameTextBox, 
+                _errorProvider.SetError(surnameTextBox, 
                     "Фамилия автора не заполнена.");
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
-                errorProvider.SetError(nameTextBox, 
+                _errorProvider.SetError(nameTextBox, 
                     "Имя автора не заполнено.");
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(titleTextBox.Text))
             {
-                errorProvider.SetError(titleTextBox, 
+                _errorProvider.SetError(titleTextBox, 
                     "Название работы не заполнено.");
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(yearTextBox.Text))
             {
-                errorProvider.SetError(yearTextBox,
+                _errorProvider.SetError(yearTextBox,
                     "Год издания не заполнен.");
                 isValid = false;
             }
@@ -195,142 +196,151 @@ namespace LibraryView
                 if (!int.TryParse(yearTextBox.Text, out int year) 
                     || year < 1000 || year > DateTime.Now.Year + 10)
                 {
-                    errorProvider.SetError(yearTextBox, 
+                    _errorProvider.SetError(yearTextBox, 
                         "Год должен быть числом в диапазоне 1000–" + (DateTime.Now.Year + 10) + ".");
                     isValid = false;
                 }
             }
 
-            // Валидация специфических полей в зависимости от типа
             int selectedIndex = cardTypeComboBox.SelectedIndex;
             switch (selectedIndex)
             {
-                //TODO: RSDN
-                case 0: // Book
-                    if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
-                    {
-                        errorProvider.SetError(bookPlaceOfPublicationTextBox,
-                            "Место издания не заполнено.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(bookPublishingHouseTextBox.Text))
-                    {
-                        errorProvider.SetError(bookPublishingHouseTextBox,
-                            "Издательство не заполнено.");
-                        isValid = false;
-                    }
-                    if (bookSheetCountNumericUpDown.Value <= 0)
-                    {
-                        errorProvider.SetError(bookSheetCountNumericUpDown,
-                            "Количество страниц должно быть больше 0.");
-                        isValid = false;
-                    }
-                    break;
+            case 0:
+                if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
+                {
+                    _errorProvider.SetError(bookPlaceOfPublicationTextBox, 
+                        "Место издания не заполнено.");
+                    isValid = false;
+                }
 
-                case 1: // Magazine
-                    if (string.IsNullOrWhiteSpace(magazineNameOfMagazineTextBox.Text))
-                    {
-                        errorProvider.SetError(magazineNameOfMagazineTextBox, 
-                            "Название журнала не заполнено.");
-                        isValid = false;
-                    }
-                    if (magazineStartSheetNumericUpDown.Value <= 0)
-                    {
-                        errorProvider.SetError(magazineStartSheetNumericUpDown,
-                            "Начальная страница должна быть больше 0.");
-                        isValid = false;
-                    }
-                    if (magazineEndSheetNumericUpDown.Value <= magazineStartSheetNumericUpDown.Value)
-                    {
-                        errorProvider.SetError(magazineEndSheetNumericUpDown, 
+                if (string.IsNullOrWhiteSpace(bookPublishingHouseTextBox.Text))
+                {
+                    _errorProvider.SetError(bookPublishingHouseTextBox, 
+                        "Издательство не заполнено.");
+                    isValid = false;
+                }
+
+                if (bookSheetCountNumericUpDown.Value <= 0)
+                {
+                    _errorProvider.SetError(bookSheetCountNumericUpDown, 
+                          "Количество страниц должно быть больше 0.");
+                    isValid = false;
+                }
+                break;
+
+            case 1:
+                if (string.IsNullOrWhiteSpace(magazineNameOfMagazineTextBox.Text))
+                {
+                    _errorProvider.SetError(magazineNameOfMagazineTextBox, 
+                        "Название журнала не заполнено.");
+                    isValid = false;
+                }
+
+                if (magazineStartSheetNumericUpDown.Value <= 0)
+                {
+                    _errorProvider.SetError(magazineStartSheetNumericUpDown,
+                        "Начальная страница должна быть больше 0.");
+                    isValid = false;
+                }
+
+                if (magazineEndSheetNumericUpDown.Value <= magazineStartSheetNumericUpDown.Value)
+                {
+                        _errorProvider.SetError(magazineEndSheetNumericUpDown, 
                             "Конечная страница должна быть больше начальной.");
                         isValid = false;
-                    }
-                    break;
+                }
+                break;
 
-                case 2: // Article
-                    if (string.IsNullOrWhiteSpace(articleNameOfCollectionTextBox.Text))
-                    {
-                        errorProvider.SetError(articleNameOfCollectionTextBox,
-                            "Название сборника не заполнено.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(articlePlaceOfPublicationTextBox.Text))
-                    {
-                        errorProvider.SetError(articlePlaceOfPublicationTextBox,
-                            "Место издания не заполнено.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(articlePublishingHouseTextBox.Text))
-                    {
-                        errorProvider.SetError(articlePublishingHouseTextBox,
-                            "Издательство не заполнено.");
-                        isValid = false;
-                    }
-                    if (articleStartSheetNumericUpDown.Value <= 0)
-                    {
-                        errorProvider.SetError(articleStartSheetNumericUpDown,
-                            "Начальная страница должна быть больше 0.");
-                        isValid = false;
-                    }
-                    if (articleEndSheetNumericUpDown.Value <= articleStartSheetNumericUpDown.Value)
-                    {
-                        errorProvider.SetError(articleEndSheetNumericUpDown, 
-                            "Конечная страница должна быть больше начальной.");
-                        isValid = false;
-                    }
-                    break;
+            case 2:
+                if (string.IsNullOrWhiteSpace(articleNameOfCollectionTextBox.Text))
+                {
+                    _errorProvider.SetError(articleNameOfCollectionTextBox,
+                        "Название сборника не заполнено.");
+                    isValid = false;
+                }
 
-                case 3: // Dissertation
-                    if (string.IsNullOrWhiteSpace(dissertationKindOfDissertationTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationKindOfDissertationTextBox, 
-                            "Вид диссертации не заполнен.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(dissertationBranchOfScienceTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationBranchOfScienceTextBox, 
-                            "Отрасль науки не заполнена.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(dissertationSpecialtyCodeTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationSpecialtyCodeTextBox,
-                            "Код специальности не заполнен.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(dissertationOrganizationTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationOrganizationTextBox,
-                            "Организация не заполнена.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(dissertationNameOfSpecialityTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationNameOfSpecialityTextBox, 
-                            "Название специальности не заполнено.");
-                        isValid = false;
-                    }
-                    if (string.IsNullOrWhiteSpace(dissertationCityTextBox.Text))
-                    {
-                        errorProvider.SetError(dissertationCityTextBox,
-                            "Город не заполнен.");
-                        isValid = false;
-                    }
-                    if (dissertationSheetCountNumericUpDown.Value <= 0)
-                    {
-                        errorProvider.SetError(dissertationSheetCountNumericUpDown,
-                            "Количество страниц должно быть больше 0.");
-                        isValid = false;
-                    }
-                    break;
+                if (string.IsNullOrWhiteSpace(articlePlaceOfPublicationTextBox.Text))
+                {
+                    _errorProvider.SetError(articlePlaceOfPublicationTextBox,
+                        "Место издания не заполнено.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(articlePublishingHouseTextBox.Text))
+                {
+                    _errorProvider.SetError(articlePublishingHouseTextBox,
+                        "Издательство не заполнено.");
+                    isValid = false;
+                }
+
+                if (articleStartSheetNumericUpDown.Value <= 0)
+                {
+                    _errorProvider.SetError(articleStartSheetNumericUpDown,
+                        "Начальная страница должна быть больше 0.");
+                    isValid = false;
+                }
+
+                if (articleEndSheetNumericUpDown.Value <= articleStartSheetNumericUpDown.Value)
+                {
+                    _errorProvider.SetError(articleEndSheetNumericUpDown, 
+                        "Конечная страница должна быть больше начальной.");
+                    isValid = false;
+                }
+                break;
+
+            case 3:
+                if (string.IsNullOrWhiteSpace(dissertationKindOfDissertationTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationKindOfDissertationTextBox,
+                        "Вид диссертации не заполнен.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(dissertationBranchOfScienceTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationBranchOfScienceTextBox,
+                        "Отрасль науки не заполнена.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(dissertationSpecialtyCodeTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationSpecialtyCodeTextBox, 
+                        "Код специальности не заполнен.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(dissertationOrganizationTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationOrganizationTextBox,
+                        "Организация не заполнена.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(dissertationNameOfSpecialityTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationNameOfSpecialityTextBox, 
+                        "Название специальности не заполнено.");
+                    isValid = false;
+                }
+
+                if (string.IsNullOrWhiteSpace(dissertationCityTextBox.Text))
+                {
+                    _errorProvider.SetError(dissertationCityTextBox, 
+                        "Город не заполнен.");
+                    isValid = false;
+                }
+
+                if (dissertationSheetCountNumericUpDown.Value <= 0)
+                {
+                    _errorProvider.SetError(dissertationSheetCountNumericUpDown,
+                        "Количество страниц должно быть больше 0.");
+                    isValid = false;
+                }
+                break;
             }
-
-
             return isValid;
         }
-
         /// <summary>
         /// Создает объект карточки на основе выбранного типа.
         /// </summary>
