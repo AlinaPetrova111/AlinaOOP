@@ -162,6 +162,7 @@ namespace LibraryView
             this.Close();
         }
 
+        //TODO: duplication
         /// <summary>
         /// Обрабатывает событие форматирования ячейки 
         /// DataGridView для результатов поиска.

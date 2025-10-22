@@ -42,8 +42,6 @@ namespace LibraryView
         /// </summary>
         private List<Panel> _specificPanels;
 
-        //TODO: RSDN+
-        //TODO: XML+
         /// <summary>
         /// ErrorProvider для валидации и подсветки ошибок.
         /// </summary>
@@ -157,10 +155,12 @@ namespace LibraryView
             }
         }
 
+        //TODO: XML
         //  Метод полной валидации формы. Возвращает true, если все OK. Устанавливает ошибки.
         private bool ValidateForm()
         {
             bool isValid = true;
+            //TODO: comments
             _errorProvider.Clear(); // Очищаем предыдущие ошибки
 
             // Валидация общих полей
@@ -205,29 +205,31 @@ namespace LibraryView
             int selectedIndex = cardTypeComboBox.SelectedIndex;
             switch (selectedIndex)
             {
-            case 0:
-                if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
+                //TODO: RSDN
+                case 0:
                 {
-                    _errorProvider.SetError(bookPlaceOfPublicationTextBox, 
-                        "Место издания не заполнено.");
-                    isValid = false;
-                }
+                    if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
+                    {
+                        _errorProvider.SetError(bookPlaceOfPublicationTextBox,
+                            "Место издания не заполнено.");
+                        isValid = false;
+                    }
 
-                if (string.IsNullOrWhiteSpace(bookPublishingHouseTextBox.Text))
-                {
-                    _errorProvider.SetError(bookPublishingHouseTextBox, 
-                        "Издательство не заполнено.");
-                    isValid = false;
-                }
+                    if (string.IsNullOrWhiteSpace(bookPublishingHouseTextBox.Text))
+                    {
+                        _errorProvider.SetError(bookPublishingHouseTextBox,
+                            "Издательство не заполнено.");
+                        isValid = false;
+                    }
 
-                if (bookSheetCountNumericUpDown.Value <= 0)
-                {
-                    _errorProvider.SetError(bookSheetCountNumericUpDown, 
-                          "Количество страниц должно быть больше 0.");
-                    isValid = false;
+                    if (bookSheetCountNumericUpDown.Value <= 0)
+                    {
+                        _errorProvider.SetError(bookSheetCountNumericUpDown,
+                              "Количество страниц должно быть больше 0.");
+                        isValid = false;
+                    }
+                    break;
                 }
-                break;
-
             case 1:
                 if (string.IsNullOrWhiteSpace(magazineNameOfMagazineTextBox.Text))
                 {

@@ -119,13 +119,13 @@ namespace LibraryView
 
             switch (cardTypeIndex)
             {
-                //TODO: RSDN+
                 case 0:
                 {
                     card = new Book
                     {
                         PlaceOfPublication = "Лондон",
                         PublishingHouse = "Издательство 'Мракоборец'",
+                        //TODO: RSDN
                         AdditionalInformation = _random.Next(0, 2) == 0 ? "Расширенное издание" : "",
                         Sheet = _random.Next(50, 1000)
                     };

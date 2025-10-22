@@ -81,6 +81,7 @@ namespace LibraryView
             cardsDataGridView.DataSource = _bindingSource;
             // Настройки для выделения всей строки
             cardsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //TODO: comments?
             cardsDataGridView.MultiSelect = true; // Разрешаем множественное выделение
             cardsDataGridView.CellClick += CardsDataGridView_CellClick; // Обработчик клика
 
@@ -146,6 +147,7 @@ namespace LibraryView
             _bindingSource.ResetBindings(false);
         }
 
+        //TODO: duplication
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
         /// Используется для отображения имени типа в специальной колонке.
@@ -327,6 +329,7 @@ namespace LibraryView
                             specificErrorMessage = ex.InnerException.Message;
                         }
 
+                        //TODO: RSDN
                         MessageBox.Show(this, $"Ошибка при загрузке данных: {specificErrorMessage}",
                             "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
