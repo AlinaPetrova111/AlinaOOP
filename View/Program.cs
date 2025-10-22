@@ -29,9 +29,11 @@ namespace LibraryView
         /// <summary>
         /// Создает текстовую колонку для DataGridView с общими настройками.
         /// </summary>
-        public static DataGridViewTextBoxColumn CreateTextColumn(this DataGridView dataGridView,
+        public static DataGridViewTextBoxColumn CreateTextColumn(this 
+             DataGridView dataGridView,
             string headerText, string dataPropertyName,
-            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
+            DataGridViewAutoSizeColumnMode autoSizeMode =
+            DataGridViewAutoSizeColumnMode.AllCells)
         {
             return new DataGridViewTextBoxColumn
             {
@@ -45,7 +47,8 @@ namespace LibraryView
         /// <summary>
         /// Создает колонку для отображения типа карточки
         /// </summary>
-        public static DataGridViewTextBoxColumn CreateTypeColumn(this DataGridView dataGridView, string columnName)
+        public static DataGridViewTextBoxColumn CreateTypeColumn(this 
+            DataGridView dataGridView, string columnName)
         {
             return new DataGridViewTextBoxColumn
             {
