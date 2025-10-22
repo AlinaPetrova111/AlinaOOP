@@ -98,15 +98,12 @@ namespace LibraryView
         /// или null, если индекс некорректен.</returns>
         public static CardBase GenerateRandomCard(int cardTypeIndex)
         {
-            // Определяем пол и выбираем соответствующие списки имен/отчеств
             bool isMale = _random.Next(0, 2) == 0;
             var namesList = isMale ? _hpMaleNames : _hpFemaleNames;
             var patronymicsList = isMale ? _hpMalePatronymics : _hpFemalePatronymics;
 
-            // Генерируем общие данные один раз
             string surname = _hpSurnames[_random.Next(_hpSurnames.Count)];
             string name = namesList[_random.Next(namesList.Count)];
-            // Отчество может отсутствовать
             string patronymic = _random.Next(0, 3) > 0
                 ? patronymicsList[_random.Next(patronymicsList.Count)]
                 : string.Empty;
@@ -125,8 +122,9 @@ namespace LibraryView
                     {
                         PlaceOfPublication = "Лондон",
                         PublishingHouse = "Издательство 'Мракоборец'",
-                        //TODO: RSDN
-                        AdditionalInformation = _random.Next(0, 2) == 0 ? "Расширенное издание" : "",
+                        //TODO: RSDN+
+                        AdditionalInformation = _random.Next(0, 2) == 
+                           0 ? "Расширенное издание" : "",
                         Sheet = _random.Next(50, 1000)
                     };
                     break;
