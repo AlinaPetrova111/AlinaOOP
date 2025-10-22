@@ -47,25 +47,6 @@ namespace LibraryView
         }
 
         /// <summary>
-        /// Создает текстовую колонку для DataGridView с общими настройками.
-        /// </summary>
-        /// <param name="headerText">Текст заголовка колонки.</param>
-        /// <param name="dataPropertyName">Имя свойства для привязки данных.</param>
-        /// <param name="autoSizeMode">Режим автоматического изменения размера колонки.</param>
-        /// <returns>Готовый объект DataGridViewTextBoxColumn.</returns>
-        private DataGridViewTextBoxColumn CreateTextColumn(string headerText, string dataPropertyName,
-            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
-        {
-            return new DataGridViewTextBoxColumn
-            {
-                HeaderText = headerText,
-                DataPropertyName = dataPropertyName,
-                ReadOnly = true,
-                AutoSizeMode = autoSizeMode
-            };
-        }
-
-        /// <summary>
         /// Настраивает элемент DataGridView для отображения результатов поиска.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
         /// </summary>
@@ -73,26 +54,21 @@ namespace LibraryView
         {
             searchResultsDataGridView.AutoGenerateColumns = false;
             searchResultsDataGridView.DataSource = _searchResultsBindingSource;
+            searchResultsDataGridView.RowHeadersVisible = false;
+            searchResultsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            searchResultsDataGridView.MultiSelect = true;
 
-            DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
-            {
-                Name = SearchTypeColumnName,
-                HeaderText = "Тип",
-                DataPropertyName = null,
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            searchResultsDataGridView.Columns.Add(typeColumn);
-
-            searchResultsDataGridView.Columns.Add(
-                CreateTextColumn("Фамилия", nameof(CardBase.Surname)));
-            searchResultsDataGridView.Columns.Add(
-                CreateTextColumn("Имя", nameof(CardBase.Name)));
-            searchResultsDataGridView.Columns.Add(
-                CreateTextColumn("Название", nameof(CardBase.Title), 
+            searchResultsDataGridView.Columns.Add(searchResultsDataGridView.CreateTypeColumn
+                (SearchTypeColumnName));
+            searchResultsDataGridView.Columns.Add(searchResultsDataGridView.CreateTextColumn
+                ("Фамилия", nameof(CardBase.Surname)));
+            searchResultsDataGridView.Columns.Add(searchResultsDataGridView.CreateTextColumn
+                ("Имя", nameof(CardBase.Name)));
+            searchResultsDataGridView.Columns.Add(searchResultsDataGridView.CreateTextColumn
+                ("Название", nameof(CardBase.Title),
                 DataGridViewAutoSizeColumnMode.Fill));
-            searchResultsDataGridView.Columns.Add(
-                CreateTextColumn("Год", nameof(CardBase.Year)));
+            searchResultsDataGridView.Columns.Add(searchResultsDataGridView.CreateTextColumn
+                ("Год", nameof(CardBase.Year)));
 
             searchResultsDataGridView.CellFormatting +=
                 SearchResultsDataGridView_CellFormatting;
@@ -162,7 +138,6 @@ namespace LibraryView
             this.Close();
         }
 
-        //TODO: duplication
         /// <summary>
         /// Обрабатывает событие форматирования ячейки 
         /// DataGridView для результатов поиска.
@@ -172,16 +147,9 @@ namespace LibraryView
         private void SearchResultsDataGridView_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 &&
-                searchResultsDataGridView.Columns[e.ColumnIndex].Name
-                    == SearchTypeColumnName)
-            {
-                if (searchResultsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
-                {
-                    e.Value = card.GetType().Name;
-                    e.FormattingApplied = true;
-                }
-            }
+            DataGridViewExtensions.FormatTypeCell(searchResultsDataGridView,
+                e, SearchTypeColumnName);
+
         }
 
     }

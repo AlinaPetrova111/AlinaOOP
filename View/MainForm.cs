@@ -24,7 +24,8 @@ namespace LibraryView
         /// <summary>
         /// Тип карточки 
         /// </summary>
-        private const string TypeCard = " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
+        private const string TypeCard = 
+                " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
 
         /// <summary>
         /// Расширение  
@@ -51,25 +52,6 @@ namespace LibraryView
         }
 
         /// <summary>
-        /// Создает текстовую колонку для DataGridView с общими настройками.
-        /// </summary>
-        /// <param name="headerText">Текст заголовка колонки.</param>
-        /// <param name="dataPropertyName">Имя свойства для привязки данных.</param>
-        /// <param name="autoSizeMode">Режим автоматического изменения размера колонки.</param>
-        /// <returns>Готовый объект DataGridViewTextBoxColumn.</returns>
-        private DataGridViewTextBoxColumn CreateTextColumn(string headerText, string dataPropertyName,
-            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
-        {
-            return new DataGridViewTextBoxColumn
-            {
-                HeaderText = headerText,
-                DataPropertyName = dataPropertyName,
-                ReadOnly = true,
-                AutoSizeMode = autoSizeMode
-            };
-        }
-
-        /// <summary>
         /// Настраивает элемент DataGridView для отображения карточек.
         /// Определяет колонки и их привязку к свойствам объектов CardBase.
         /// </summary>
@@ -79,46 +61,33 @@ namespace LibraryView
             cardsDataGridView.RowHeadersVisible = false;
             _bindingSource.DataSource = _cards;
             cardsDataGridView.DataSource = _bindingSource;
-            // Настройки для выделения всей строки
             cardsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //TODO: comments?
-            cardsDataGridView.MultiSelect = true; // Разрешаем множественное выделение
-            cardsDataGridView.CellClick += CardsDataGridView_CellClick; // Обработчик клика
+            cardsDataGridView.MultiSelect = true;
+            cardsDataGridView.CellClick += CardsDataGridView_CellClick;
 
-            _bindingSource.DataSource = _cards;
-            cardsDataGridView.DataSource = _bindingSource;
-
-            DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn
-            {
-                Name = TypeColumnName,
-                HeaderText = "Тип",
-                DataPropertyName = null,
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
-            cardsDataGridView.Columns.Add(typeColumn);
-            cardsDataGridView.Columns.Add(
-                CreateTextColumn("Фамилия", nameof(CardBase.Surname)));
-            cardsDataGridView.Columns.Add(
-                CreateTextColumn("Имя", nameof(CardBase.Name)));
-            cardsDataGridView.Columns.Add(
-                CreateTextColumn("Название", nameof(CardBase.Title),
+            cardsDataGridView.Columns.Add(cardsDataGridView.CreateTypeColumn
+                (TypeColumnName));
+            cardsDataGridView.Columns.Add(cardsDataGridView.CreateTextColumn
+                ("Фамилия", nameof(CardBase.Surname)));
+            cardsDataGridView.Columns.Add(cardsDataGridView.CreateTextColumn
+                ("Имя", nameof(CardBase.Name)));
+            cardsDataGridView.Columns.Add(cardsDataGridView.CreateTextColumn
+                ("Название", nameof(CardBase.Title),
                 DataGridViewAutoSizeColumnMode.Fill));
-            cardsDataGridView.Columns.Add(
-                CreateTextColumn("Год", nameof(CardBase.Year)));
+            cardsDataGridView.Columns.Add(cardsDataGridView.CreateTextColumn
+                ("Год", nameof(CardBase.Year)));
 
             cardsDataGridView.CellFormatting += CardsDataGridView_CellFormatting;
         }
+
         /// <summary>
         /// Обрабатывает клик по ячейке DataGridView.
         /// Обеспечивает выделение всей строки при клике на любую ячейку.
         /// </summary>
-        private void CardsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CardsDataGridView_CellClick(object sender, 
+            DataGridViewCellEventArgs e)
         {
-            // Игнорируем клики по заголовкам
             if (e.RowIndex < 0) return;
-
-            // Выделяем всю строку
             if (!cardsDataGridView.Rows[e.RowIndex].Selected)
             {
                 cardsDataGridView.ClearSelection();
@@ -147,7 +116,6 @@ namespace LibraryView
             _bindingSource.ResetBindings(false);
         }
 
-        //TODO: duplication
         /// <summary>
         /// Обрабатывает событие форматирования ячейки DataGridView.
         /// Используется для отображения имени типа в специальной колонке.
@@ -155,15 +123,7 @@ namespace LibraryView
         private void CardsDataGridView_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 &&
-                cardsDataGridView.Columns[e.ColumnIndex].Name == TypeColumnName)
-            {
-                if (cardsDataGridView.Rows[e.RowIndex].DataBoundItem is CardBase card)
-                {
-                    e.Value = card.GetTypeName();
-                    e.FormattingApplied = true;
-                }
-            }
+            DataGridViewExtensions.FormatTypeCell(cardsDataGridView, e, TypeColumnName);
         }
 
         /// <summary>
@@ -329,9 +289,10 @@ namespace LibraryView
                             specificErrorMessage = ex.InnerException.Message;
                         }
 
-                        //TODO: RSDN
-                        MessageBox.Show(this, $"Ошибка при загрузке данных: {specificErrorMessage}",
-                            "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //TODO: RSDN+
+                        MessageBox.Show(this, $"Ошибка при загрузке данных:" +
+                            $" {specificErrorMessage}", "Ошибка загрузки",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                 }
