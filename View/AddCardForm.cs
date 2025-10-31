@@ -155,7 +155,6 @@ namespace LibraryView
             }
         }
 
-        //TODO: XML+
         /// <summary>
         /// Обрабатывает нажатие кнопки "OK".
         /// Метод полной валидации формы. Возвращает true, если все OK.
@@ -207,7 +206,6 @@ namespace LibraryView
             int selectedIndex = cardTypeComboBox.SelectedIndex;
             switch (selectedIndex)
             {
-                //TODO: RSDN+
                 case 0:
                 {
                     if (string.IsNullOrWhiteSpace(bookPlaceOfPublicationTextBox.Text))
@@ -350,6 +348,7 @@ namespace LibraryView
             }
             return isValid;
         }
+
         /// <summary>
         /// Создает объект карточки на основе выбранного типа.
         /// </summary>

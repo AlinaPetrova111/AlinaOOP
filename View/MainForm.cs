@@ -94,6 +94,7 @@ namespace LibraryView
                 cardsDataGridView.Rows[e.RowIndex].Selected = true;
             }
         }
+
         /// <summary>
         /// Возвращает массив типов, известных сериализатору, 
         /// автоматически находя все классы, унаследованные от CardBase.
@@ -289,7 +290,6 @@ namespace LibraryView
                             specificErrorMessage = ex.InnerException.Message;
                         }
 
-                        //TODO: RSDN+
                         MessageBox.Show(this, $"Ошибка при загрузке данных:" +
                             $" {specificErrorMessage}", "Ошибка загрузки",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -122,7 +122,6 @@ namespace LibraryView
                     {
                         PlaceOfPublication = "Лондон",
                         PublishingHouse = "Издательство 'Мракоборец'",
-                        //TODO: RSDN+
                         AdditionalInformation = _random.Next(0, 2) == 
                            0 ? "Расширенное издание" : "",
                         Sheet = _random.Next(50, 1000)
@@ -131,7 +130,7 @@ namespace LibraryView
                 }
                 case 1:
                 {
-                        int startM = _random.Next(1, 50);
+                    int startM = _random.Next(1, 50);
                     card = new Magazine
                     {
                         NameOfMagazine = _hpMagazineTitles[_random.Next(_hpMagazineTitles.Count)],
@@ -142,7 +141,7 @@ namespace LibraryView
                 }
                 case 2:
                 {
-                        int startA = _random.Next(1, 100);
+                    int startA = _random.Next(1, 100);
                     card = new Article
                     {
                         NameOfArticle = "Ежегодник заклинаний",
