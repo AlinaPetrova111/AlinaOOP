@@ -53,6 +53,7 @@
       <DependentUpon>AddCardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CardDataRandomizer.cs" />
+    <Compile Include="DataGridViewExtensions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

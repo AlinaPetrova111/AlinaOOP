@@ -24,7 +24,7 @@ namespace LibraryView
         /// <summary>
         /// Тип карточки 
         /// </summary>
-        private const string TypeCard = 
+        private const string TypeCard =
                 " (*.libcard)|*.libcard|Все файлы (*.*)|*.*";
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace LibraryView
         /// Обрабатывает клик по ячейке DataGridView.
         /// Обеспечивает выделение всей строки при клике на любую ячейку.
         /// </summary>
-        private void CardsDataGridView_CellClick(object sender, 
+        private void CardsDataGridView_CellClick(object sender,
             DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -104,7 +104,7 @@ namespace LibraryView
         {
             return Assembly.GetAssembly(typeof(CardBase))
                            .GetTypes()
-                           .Where(type => type.IsSubclassOf(typeof(CardBase)) 
+                           .Where(type => type.IsSubclassOf(typeof(CardBase))
                                             && !type.IsAbstract)
                            .ToArray();
         }
@@ -171,7 +171,7 @@ namespace LibraryView
 
                     var confirmResult = MessageBox.Show(this, message,
                                              "Подтверждение удаления",
-                                             MessageBoxButtons.YesNo, 
+                                             MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Warning);
                     if (confirmResult == DialogResult.Yes)
                     {
@@ -222,7 +222,7 @@ namespace LibraryView
                         XmlSerializer serializer =
                             new XmlSerializer(typeof(List<CardBase>),
                                 GetKnownTypes());
-                        using (StreamWriter writer = 
+                        using (StreamWriter writer =
                                new StreamWriter(saveFileDialog.FileName))
                         {
                             serializer.Serialize(writer, _cards);
@@ -257,7 +257,7 @@ namespace LibraryView
                 {
                     try
                     {
-                        XmlSerializer serializer = 
+                        XmlSerializer serializer =
                             new XmlSerializer(typeof(List<CardBase>), GetKnownTypes());
 
                         List<CardBase> loadedCards;
