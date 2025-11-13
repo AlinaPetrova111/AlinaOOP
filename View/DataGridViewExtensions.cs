@@ -2,7 +2,6 @@
 
 namespace LibraryView
 {
-    //TODO: RSDN +
     /// <summary>
     /// Методы расширения для DataGridView
     /// </summary>
